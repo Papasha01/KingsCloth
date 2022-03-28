@@ -4,10 +4,183 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KingsCloth"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="279,178,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        Title="KingsCloth" 
+        Height="600" 
+        Width="1080" 
+        Foreground="White"
+        Background="#2c2d2e"
+        WindowStartupLocation="Manual">
 
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="50"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid>
+        <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF3A3A3A">
+            <DockPanel>
+                <Grid 
+                    x:Name="SettingsView" 
+                    DockPanel.Dock="Bottom" 
+                    HorizontalAlignment="Stretch">
+                    <StackPanel Height="100" RenderTransformOrigin="0.3,0.3">
+                        <Grid ToolTip="Help" >
+
+                            <!--Info Button-->
+                            <Button 
+                                x:Name="ButtonOpenHelp" 
+                                Margin="0" 
+                                Height="50" 
+                                Width="200" 
+                                Background="{x:Null}" 
+                                BorderBrush="{x:Null}" 
+                                HorizontalAlignment="Left" 
+                                HorizontalContentAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Click="ButtonOpenHelp_Click" >
+                                <Button.Content>
+                                    <DockPanel>
+                                        <materialDesign:PackIcon 
+                                            Kind="HelpCircle" 
+                                            DockPanel.Dock="Left" 
+                                            Foreground="White" 
+                                            Height="30" Width="30" 
+                                            Margin="-3 0" Padding="0" />
+                                        <TextBlock 
+                                            Text="Help" 
+                                            VerticalAlignment="Center" 
+                                            Margin="20 5" />
+                                    </DockPanel>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+
+                        <!--Settings Button-->
+                        <Grid ToolTip="Settings">
+                            <Button 
+                                x:Name="ButtonOpenSettings" 
+                                Margin="0" 
+                                Height="50" 
+                                Width="200" 
+                                Background="{x:Null}" 
+                                BorderBrush="{x:Null}" 
+                                HorizontalAlignment="Left" 
+                                HorizontalContentAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Click="ButtonOpenSettings_Click" >
+                                <Button.Content>
+                                    <DockPanel>
+                                        <materialDesign:PackIcon 
+                                            Kind="Settings" 
+                                            DockPanel.Dock="Left" 
+                                            Foreground="White" 
+                                            Height="30" 
+                                            Width="30" 
+                                            Margin="-3 0" 
+                                            Padding="0" />
+                                        <TextBlock 
+                                            Text="Settings" 
+                                            VerticalAlignment="Center" 
+                                            Margin="20 5" />
+                                    </DockPanel>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+
+                <!--Open Full Menu Button-->
+                <Grid Height="50" RenderTransformOrigin="0.3,0.3" DockPanel.Dock="Top">
+                    <Button 
+                        x:Name="ButtonOpenMenu" 
+                        Margin="0" 
+                        Height="50" 
+                        Width="50" 
+                        Background="{x:Null}" 
+                        BorderBrush="{x:Null}" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" 
+                        Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon 
+                            Kind="Menu" 
+                            Foreground="White" 
+                            Height="30" Width="30" 
+                            Padding="0" 
+                            VerticalAlignment="Center" />
+                    </Button>
+                    
+                    <Button 
+                        x:Name="ButtonCloseMenu" 
+                        Visibility="Collapsed" 
+                        Margin="0" 
+                        Height="50" 
+                        Width="50" 
+                        Background="{x:Null}" 
+                        BorderBrush="{x:Null}" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" 
+                        Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon 
+                            Kind="Menu" 
+                            Foreground="White" 
+                            Height="30" 
+                            Width="30" 
+                            Margin="-10" 
+                            Padding="0" />
+                    </Button>
+                </Grid>
+
+                <ListView x:Name="Home" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                    <!--User Add Button-->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <materialDesign:PackIcon 
+                            Kind="Home" 
+                            Height="30"
+                            Width="30"/>
+                        <TextBlock 
+                            Text="Home" 
+                            VerticalAlignment="Center" 
+                            Margin="15 5" />
+                    </StackPanel>
+
+                    <!--User Add Button-->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <materialDesign:PackIcon 
+                            Kind="UserAdd" 
+                            Height="30" 
+                            Width="30"/>
+                        <TextBlock 
+                            Text="Add User" 
+                            VerticalAlignment="Center" 
+                            Margin="15 5" />
+                    </StackPanel>
+                    
+                </ListView>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>
+
+<!--SelectionChanged="ListViewMenu_SelectionChanged"-->
