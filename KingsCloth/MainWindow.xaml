@@ -9,7 +9,7 @@
         Title="KingsCloth" 
         Height="600" 
         Width="1080" 
-        Foreground="White"
+        Foreground="#a9a9a9"
         Background="#2c2d2e"
         WindowStartupLocation="Manual">
 
@@ -45,7 +45,7 @@
                     DockPanel.Dock="Bottom" 
                     HorizontalAlignment="Stretch">
                     <StackPanel Height="100" RenderTransformOrigin="0.3,0.3">
-                        <Grid ToolTip="Help" >
+                        <Grid>
 
                             <!--Info Button-->
                             <Button 
@@ -64,11 +64,14 @@
                                         <materialDesign:PackIcon 
                                             Kind="HelpCircle" 
                                             DockPanel.Dock="Left" 
-                                            Foreground="White" 
-                                            Height="30" Width="30" 
-                                            Margin="-3 0" Padding="0" />
+                                            Foreground="#a9a9a9" 
+                                            Height="30" 
+                                            Width="30" 
+                                            Margin="-3 0" 
+                                            Padding="0" />
                                         <TextBlock 
                                             Text="Help" 
+                                            Foreground="#a9a9a9" 
                                             VerticalAlignment="Center" 
                                             Margin="20 5" />
                                     </DockPanel>
@@ -77,7 +80,7 @@
                         </Grid>
 
                         <!--Settings Button-->
-                        <Grid ToolTip="Settings">
+                        <Grid>
                             <Button 
                                 x:Name="ButtonOpenSettings" 
                                 Margin="0" 
@@ -94,15 +97,18 @@
                                         <materialDesign:PackIcon 
                                             Kind="Settings" 
                                             DockPanel.Dock="Left" 
-                                            Foreground="White" 
+                                            Foreground="#a9a9a9" 
                                             Height="30" 
                                             Width="30" 
                                             Margin="-3 0" 
-                                            Padding="0" />
+                                            Padding="0" 
+                                            FontFamily="Mukta Light" />
                                         <TextBlock 
                                             Text="Settings" 
+                                            Foreground="#a9a9a9" 
                                             VerticalAlignment="Center" 
-                                            Margin="20 5" />
+                                            Margin="20 5" 
+                                            FontFamily="Mukta Light" />
                                     </DockPanel>
                                 </Button.Content>
                             </Button>
@@ -124,8 +130,10 @@
                         Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon 
                             Kind="Menu" 
-                            Foreground="White" 
-                            Height="30" Width="30" 
+                            Foreground="#a9a9a9" 
+                            Height="30" 
+                            Width="30" 
+                            Margin="-10" 
                             Padding="0" 
                             VerticalAlignment="Center" />
                     </Button>
@@ -142,8 +150,8 @@
                         VerticalAlignment="Center" 
                         Click="ButtonCloseMenu_Click">
                         <materialDesign:PackIcon 
-                            Kind="Menu" 
-                            Foreground="White" 
+                            Kind="ArrowBack" 
+                            Foreground="#a9a9a9" 
                             Height="30" 
                             Width="30" 
                             Margin="-10" 
@@ -151,7 +159,10 @@
                     </Button>
                 </Grid>
 
-                <ListView x:Name="Home" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListView x:Name="Home" 
+                          Foreground="#a9a9a9" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
 
                     <!--User Add Button-->
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
@@ -162,7 +173,9 @@
                         <TextBlock 
                             Text="Home" 
                             VerticalAlignment="Center" 
-                            Margin="15 5" />
+                            Margin="20 5" 
+                            FontWeight="Bold" 
+                            FontFamily="Mukta Light" />
                     </StackPanel>
 
                     <!--User Add Button-->
@@ -170,13 +183,28 @@
                         <materialDesign:PackIcon 
                             Kind="UserAdd" 
                             Height="30" 
-                            Width="30"/>
+                            Width="30" FontWeight="Normal"/>
                         <TextBlock 
                             Text="Add User" 
                             VerticalAlignment="Center" 
-                            Margin="15 5" />
+                            Margin="20 5" 
+                            FontWeight="Bold" 
+                            FontFamily="Mukta Light" />
                     </StackPanel>
-                    
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <materialDesign:PackIcon 
+                            Kind="Assignment" 
+                            Height="30" 
+                            Width="30" FontWeight="Normal"/>
+                        <TextBlock 
+                            Text="Stats" 
+                            VerticalAlignment="Center" 
+                            Margin="20 5" 
+                            FontWeight="Bold" 
+                            FontFamily="Mukta Light" />
+                    </StackPanel>
+
                 </ListView>
             </DockPanel>
         </Grid>
