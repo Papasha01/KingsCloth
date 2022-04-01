@@ -38,7 +38,7 @@ namespace KingsCloth
 
         private void ButtonOpenSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            fContainer.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void ButtonOpenHelp_Click(object sender, RoutedEventArgs e)
