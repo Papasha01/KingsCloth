@@ -134,32 +134,9 @@ namespace KingsCloth
             Popup.IsOpen = false;
         }
 
-        private void btnPointOfSale_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == false)
-            {
-                Popup.PlacementTarget = btnPointOfSale;
-                Popup.Placement = PlacementMode.Right;
-                Popup.IsOpen = true;
-                Header.PopupText.Text = "Poin Of Sale";
-            }
-        }
-
         private void btnPointOfSale_MouseLeave(object sender, MouseEventArgs e)
         {
-            Popup.Visibility = Visibility.Collapsed;
-            Popup.IsOpen = false;
-        }
-
-        private void btnSecurity_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (Tg_Btn.IsChecked == false)
-            {
-                Popup.PlacementTarget = btnSecurity;
-                Popup.Placement = PlacementMode.Right;
-                Popup.IsOpen = true;
-                Header.PopupText.Text = "Security";
-            }
+            fContainer.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnSecurity_MouseLeave(object sender, MouseEventArgs e)
@@ -202,17 +179,6 @@ namespace KingsCloth
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
-        }
-        // End: Button Close | Restore | Minimize
-
-        private void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            fContainer.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
-        }
-
-        private void btnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-            fContainer.Navigate(new System.Uri("Pages/AddUser.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }
