@@ -35,10 +35,16 @@ namespace KingsCloth
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
         }
+        private void ButtonHome_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Home";
+            Title.Visibility = Visibility.Visible;
+        }
 
         private void ButtonOpenSettings_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.Navigate(new System.Uri("Pages/Home.xaml", UriKind.RelativeOrAbsolute));
+            
         }
 
         private void ButtonOpenHelp_Click(object sender, RoutedEventArgs e)
@@ -62,6 +68,29 @@ namespace KingsCloth
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+
+        private void ButtonAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/AddUser.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Add User";
+            Title.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/AddProduct.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Add Product";
+            Title.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonStats_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/Stats.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Stats";
+            Title.Visibility = Visibility.Visible;
+
         }
     }
 }
