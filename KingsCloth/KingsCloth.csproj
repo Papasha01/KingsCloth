@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\home.png" />
-    <None Remove="Assets\Mukta-Light.ttf" />
-    <None Remove="Assets\person.png" />
+    <None Remove="assets\home.png" />
+    <None Remove="assets\Mukta-Light.ttf" />
+    <None Remove="assets\person.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,15 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\home.png" />
-    <Resource Include="Assets\Mukta-Light.ttf" />
-    <Resource Include="Assets\person.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="Assets\Icons.xaml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Page>
+    <Resource Include="assets\home.png" />
+    <Resource Include="assets\Mukta-Light.ttf" />
+    <Resource Include="assets\person.png" />
   </ItemGroup>
 
 </Project>
