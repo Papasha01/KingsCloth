@@ -4,9 +4,17 @@
     <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#202225"/>
     <SolidColorBrush x:Key="TernaryBackgroundColor" Color="#36393f"/>
 
+    <SolidColorBrush x:Key="CheckBox" Color="#FF747A80"/>
+
     <SolidColorBrush x:Key="TextColor" Color="#78797f"/>
+    <SolidColorBrush x:Key="PrimTextColor" Color="#909198"/>
 
     <SolidColorBrush x:Key="TransparentBackground" Color="#9926272B"/>
+
+    <!-- Color Picker  #99E64539 -->
+    <SolidColorBrush x:Key="TransparentGreen" Color="#9963AB3F"/>
+    <SolidColorBrush x:Key="TransparentRed" Color="#99E64539"/>
+
 
     <!-- Primary Colors -->
     <SolidColorBrush x:Key="PrimaryBlueColor" Color="#3772FF"/>

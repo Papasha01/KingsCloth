@@ -28,12 +28,15 @@ namespace KingsCloth
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
+            GridBackground.Visibility = Visibility.Visible;
+
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
+            GridBackground.Visibility = Visibility.Hidden;
         }
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
         {

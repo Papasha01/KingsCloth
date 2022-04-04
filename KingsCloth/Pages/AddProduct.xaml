@@ -9,33 +9,134 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddProduct">
     <Grid>
-        
-        
 
+
+        
 
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
 
+           
         </Border>
-        <StackPanel Orientation="Vertical" Width="200" Height="160" HorizontalAlignment="Right" VerticalAlignment="Top">
+
+
+        <StackPanel Width="200" Height="220">
+            
+            <TextBox
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            materialDesign:HintAssist.Hint="Title"
+            VerticalAlignment="Top"
+            materialDesign:TextFieldAssist.HasClearButton="True" 
+            Foreground="{DynamicResource TextColor}"
+            Width="150" 
+            Height="45"
+            FontFamily="Mukta Light" 
+            FontSize="18" 
+            FontWeight="Normal" 
+            CaretBrush="{DynamicResource PrimTextColor}" 
+            SelectionBrush="{DynamicResource PrimTextColor}" 
+            Cursor="Arrow" 
+            Background="{x:Null}" 
+            HorizontalAlignment="Stretch"/>
+
+            <TextBox
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            materialDesign:HintAssist.Hint="Cost"
+            VerticalAlignment="Center"
+            materialDesign:TextFieldAssist.HasClearButton="True"
+            materialDesign:TextFieldAssist.SuffixText="₽" 
+            Foreground="{DynamicResource TextColor}"
+            Width="150" 
+            Height="45"
+            FontFamily="Mukta Light" 
+            FontSize="18" 
+            FontWeight="Normal" 
+            CaretBrush="{DynamicResource PrimTextColor}" 
+            SelectionBrush="{DynamicResource PrimTextColor}" 
+            Cursor="Arrow" 
+            Background="{x:Null}"/>
+            
+            <ComboBox
+                materialDesign:HintAssist.Hint="Category" 
+                Foreground="{DynamicResource TextColor}"
+                Width="150"
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18"
+                Margin="0,10,0,0" >
+                <ComboBoxItem
+                    Content="Hoodie" />
+                <ComboBoxItem
+                    Content="T-shirt" />
+            </ComboBox>
+
+            <ComboBox
+                materialDesign:HintAssist.Hint="Color" 
+                Foreground="{DynamicResource TextColor}"
+                Width="150"
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18"
+                Margin="0,10,0,0" >
+                <ComboBoxItem
+                    Content="Red" 
+                    Foreground="White"
+                    Background="{DynamicResource TransparentRed}"/>
+                <ComboBoxItem
+                    Content="Green"
+                    Foreground="White"
+                    Background="{DynamicResource TransparentGreen}"/>
+            </ComboBox>
+
+
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Width="200" Height="220" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock
               Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-              Text="Доступные размеры" Foreground="{DynamicResource TextColor}" />
+              Text="Размеры" Foreground="{DynamicResource PrimTextColor}" Margin="0,0,0,5" />
             <CheckBox
-                Content="XS" />
-            <CheckBox
-                Content="S" />
-            <CheckBox
-                Content="M" />
-            <CheckBox
-                Content="L" />
-            <CheckBox
-                Content="XL" />
-            <CheckBox
-                Content="XXL" />
-            <CheckBox
-                Content="XXXL" />
-        </StackPanel>
+                Content="XS"
+                TextBlock.Foreground="{DynamicResource TextColor}"
+                TextBlock.FontSize="16"
+                materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                Background="{DynamicResource CheckBox}"/>
 
+            <CheckBox
+                Content="S"
+                TextBlock.Foreground="{DynamicResource TextColor}"
+                TextBlock.FontSize="16"
+                materialDesign:CheckBoxAssist.CheckBoxSize="25"
+                Background="{DynamicResource CheckBox}"/>
+            <CheckBox
+                Content="M"
+                TextBlock.Foreground="{DynamicResource TextColor}"
+                TextBlock.FontSize="16"
+                materialDesign:CheckBoxAssist.CheckBoxSize="25"
+                Background="{DynamicResource CheckBox}"/>
+            <CheckBox
+                Content="L" 
+                TextBlock.Foreground="{DynamicResource TextColor}"
+                TextBlock.FontSize="16"
+                materialDesign:CheckBoxAssist.CheckBoxSize="25"
+                Background="{DynamicResource CheckBox}"/>
+            <CheckBox
+                Content="XL" 
+                TextBlock.Foreground="{DynamicResource TextColor}"
+                TextBlock.FontSize="16"
+                materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                Background="{DynamicResource CheckBox}"/>
+            <CheckBox
+                Content="XXL" 
+                TextBlock.Foreground="{DynamicResource TextColor}"
+                TextBlock.FontSize="16"
+                materialDesign:CheckBoxAssist.CheckBoxSize="25"
+                Background="{DynamicResource CheckBox}"/>
+            <CheckBox
+                Content="XXXL"
+                TextBlock.Foreground="{DynamicResource TextColor}"
+                TextBlock.FontSize="16"
+                materialDesign:CheckBoxAssist.CheckBoxSize="25"
+                Background="{DynamicResource CheckBox}"/>
+        </StackPanel>
     </Grid>
 </Page>
 

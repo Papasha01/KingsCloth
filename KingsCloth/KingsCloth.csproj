@@ -10,6 +10,7 @@
     <None Remove="assets\home.png" />
     <None Remove="assets\Mukta-Light.ttf" />
     <None Remove="assets\person.png" />
+    <None Remove="Pages\2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,7 @@
     <Resource Include="assets\home.png" />
     <Resource Include="assets\Mukta-Light.ttf" />
     <Resource Include="assets\person.png" />
+    <Resource Include="Pages\2.png" />
   </ItemGroup>
 
 </Project>

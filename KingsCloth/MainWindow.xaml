@@ -25,7 +25,7 @@
 
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
 
         </Storyboard>
@@ -34,12 +34,6 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="50"/>
             </DoubleAnimationUsingKeyFrames>
-
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GridBackground">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
-
         </Storyboard>
     </Window.Resources>
 
@@ -55,18 +49,16 @@
 
 
     <Grid>
-        <Grid  Margin="55,0,0,0">
 
-            <TextBlock x:Name="Title" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
+        <TextBlock x:Name="Title" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
 
+        <Frame
+            Name="fContainer"
+            Margin="88,50,20,20"
+            NavigationUIVisibility="Hidden"/>
 
+        <Grid x:Name="GridBackground" Background="{DynamicResource TransparentBackground}" Opacity="0" Visibility="Hidden"/>
 
-            <Frame
-                       Name="fContainer"
-                       Margin="20,50,20,20"
-                       NavigationUIVisibility="Hidden"/>
-        </Grid>
-        <Grid x:Name="GridBackground" Background="{DynamicResource TransparentBackground}" Opacity="0"/>
         <!--TitleBar-->
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
@@ -84,6 +76,7 @@
             </Button>
             <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
         </StackPanel>
+        
         <!--BurgMenu-->
         <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="{DynamicResource SecundaryBackgroundColor}">
             <DockPanel>
@@ -351,6 +344,7 @@
         </Grid>
 
         
+
     </Grid>
 
 </Window>
