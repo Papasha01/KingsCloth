@@ -3,40 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KingsCloth.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddProduct">
-    <Grid>
-        
-        
+
+    <Border CornerRadius="10" Background="{DynamicResource SecundaryBackgroundColor}">
 
 
-        <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
-
-        </Border>
-        <StackPanel Orientation="Vertical" Width="200" Height="160" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <TextBlock
-              Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-              Text="Доступные размеры" Foreground="{DynamicResource TextColor}" />
-            <CheckBox
-                Content="XS" />
-            <CheckBox
-                Content="S" />
-            <CheckBox
-                Content="M" />
-            <CheckBox
-                Content="L" />
-            <CheckBox
-                Content="XL" />
-            <CheckBox
-                Content="XXL" />
-            <CheckBox
-                Content="XXXL" />
-        </StackPanel>
-
-    </Grid>
+    </Border>
 </Page>
-
-<!--<Image HorizontalAlignment="Left" Height="119" Margin="60,50,0,0" VerticalAlignment="Top" Width="119" Source="/assets/2.png" Stretch="Uniform" StretchDirection="Both" InputScope="Xml" UseLayoutRounding="False"/>-->

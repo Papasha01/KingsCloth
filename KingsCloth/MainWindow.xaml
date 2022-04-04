@@ -9,13 +9,13 @@
         Title="KingsCloth" 
         Height="600" 
         Width="920" 
-        Background="{DynamicResource PrimaryBackgroundColor}"
+        Foreground="#a9a9a9"
+        Background="#2c2d2e"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True">
 
-    <!--Animation-->
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -39,11 +39,10 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-
+            
         </Storyboard>
     </Window.Resources>
 
-    <!--Triggers-->
     <Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
@@ -53,21 +52,8 @@
         </EventTrigger>
     </Window.Triggers>
 
-
     <Grid>
-        <Grid  Margin="55,0,0,0">
-
-            <TextBlock x:Name="Title" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
-
-
-
-            <Frame
-                       Name="fContainer"
-                       Margin="20,50,20,20"
-                       NavigationUIVisibility="Hidden"/>
-        </Grid>
-        <Grid x:Name="GridBackground" Background="{DynamicResource TransparentBackground}" Opacity="0"/>
-        <!--TitleBar-->
+        <Grid x:Name="GridBackground" Background="#252627" Opacity="0"/>
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
             <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
@@ -84,10 +70,10 @@
             </Button>
             <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
         </StackPanel>
-        <!--BurgMenu-->
-        <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="{DynamicResource SecundaryBackgroundColor}">
-            <DockPanel>
+        <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF3A3A3A">
 
+            <DockPanel>
+                
                 <Grid 
                     x:Name="SettingsView" 
                     DockPanel.Dock="Bottom" 
@@ -95,7 +81,7 @@
                     <StackPanel Height="100" RenderTransformOrigin="0.3,0.3">
                         <Grid>
 
-                            <!--Info-->
+                            <!--Info Button-->
                             <Button 
                                 x:Name="ButtonOpenHelp" 
                                 Margin="0" 
@@ -112,14 +98,14 @@
                                         <materialDesign:PackIcon 
                                             Kind="HelpCircle" 
                                             DockPanel.Dock="Left" 
-                                            Foreground="{DynamicResource TextColor}" 
+                                            Foreground="#a9a9a9" 
                                             Height="30" 
                                             Width="30" 
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
                                             Text="Help" 
-                                            Foreground="{DynamicResource TextColor}" 
+                                            Foreground="#a9a9a9" 
                                             VerticalAlignment="Center" 
                                             Margin="20 5" />
                                     </DockPanel>
@@ -127,7 +113,7 @@
                             </Button>
                         </Grid>
 
-                        <!--Settings-->
+                        <!--Settings Button-->
                         <Grid>
                             <Button 
                                 x:Name="ButtonOpenSettings" 
@@ -145,7 +131,7 @@
                                         <materialDesign:PackIcon 
                                             Kind="Settings" 
                                             DockPanel.Dock="Left" 
-                                            Foreground="{DynamicResource TextColor}" 
+                                            Foreground="#a9a9a9" 
                                             Height="30" 
                                             Width="30" 
                                             Margin="-3 0" 
@@ -153,7 +139,7 @@
                                             FontFamily="Mukta Light" />
                                         <TextBlock 
                                             Text="Settings" 
-                                            Foreground="{DynamicResource TextColor}" 
+                                            Foreground="#a9a9a9" 
                                             VerticalAlignment="Center" 
                                             Margin="20 5" 
                                             FontFamily="Mukta Light" />
@@ -178,7 +164,7 @@
                         Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon 
                             Kind="Menu" 
-                            Foreground="{DynamicResource TextColor}" 
+                            Foreground="#a9a9a9" 
                             Height="30" 
                             Width="30" 
                             Margin="-10" 
@@ -199,7 +185,7 @@
                         Click="ButtonCloseMenu_Click">
                         <materialDesign:PackIcon 
                             Kind="ArrowBack" 
-                            Foreground="{DynamicResource TextColor}" 
+                            Foreground="#a9a9a9" 
                             Height="30" 
                             Width="30" 
                             Margin="-10" 
@@ -207,152 +193,79 @@
                     </Button>
                 </Grid>
 
-                <Grid 
-                    x:Name="MainView" 
-                    DockPanel.Dock="Top" 
-                    HorizontalAlignment="Stretch">
-                    <StackPanel Height="200" RenderTransformOrigin="0.3,0.3" Margin="-3,-250,0,0">
+                <ListView x:Name="Home" 
+                          Foreground="#a9a9a9" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-                        <!--Home-->
-                        <Grid >
-                            <Button 
-                                x:Name="ButtonHome" 
-                                Margin="0,0,0,0" 
-                                Height="50" 
-                                Width="200" 
-                                Background="{x:Null}" 
-                                BorderBrush="{x:Null}" 
-                                HorizontalAlignment="Left" 
-                                HorizontalContentAlignment="Left" 
-                                VerticalAlignment="Top" 
-                                Click="ButtonHome_Click" >
-                                <Button.Content>
-                                    <DockPanel>
-                                        <materialDesign:PackIcon 
-                                            Kind="Home" 
-                                            DockPanel.Dock="Left" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
-                                            Margin="-3 0" 
-                                            Padding="0" />
-                                        <TextBlock 
-                                            Text="Home" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            VerticalAlignment="Center" 
-                                            Margin="20 5" />
-                                    </DockPanel>
-                                </Button.Content>
-                            </Button>
-                        </Grid>
-
-                        <!--AddUser-->
-                        <Grid>
-                            <Button 
-                                x:Name="ButtonAddUser" 
-                                Margin="0" 
-                                Height="50" 
-                                Width="200" 
-                                Background="{x:Null}" 
-                                BorderBrush="{x:Null}" 
-                                HorizontalAlignment="Left" 
-                                HorizontalContentAlignment="Left" 
-                                VerticalAlignment="Top" 
-                                Click="ButtonAddUser_Click" >
-                                <Button.Content>
-                                    <DockPanel>
-                                        <materialDesign:PackIcon 
-                                            Kind="AccountAdd" 
-                                            DockPanel.Dock="Left" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
-                                            Margin="-3 0" 
-                                            Padding="0" />
-                                        <TextBlock 
-                                            Text="Add User" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            VerticalAlignment="Center" 
-                                            Margin="20 5" />
-                                    </DockPanel>
-                                </Button.Content>
-                            </Button>
-                        </Grid>
-
-                        <!--AddProduct-->
-                        <Grid>
-                            <Button 
-                                x:Name="ButtonAddProduct" 
-                                Margin="0" 
-                                Height="50" 
-                                Width="200" 
-                                Background="{x:Null}" 
-                                BorderBrush="{x:Null}" 
-                                HorizontalAlignment="Left" 
-                                HorizontalContentAlignment="Left" 
-                                VerticalAlignment="Top" 
-                                Click="ButtonAddProduct_Click" >
-                                <Button.Content>
-                                    <DockPanel>
-                                        <materialDesign:PackIcon 
-                                            Kind="CartAdd" 
-                                            DockPanel.Dock="Left" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
-                                            Margin="-3 0" 
-                                            Padding="0" />
-                                        <TextBlock 
-                                            Text="Add Product" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            VerticalAlignment="Center" 
-                                            Margin="20 5" />
-                                    </DockPanel>
-                                </Button.Content>
-                            </Button>
-                        </Grid>
-
-                        <!--Stat-->
-                        <Grid>
-                            <Button 
-                                x:Name="ButtonStats" 
-                                Margin="0" 
-                                Height="50" 
-                                Width="200" 
-                                Background="{x:Null}" 
-                                BorderBrush="{x:Null}" 
-                                HorizontalAlignment="Left" 
-                                HorizontalContentAlignment="Left" 
-                                VerticalAlignment="Top" 
-                                Click="ButtonStats_Click" >
-                                <Button.Content>
-                                    <DockPanel>
-                                        <materialDesign:PackIcon 
-                                            Kind="Assignment" 
-                                            DockPanel.Dock="Left" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
-                                            Margin="-3 0" 
-                                            Padding="0" />
-                                        <TextBlock 
-                                            Text="Add Product" 
-                                            Foreground="{DynamicResource TextColor}" 
-                                            VerticalAlignment="Center" 
-                                            Margin="20 5" />
-                                    </DockPanel>
-                                </Button.Content>
-                            </Button>
-                        </Grid>
-
+                    <!--User Add Button-->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <materialDesign:PackIcon 
+                            Kind="Home" 
+                            Height="30"
+                            Width="30"/>
+                        <TextBlock 
+                            Text="Home" 
+                            VerticalAlignment="Center" 
+                            Margin="20 5" 
+                            FontWeight="Bold" 
+                            FontFamily="Mukta Light" />
                     </StackPanel>
-                </Grid>
+
+                    <!--Add product Button-->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <materialDesign:PackIcon 
+                            Kind="CartPlus" 
+                            Height="30" 
+                            Width="30" 
+                            FontWeight="Normal"/>
+                        <TextBlock 
+                            Text="Add product" 
+                            VerticalAlignment="Center" 
+                            Margin="20 5" 
+                            FontWeight="Bold" 
+                            FontFamily="Mukta Light" />
+                    </StackPanel>
+
+                    <!--User Add Button-->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <materialDesign:PackIcon 
+                            Kind="UserAdd" 
+                            Height="30" 
+                            Width="30" 
+                            FontWeight="Normal"/>
+                        <TextBlock 
+                            Text="Add User" 
+                            VerticalAlignment="Center" 
+                            Margin="20 5" 
+                            FontWeight="Bold" 
+                            FontFamily="Mukta Light" />
+                    </StackPanel>
+
+                    <!--Stats Button-->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <materialDesign:PackIcon 
+                            Kind="Assignment" 
+                            Height="30" 
+                            Width="30" FontWeight="Normal"/>
+                        <TextBlock 
+                            Text="Stats" 
+                            VerticalAlignment="Center" 
+                            Margin="20 5" 
+                            FontWeight="Bold" 
+                            FontFamily="Mukta Light" />
+                    </StackPanel>
+
+                </ListView>
             </DockPanel>
+
         </Grid>
 
-        
+        <Frame
+            Name="fContainer"
+            Margin="74,66,28,10"
+            NavigationUIVisibility="Hidden"/>
     </Grid>
-
 </Window>
 
 <!--SelectionChanged="ListViewMenu_SelectionChanged"-->
