@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KingsCloth
+namespace KingsCloth.Controls
 {
     /// <summary>
-    /// Логика взаимодействия для DiscoveryView.xaml
+    /// Логика взаимодействия для UserPopup.xaml
     /// </summary>
-    public partial class DiscoveryView : UserControl
+    public partial class UserPopup : UserControl
     {
-        public DiscoveryView()
+        public UserPopup()
         {
             InitializeComponent();
         }
