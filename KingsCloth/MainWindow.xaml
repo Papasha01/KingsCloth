@@ -50,7 +50,7 @@
 
     <Grid>
 
-        <TextBlock x:Name="Title" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
+        <TextBlock x:Name="Title" Width="220" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
 
         <Frame
             Name="fContainer"
@@ -204,7 +204,7 @@
                     x:Name="MainView" 
                     DockPanel.Dock="Top" 
                     HorizontalAlignment="Stretch">
-                    <StackPanel Height="200" RenderTransformOrigin="0.3,0.3" Margin="-3,-250,0,0">
+                    <StackPanel Height="250" RenderTransformOrigin="0.3,0.3" Margin="-3,-200,0,0">
 
                         <!--Home-->
                         <Grid >
@@ -337,6 +337,39 @@
                                 </Button.Content>
                             </Button>
                         </Grid>
+
+                        <Grid >
+                            <Button 
+                                x:Name="ButtonStorage" 
+                                Margin="0,0,0,0" 
+                                Height="50" 
+                                Width="200" 
+                                Background="{x:Null}" 
+                                BorderBrush="{x:Null}" 
+                                HorizontalAlignment="Left" 
+                                HorizontalContentAlignment="Left" 
+                                VerticalAlignment="Top" 
+                                Click="ButtonStorage_Click" >
+                                <Button.Content>
+                                    <DockPanel>
+                                        <materialDesign:PackIcon 
+                                            Kind="HomeVariant" 
+                                            DockPanel.Dock="Left" 
+                                            Foreground="{DynamicResource TextColor}" 
+                                            Height="30" 
+                                            Width="30" 
+                                            Margin="-3 0" 
+                                            Padding="0" />
+                                        <TextBlock 
+                                            Text="Storage" 
+                                            Foreground="{DynamicResource TextColor}" 
+                                            VerticalAlignment="Center" 
+                                            Margin="20 5" />
+                                    </DockPanel>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+
 
                     </StackPanel>
                 </Grid>

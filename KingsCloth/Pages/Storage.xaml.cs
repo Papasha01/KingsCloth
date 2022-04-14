@@ -14,26 +14,13 @@ using System.Windows.Shapes;
 namespace KingsCloth.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddProduct.xaml
+    /// Логика взаимодействия для Storage.xaml
     /// </summary>
-    public partial class AddProduct : Page
+    public partial class Storage : Page
     {
-        public AddProduct()
+        public Storage()
         {
             InitializeComponent();
-
         }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
     }
 }
