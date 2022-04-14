@@ -16,7 +16,7 @@
     <Grid Background="#FF3A3A3A">
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
-            <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
+            <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click" Cursor="Hand">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
                         <Setter Property="Content" Value="{DynamicResource maximize}"/>

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+
 
 namespace KingsCloth
 {
@@ -47,7 +49,23 @@ namespace KingsCloth
 
         private void ButtonOpenSettings_Click(object sender, RoutedEventArgs e)
         {
-            
+            //string connStr = "server=194.87.215.89;user=root;database=kingscloth;password=1747;";
+
+            MySqlConnectionStringBuilder mysqlCSB = new MySqlConnectionStringBuilder();
+            mysqlCSB.Server = "194.87.215.89";  // IP адоес БД
+            mysqlCSB.Database = "kingscloth";    // Имя БД
+            mysqlCSB.UserID = "monty";        // Имя пользователя БД
+            mysqlCSB.Password = "some_pass";   // Пароль пользователя БД
+            //mysqlCSB.CharacterSet = "cp1251"; // Кодировка Базы Данных
+
+            MySqlConnection conn = new MySqlConnection(mysqlCSB.ConnectionString);
+            conn.Open();
+            string query = "select title from access";
+            MySqlCommand command = new MySqlCommand(query, conn);
+            string answer = command.ExecuteScalar().ToString();
+            Console.WriteLine(answer);
+            conn.Close();
+
         }
         private void ButtonStorage_Click(object sender, RoutedEventArgs e)
         {
