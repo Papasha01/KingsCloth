@@ -66,7 +66,7 @@
                             VerticalAlignment="Center" Foreground="White"
                             />
                         <TextBox Grid.Column="2" Padding="10 0"
-                              
+                              x:Name="txLogin"
                               MaxLength="11"
                               materialDesign:HintAssist.Hint="User"
                              materialDesign:HintAssist.FloatingScale="0.6"
@@ -90,7 +90,7 @@
                             Kind="ShieldKey" Grid.ColumnSpan="2" Foreground="White"/>
 
                         <PasswordBox Grid.Column="2" Padding="10 0"
-                                  x:Name="FloatingPasswordBox"
+                                  x:Name="txPas"
                                  MaxLength="11"
                                   materialDesign:HintAssist.Hint="Password"
                                   materialDesign:HintAssist.FloatingScale="0.6"
@@ -112,16 +112,16 @@
                     <ColumnDefinition Width="7*"/>
                 </Grid.ColumnDefinitions>
                 <Button IsDefault="True"
+                    Click="btnSignIn" 
                     FontSize="20"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     Height="50" 
-                    materialDesign:ButtonAssist.CornerRadius="25" Foreground="#DDFFFFFF" Background="#FF252525" Grid.ColumnSpan="2" BorderBrush="#FF252525">
+                    materialDesign:ButtonAssist.CornerRadius="25" Foreground="#DDFFFFFF" Background="#FF252525" Grid.ColumnSpan="2" BorderBrush="#FF252525" Cursor="Hand">
                     <TextBlock
                         Text="Sign in" FontFamily="Mukta Light" />
                 </Button>
             </Grid>
             <Image Margin="157,0,134,174" Stretch="Fill" Source="assets/KingsClothWhiteLOGO.png"/>
-
         </Grid>
     </Grid>
 

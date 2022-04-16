@@ -22,6 +22,36 @@ namespace KingsCloth
         {
             InitializeComponent();
         }
+        reqDB req = new reqDB();
+        public void btnSignIn(object sender, RoutedEventArgs e)
+        {
+            string log, pas;
+            log = txLogin.Text;
+            pas = txPas.Password;
+            var data = req.select_access(log, pas);
+
+            if (data.Rows.Count > 0)
+            {
+                
+
+                switch (data.Rows[0]["id_access"])
+                {
+                    case 1:
+                        MainWindow mw = new MainWindow();
+                        Hide();
+                        mw.ShowDialog();
+                        mw.Show();
+                        break;
+                    case 2:
+                        MessageBox.Show("3");
+                        break;
+                    case 3:
+                        MessageBox.Show("3");
+                        break;
+                }
+
+            }
+        }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -40,7 +70,5 @@ namespace KingsCloth
         {
             WindowState = WindowState.Minimized;
         }
-
-
     }
 }
