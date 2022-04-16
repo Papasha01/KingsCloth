@@ -18,43 +18,70 @@
            
         </Border>
 
+        <Border CornerRadius="10" Height="220" Width="200" Background="{DynamicResource ShadowDropBackground}" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="270" ShadowDepth="3" Opacity="1" Softness="2" />
+            </Border.BitmapEffect>
+            <Image 
+                Height="200" 
+                Width="200" 
+                VerticalAlignment="Center" Source="/Pages/2.png"
+                />
+        </Border>
 
-        <StackPanel Width="200" Height="220">
-            
-            <TextBox
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            materialDesign:HintAssist.Hint="Title"
-            VerticalAlignment="Top"
-            materialDesign:TextFieldAssist.HasClearButton="True" 
+        <Button
+            Style="{StaticResource MaterialDesignFlatLightButton}"
+            Click="ButtonBase_OnClick"
+            Content="Load Image"
             Foreground="{DynamicResource TextColor}"
-            Width="150" 
-            Height="45"
+            Width="200"
+            HorizontalAlignment="Left" 
+            Margin="20,80,0,0" 
+            VerticalAlignment="Stretch" 
             FontFamily="Mukta Light" 
             FontSize="18" 
-            FontWeight="Normal" 
-            CaretBrush="{DynamicResource PrimTextColor}" 
-            SelectionBrush="{DynamicResource PrimTextColor}" 
-            Cursor="Arrow" 
-            Background="{x:Null}" 
-            HorizontalAlignment="Stretch"/>
+            Cursor="Hand" 
+            BorderBrush="{DynamicResource TextColor}" />
+
+
+        <StackPanel Width="200" Height="600">
 
             <TextBox
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            materialDesign:HintAssist.Hint="Cost"
-            VerticalAlignment="Center"
-            materialDesign:TextFieldAssist.HasClearButton="True"
-            materialDesign:TextFieldAssist.SuffixText="₽" 
-            Foreground="{DynamicResource TextColor}"
-            Width="150" 
-            Height="45"
-            FontFamily="Mukta Light" 
-            FontSize="18" 
-            FontWeight="Normal" 
-            CaretBrush="{DynamicResource PrimTextColor}" 
-            SelectionBrush="{DynamicResource PrimTextColor}" 
-            Cursor="Arrow" 
-            Background="{x:Null}"/>
-            
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Title"
+                VerticalAlignment="Top"
+                materialDesign:TextFieldAssist.HasClearButton="True" 
+                Foreground="{DynamicResource TextColor}"
+                Width="150" 
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18" 
+                FontWeight="Normal" 
+                CaretBrush="{DynamicResource PrimTextColor}" 
+                SelectionBrush="{DynamicResource PrimTextColor}" 
+                Cursor="Arrow" 
+                Background="{x:Null}" 
+                HorizontalAlignment="Stretch" 
+                Margin="0,35,0,0"/>
+
+            <TextBox
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Cost"
+                VerticalAlignment="Center"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                materialDesign:TextFieldAssist.SuffixText="₽" 
+                Foreground="{DynamicResource TextColor}"
+                Width="150" 
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18" 
+                FontWeight="Normal" 
+                CaretBrush="{DynamicResource PrimTextColor}" 
+                SelectionBrush="{DynamicResource PrimTextColor}" 
+                Cursor="Arrow" 
+                Background="{x:Null}"
+                Margin="0,30,0,0"/>
+
             <ComboBox
                 materialDesign:HintAssist.Hint="Category" 
                 Foreground="{DynamicResource TextColor}"
@@ -62,7 +89,7 @@
                 Height="45"
                 FontFamily="Mukta Light" 
                 FontSize="18"
-                Margin="0,10,0,0" >
+                Margin="0,40,0,0" >
                 <ComboBoxItem
                     Content="Hoodie" />
                 <ComboBoxItem
@@ -76,7 +103,7 @@
                 Height="45"
                 FontFamily="Mukta Light" 
                 FontSize="18"
-                Margin="0,10,0,0" >
+                Margin="0,40,0,0" >
                 <ComboBoxItem
                     Content="Red" 
                     Foreground="White"
@@ -89,53 +116,60 @@
 
 
         </StackPanel>
-        <StackPanel Orientation="Vertical" Width="200" Height="220" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <StackPanel Orientation="Vertical" Width="200" Height="600" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock
               Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-              Text="Размеры" Foreground="{DynamicResource PrimTextColor}" Margin="0,0,0,5" />
+              Text="Size" Foreground="{DynamicResource PrimTextColor}" Margin="0,60,0,5" />
             <CheckBox
                 Content="XS"
                 TextBlock.Foreground="{DynamicResource TextColor}"
                 TextBlock.FontSize="16"
                 materialDesign:CheckBoxAssist.CheckBoxSize="25" 
-                Background="{DynamicResource CheckBox}"/>
+                Background="{DynamicResource CheckBox}" 
+                Margin="0,12,0,0"/>
 
             <CheckBox
                 Content="S"
                 TextBlock.Foreground="{DynamicResource TextColor}"
                 TextBlock.FontSize="16"
                 materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"/>
+                Background="{DynamicResource CheckBox}"
+                Margin="0,12,0,0"/>
             <CheckBox
                 Content="M"
                 TextBlock.Foreground="{DynamicResource TextColor}"
                 TextBlock.FontSize="16"
                 materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"/>
+                Background="{DynamicResource CheckBox}"
+                Margin="0,12,0,0"/>
             <CheckBox
                 Content="L" 
                 TextBlock.Foreground="{DynamicResource TextColor}"
                 TextBlock.FontSize="16"
                 materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"/>
+                Background="{DynamicResource CheckBox}"
+                Margin="0,12,0,0"/>
             <CheckBox
                 Content="XL" 
                 TextBlock.Foreground="{DynamicResource TextColor}"
                 TextBlock.FontSize="16"
                 materialDesign:CheckBoxAssist.CheckBoxSize="25" 
-                Background="{DynamicResource CheckBox}"/>
+                Background="{DynamicResource CheckBox}"
+                Margin="0,12,0,0"/>
             <CheckBox
                 Content="XXL" 
                 TextBlock.Foreground="{DynamicResource TextColor}"
                 TextBlock.FontSize="16"
                 materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"/>
+                Background="{DynamicResource CheckBox}"
+                Margin="0,12,0,0"/>
             <CheckBox
                 Content="XXXL"
                 TextBlock.Foreground="{DynamicResource TextColor}"
                 TextBlock.FontSize="16"
                 materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"/>
+                Background="{DynamicResource CheckBox}"
+                Margin="0,12,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

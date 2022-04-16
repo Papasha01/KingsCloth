@@ -67,6 +67,12 @@ namespace KingsCloth
             conn.Close();
 
         }
+        private void ButtonStorage_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/Storage.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Storage";
+            Title.Visibility = Visibility.Visible;
+        }
 
         private void ButtonOpenHelp_Click(object sender, RoutedEventArgs e)
         {

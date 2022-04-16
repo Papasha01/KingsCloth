@@ -23,7 +23,7 @@
     <Resource Include="assets\home.png" />
     <Resource Include="assets\Mukta-Light.ttf" />
     <Resource Include="assets\person.png" />
-    <Resource Include="Pages\2.png" />
+    <Resource Include="Pages\PagesAssets\2.png" />
   </ItemGroup>
 
 </Project>

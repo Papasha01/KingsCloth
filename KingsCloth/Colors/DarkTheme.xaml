@@ -10,8 +10,8 @@
     <SolidColorBrush x:Key="PrimTextColor" Color="#909198"/>
 
     <SolidColorBrush x:Key="TransparentBackground" Color="#9926272B"/>
-
-    <!-- Color Picker  #99E64539 -->
+    <SolidColorBrush x:Key="ShadowDropBackground" Color="#7F32353A"/>
+    <!-- Color Picker  -->
     <SolidColorBrush x:Key="TransparentGreen" Color="#9963AB3F"/>
     <SolidColorBrush x:Key="TransparentRed" Color="#99E64539"/>
 
