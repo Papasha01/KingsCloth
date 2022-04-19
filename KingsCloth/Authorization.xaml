@@ -13,10 +13,24 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True">
-    <Grid Background="#FF3A3A3A">
+    <Grid Background="{DynamicResource PrimaryBackgroundColor}">
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
-            <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
-            <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click" Cursor="Hand">
+            
+            <Button 
+                x:Name="btnClose" 
+                Style="{StaticResource IconButtonsStyle}" 
+                Content="{DynamicResource close}" 
+                Click="btnClose_Click" 
+                Tag="IsCloseButton"/>
+            
+            <Button 
+                x:Name="btnRestore" 
+                Margin="5,0" 
+                Click="btnRestore_Click" 
+                Cursor="Hand">
+                
+             
+                
                 <Button.Style>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
                         <Setter Property="Content" Value="{DynamicResource maximize}"/>
@@ -28,7 +42,11 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
+            <Button 
+                x:Name="btnMinimize" 
+                Style="{DynamicResource IconButtonsStyle}" 
+                Content="{DynamicResource minimize}" 
+                Click="btnMinimize_Click"/>
         </StackPanel>
         <Grid Height="500">
             <Grid.RowDefinitions>
@@ -37,7 +55,7 @@
             </Grid.RowDefinitions>
 
             <materialDesign:Card 
-                Background="#565656"
+                Background="{DynamicResource TernaryBackgroundColor}"
                 Grid.Row="0" 
                 Grid.RowSpan="2" 
                 HorizontalAlignment="Center"
@@ -57,22 +75,30 @@
                         </Grid.ColumnDefinitions>
 
                         <materialDesign:PackIcon 
-                            
                             Height="40" 
                             Width="40"  
                             Margin="20,0,0,0" 
                             Kind="UserBox" 
                             Grid.ColumnSpan="2" 
-                            VerticalAlignment="Center" Foreground="White"
+                            VerticalAlignment="Center" 
+                            Foreground="{DynamicResource TextSecundaryColor}"
                             />
                         <TextBox Grid.Column="2" Padding="10 0"
-                              x:Name="txLogin"
-                              MaxLength="11"
-                              materialDesign:HintAssist.Hint="User"
-                             materialDesign:HintAssist.FloatingScale="0.6"
-                              Text=""
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                              FontSize="20" FontWeight="Normal" FontStyle="Normal" FontFamily="Mukta Light" Cursor="Arrow" Foreground="White" />
+                                 x:Name="txLogin"
+                                 MaxLength="11"
+                                 materialDesign:HintAssist.Hint="User"
+                                 materialDesign:HintAssist.FloatingScale="0.6"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimTextColor}"
+                                 Text=""
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 FontSize="20" 
+                                 FontWeight="Normal" 
+                                 FontStyle="Normal" 
+                                 FontFamily="Mukta Light" 
+                                 Cursor="Arrow" 
+                                 Foreground="{DynamicResource PrimTextColor}" 
+                                 CaretBrush="{DynamicResource PrimTextColor}" 
+                                 SelectionBrush="{DynamicResource PrimTextColor}" />
                     </Grid>
 
                     <Grid Margin="0 10">
@@ -87,19 +113,40 @@
                             Height="40" 
                             Width="40"  
                             Margin="20,0,0,0" 
-                            Kind="ShieldKey" Grid.ColumnSpan="2" Foreground="White"/>
+                            Kind="ShieldKey" 
+                            Grid.ColumnSpan="2" 
+                            Foreground="{DynamicResource TextSecundaryColor}"/>
 
-                        <PasswordBox Grid.Column="2" Padding="10 0"
-                                  x:Name="txPas"
-                                 MaxLength="11"
-                                  materialDesign:HintAssist.Hint="Password"
-                                  materialDesign:HintAssist.FloatingScale="0.6"
-                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
-                                  FontSize="20" FontFamily="Mukta Light" Cursor="Arrow" Foreground="White" />
+                        <PasswordBox 
+                            Grid.Column="2" 
+                            Padding="10 0"
+                            x:Name="txPas"
+                            MaxLength="11"
+                            materialDesign:HintAssist.Hint="Password"
+                            materialDesign:HintAssist.FloatingScale="0.6"
+                            materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimTextColor}"
+                            Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                            FontSize="20" 
+                            
+                            FontFamily="Mukta Light" 
+                            Cursor="Arrow" 
+                            Foreground="{DynamicResource PrimTextColor}" 
+                            CaretBrush="{DynamicResource PrimTextColor}" 
+                            SelectionBrush="{DynamicResource PrimTextColor}"
+                            BorderBrush ="{DynamicResource PrimTextColor}"/>
                     </Grid>
-                    <WrapPanel Orientation="Vertical" Margin="90 20" Width="183" Height="30">
-                        <CheckBox Content="Remember password" Margin="5"
-                                  Style="{StaticResource MaterialDesignUserForegroundCheckBox}" Foreground="White" FontFamily="Mukta Light" Width="168" FontSize="14"/>
+                    <WrapPanel Orientation="Vertical" 
+                               Margin="90 20" 
+                               Width="196" 
+                               Height="30">
+                        <CheckBox 
+                            Content="Remember password" 
+                            Margin="5"
+                            Style="{StaticResource MaterialDesignUserForegroundCheckBox}" 
+                            Foreground="{DynamicResource TextColor}" 
+                            FontFamily="Mukta Light" 
+                            Width="193" 
+                            FontSize="14"/>
                     </WrapPanel>
 
                 </StackPanel>
@@ -116,12 +163,19 @@
                     FontSize="20"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     Height="50" 
-                    materialDesign:ButtonAssist.CornerRadius="25" Foreground="#DDFFFFFF" Background="#FF252525" Grid.ColumnSpan="2" BorderBrush="#FF252525" Cursor="Hand">
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                        Foreground="{DynamicResource TextColor}" 
+                        Background="{DynamicResource SecundaryBackgroundColor}" 
+                        Grid.ColumnSpan="2" 
+                        BorderBrush="{DynamicResource SecundaryBackgroundColor}" 
+                        Cursor="Hand">
                     <TextBlock
                         Text="Sign in" FontFamily="Mukta Light" />
                 </Button>
             </Grid>
-            <Image Margin="157,0,134,174" Stretch="Fill" Source="assets/KingsClothWhiteLOGO.png"/>
+            <Image Margin="140,0,140,174" 
+                   Stretch="Fill" 
+                   Source="/KingsClothWhiteLOGO.png"/>
         </Grid>
     </Grid>
 

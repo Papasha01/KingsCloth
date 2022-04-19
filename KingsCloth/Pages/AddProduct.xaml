@@ -11,12 +11,9 @@
     <Grid>
 
 
-        
 
-        <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
 
-           
-        </Border>
+        <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}"/>
 
         <Border CornerRadius="10" Height="220" Width="200" Background="{DynamicResource ShadowDropBackground}" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top">
             <Border.BitmapEffect>
@@ -25,7 +22,8 @@
             <Image 
                 Height="200" 
                 Width="200" 
-                VerticalAlignment="Center" Source="/Pages/2.png"
+                VerticalAlignment="Top" 
+                Source="/Pages/PagesAssets/2.png"
                 />
         </Border>
 
@@ -62,7 +60,7 @@
                 Cursor="Arrow" 
                 Background="{x:Null}" 
                 HorizontalAlignment="Stretch" 
-                Margin="0,35,0,0"/>
+                Margin="0,35,0,0" TextChanged="TextBox_TextChanged"/>
 
             <TextBox
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"

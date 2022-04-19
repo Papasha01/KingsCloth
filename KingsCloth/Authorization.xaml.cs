@@ -40,10 +40,10 @@ namespace KingsCloth
                         MainWindow mw = new MainWindow();
                         Hide();
                         mw.ShowDialog();
-                        mw.Show();
+                        //mw.Show();
                         break;
                     case 2:
-                        MessageBox.Show("3");
+                        MessageBox.Show("2");
                         break;
                     case 3:
                         MessageBox.Show("3");

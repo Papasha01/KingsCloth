@@ -3,13 +3,70 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KingsCloth.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddUser">
 
-    <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
+    <Grid>
+        <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
+        </Border>
 
+        <TextBox
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Login"
+                VerticalAlignment="Top"
+                materialDesign:TextFieldAssist.HasClearButton="True" 
+                Foreground="{DynamicResource TextColor}"
+                Width="200" 
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18" 
+                FontWeight="Normal" 
+                CaretBrush="{DynamicResource PrimTextColor}" 
+                SelectionBrush="{DynamicResource PrimTextColor}" 
+                Cursor="Arrow" 
+                Background="{x:Null}" 
+                HorizontalAlignment="Stretch" 
+                Margin="0,35,0,0" />
 
-    </Border>
+        <TextBox
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Password"
+                VerticalAlignment="Top"
+                materialDesign:TextFieldAssist.HasClearButton="True" 
+                Foreground="{DynamicResource TextColor}"
+                Width="200" 
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18" 
+                FontWeight="Normal" 
+                CaretBrush="{DynamicResource PrimTextColor}" 
+                SelectionBrush="{DynamicResource PrimTextColor}" 
+                Cursor="Arrow" 
+                Background="{x:Null}" 
+                HorizontalAlignment="Center" 
+                Margin="0,100,0,0"/>
+
+        <ComboBox
+            materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+            materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource TextColor}"
+            materialDesign:HintAssist.Hint="Access" 
+            Foreground="{DynamicResource TextColor}"
+            Width="200"
+            Height="45"
+            FontFamily="Mukta Light" 
+            FontSize="18"
+            Margin="0,0,0,0" >
+            <ComboBoxItem
+                Content="admin" 
+                Foreground="{DynamicResource SecundaryBackgroundColor }"/>
+            <ComboBoxItem
+                Content="manager"
+                Foreground="{DynamicResource SecundaryBackgroundColor }"/>
+            
+        </ComboBox>
+
+    </Grid>
 </Page>

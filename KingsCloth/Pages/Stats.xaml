@@ -9,7 +9,5 @@
       Title="Stats">
 
     <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
-
-
     </Border>
 </Page>
