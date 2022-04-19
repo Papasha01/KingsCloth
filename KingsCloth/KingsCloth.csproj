@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="assets\home.png" />
-    <None Remove="assets\Mukta-Light.ttf" />
-    <None Remove="assets\person.png" />
+    <None Remove="Assets\home.png" />
+    <None Remove="Assets\KingsClothWhiteLOGO.png" />
+    <None Remove="Assets\Mukta-Light.ttf" />
+    <None Remove="Assets\person.png" />
     <None Remove="KingsClothWhiteLOGO.png" />
+    <None Remove="MiniLogo.png" />
     <None Remove="Pages\2.png" />
   </ItemGroup>
 
@@ -21,10 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="assets\home.png" />
-    <Resource Include="assets\Mukta-Light.ttf" />
-    <Resource Include="assets\person.png" />
-    <Resource Include="KingsClothWhiteLOGO.png" />
+    <Resource Include="Assets\home.png" />
+    <Resource Include="Assets\KingsClothWhiteLOGO.png" />
+    <Resource Include="Assets\Mukta-Light.ttf" />
+    <Resource Include="Assets\person.png" />
+    <Resource Include="Assets\MiniLogo.png" />
     <Resource Include="Pages\PagesAssets\2.png" />
   </ItemGroup>
 

@@ -84,6 +84,12 @@ namespace KingsCloth
             Close();
         }
 
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
         private void btnRestore_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Normal)

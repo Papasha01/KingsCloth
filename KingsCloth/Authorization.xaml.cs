@@ -18,6 +18,7 @@ namespace KingsCloth
     /// </summary>
     public partial class Authorization : Window
     {
+
         public Authorization()
         {
             InitializeComponent();
@@ -53,6 +54,10 @@ namespace KingsCloth
             }
         }
 
+
+
+
+
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -69,6 +74,12 @@ namespace KingsCloth
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

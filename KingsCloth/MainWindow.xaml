@@ -50,17 +50,21 @@
 
     <Grid>
 
-        <TextBlock x:Name="Title" Width="220" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
 
         <Frame
             Name="fContainer"
             Margin="88,50,20,20"
             NavigationUIVisibility="Hidden"/>
 
+        <Border x:Name="border"  Height="37" VerticalAlignment="Top" MouseDown="Window_MouseDown" Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,0">
+            <TextBlock x:Name="Title" Width="220" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,0,0" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
+        </Border>
+
         <Grid x:Name="GridBackground" Background="{DynamicResource TransparentBackground}" Opacity="0" Visibility="Hidden"/>
 
+
         <!--TitleBar-->
-        <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
+        <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,3,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
             <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
                 <Button.Style>
