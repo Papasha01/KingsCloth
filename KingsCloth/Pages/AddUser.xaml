@@ -13,14 +13,81 @@
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
         </Border>
 
-        <TextBox
+        <Button
+
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            Click="btnAddUser_Click" 
+            Margin="25,34,655,356"
+            Width="120" Height="60"
+            Background="{DynamicResource PrimaryBackgroundColor}"
+            BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+            materialDesign:ButtonAssist.CornerRadius="10"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand">
+            <TextBlock
+                Text="Add User" 
+                Cursor="Hand"
+                FontFamily="Mukta Light"
+                Foreground="{DynamicResource TextColor}"/>
+        </Button>
+
+        <Button
+
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            Click="btnRefresh_Click" 
+            Margin="218,34,462,356"
+            Width="120" Height="60"
+            Background="{DynamicResource PrimaryBackgroundColor}"
+            BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+            materialDesign:ButtonAssist.CornerRadius="10"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand">
+            <TextBlock
+                Text="Update Table" 
+                Cursor="Hand"
+                FontFamily="Mukta Light"
+                Foreground="{DynamicResource TextColor}"/>
+        </Button>
+
+        <ListView x:Name="listviewUsers"  
+                  Margin="25,127,25,23" Width="750" Height="300">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=id}" 
+                        Header="id" 
+                        Width="80"/>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=login}" 
+                        Header="Login" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Name}" 
+                        Header="Name" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Surname}" 
+                        Header="Surname" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=id_access}" 
+                        Header="Access" 
+                        Width="150"/>
+                </GridView>
+            </ListView.View>
+           
+        </ListView>
+
+    </Grid>
+</Page>
+
+<!--
+<TextBox
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Login"
-                VerticalAlignment="Top"
                 materialDesign:TextFieldAssist.HasClearButton="True" 
                 Foreground="{DynamicResource TextColor}"
-                Width="200" 
-                Height="45"
+                Width="200"
                 FontFamily="Mukta Light" 
                 FontSize="18" 
                 FontWeight="Normal" 
@@ -28,10 +95,9 @@
                 SelectionBrush="{DynamicResource PrimTextColor}" 
                 Cursor="Arrow" 
                 Background="{x:Null}" 
-                HorizontalAlignment="Stretch" 
-                Margin="0,35,0,0" />
+                Margin="300,35,300,0" Height="45" VerticalAlignment="Top" />
 
-        <TextBox
+<TextBox
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Password"
                 VerticalAlignment="Top"
@@ -48,8 +114,8 @@
                 Background="{x:Null}" 
                 HorizontalAlignment="Center" 
                 Margin="0,100,0,0"/>
-
-        <ComboBox
+    
+    <ComboBox
             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
             materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource TextColor}"
             materialDesign:HintAssist.Hint="Access" 
@@ -58,15 +124,13 @@
             Height="45"
             FontFamily="Mukta Light" 
             FontSize="18"
-            Margin="0,0,0,0" >
+            Margin="0,-50,0,0" >
             <ComboBoxItem
                 Content="admin" 
                 Foreground="{DynamicResource SecundaryBackgroundColor }"/>
             <ComboBoxItem
                 Content="manager"
                 Foreground="{DynamicResource SecundaryBackgroundColor }"/>
-            
-        </ComboBox>
 
-    </Grid>
-</Page>
+        </ComboBox>
+-->

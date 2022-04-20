@@ -21,5 +21,14 @@ namespace KingsCloth
             adapter.Fill(table);
             return table;
         }
+
+        public DataTable load_users()
+        {
+            table.Clear();
+            MySqlCommand command = new MySqlCommand("SELECT `id`,`login`,`name`,`surname`,`id_access` FROM `user`", db.getConn());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

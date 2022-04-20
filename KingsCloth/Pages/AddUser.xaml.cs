@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KingsCloth.Pages.PagesAssets;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,19 @@ namespace KingsCloth.Pages
         public AddUser()
         {
             InitializeComponent();
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            AddUserDialog dialog = new AddUserDialog();
+            dialog.Show();
+        }
+
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            
+
         }
     }
 }
