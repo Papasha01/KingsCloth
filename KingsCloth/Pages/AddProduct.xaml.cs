@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Win32;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace KingsCloth.Pages
 {
@@ -31,12 +34,20 @@ namespace KingsCloth.Pages
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;...",
+            };
+            if (openFileDialog.ShowDialog() == true)
+            {
+                MessageBox.Show(openFileDialog.FileName);
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+
     }
 }

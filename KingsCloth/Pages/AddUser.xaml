@@ -13,44 +13,79 @@
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
         </Border>
 
-        <Button
+        <StackPanel 
+            Grid.Row="0" 
+            Height="110" 
+            VerticalAlignment="Top" 
+            Orientation="Horizontal" 
+            FlowDirection="LeftToRight">
+
+            <Button
 
             Style="{StaticResource MaterialDesignRaisedButton}" 
-            Click="btnAddUser_Click" 
-            Margin="25,34,655,356"
-            Width="120" Height="60"
+            Click="btnAddUser_Click"
+            Width="120" Height="50"
+            Margin="20,0,20,0"
             Background="{DynamicResource PrimaryBackgroundColor}"
             BorderBrush="{DynamicResource PrimaryBackgroundColor}"
             materialDesign:ButtonAssist.CornerRadius="10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand">
-            <TextBlock
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Cursor="Hand">
+                <TextBlock
                 Text="Add User" 
                 Cursor="Hand"
                 FontFamily="Mukta Light"
                 Foreground="{DynamicResource TextColor}"/>
-        </Button>
-
-        <Button
+            </Button>
+            <Button
 
             Style="{StaticResource MaterialDesignRaisedButton}" 
-            Click="btnRefresh_Click" 
-            Margin="218,34,462,356"
-            Width="120" Height="60"
+            Click="btnRefresh_Click"
+            Width="120" Height="50"
+            Margin="20,0,20,0"
             Background="{DynamicResource PrimaryBackgroundColor}"
             BorderBrush="{DynamicResource PrimaryBackgroundColor}"
             materialDesign:ButtonAssist.CornerRadius="10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand">
-            <TextBlock
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Cursor="Hand">
+                <TextBlock
                 Text="Update Table" 
                 Cursor="Hand"
                 FontFamily="Mukta Light"
                 Foreground="{DynamicResource TextColor}"/>
-        </Button>
+            </Button>
+
+            <materialDesign:PackIcon 
+                Height="40" 
+                Width="40"  
+                Margin="140,0,0,0" 
+                Kind="AccountSearch" 
+                Grid.ColumnSpan="2" 
+                VerticalAlignment="Center" 
+                Foreground="{DynamicResource SecundaryBackgroundColor}"
+            />
+            <TextBox
+                x:Name="PhoneTextBox"
+                Foreground="{DynamicResource TextColor}"
+                SelectionBrush="{DynamicResource TextColor}"  
+                CaretBrush="{DynamicResource PrimaryBackgroundColor}"
+                BorderBrush="{DynamicResource SecundaryBackgroundColor}" 
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryBackgroundColor}"
+                Width="240" Height="45"
+                Margin="10,0,20,0" 
+                FontFamily="Mukta Light" 
+                FontSize="14" 
+                TextAlignment="Left" 
+                Cursor="Arrow"  
+               />
+
+        </StackPanel>
+
+
 
         <ListView x:Name="listviewUsers"  
-                  Margin="25,127,25,23" Width="750" Height="300">
+                  Margin="25,113,25,23" Width="750">
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
@@ -75,7 +110,7 @@
                         Width="150"/>
                 </GridView>
             </ListView.View>
-           
+
         </ListView>
 
     </Grid>

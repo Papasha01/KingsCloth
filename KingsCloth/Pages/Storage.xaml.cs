@@ -22,5 +22,11 @@ namespace KingsCloth.Pages
         {
             InitializeComponent();
         }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
     }
 }

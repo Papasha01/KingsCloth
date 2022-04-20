@@ -17,7 +17,7 @@
 
         <Border CornerRadius="10" Height="220" Width="200" Background="{DynamicResource ShadowDropBackground}" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top">
             <Border.BitmapEffect>
-                <DropShadowBitmapEffect Color="Black" Direction="270" ShadowDepth="3" Opacity="1" Softness="2" />
+                <DropShadowBitmapEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="1" Softness="2" />
             </Border.BitmapEffect>
             <Image 
                 Height="200" 
@@ -42,7 +42,7 @@
             BorderBrush="{DynamicResource TextColor}" />
 
 
-        <StackPanel Width="200" Height="600">
+        <StackPanel Width="200" Height="450">
 
             <TextBox
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -114,7 +114,7 @@
 
 
         </StackPanel>
-        <StackPanel Orientation="Vertical" Width="200" Height="600" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <StackPanel Orientation="Vertical" Width="200" Height="450" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock
               Style="{StaticResource MaterialDesignHeadline6TextBlock}"
               Text="Size" Foreground="{DynamicResource PrimTextColor}" Margin="0,60,0,5" />

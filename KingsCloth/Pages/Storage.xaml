@@ -3,13 +3,66 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KingsCloth.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Storage">
+    
+    <Grid>
+        <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
 
-    <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
 
+        </Border>
 
-    </Border>
+        <Button
+
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            Click="btnRefresh_Click"
+            Width="120" Height="50"
+            Margin="37,27,643,373"
+            Background="{DynamicResource PrimaryBackgroundColor}"
+            BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+            materialDesign:ButtonAssist.CornerRadius="10"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Cursor="Hand">
+            <TextBlock
+                Text="Update Table" 
+                Cursor="Hand"
+                FontFamily="Mukta Light"
+                Foreground="{DynamicResource TextColor}"/>
+        </Button>
+        
+        <ListView x:Name="listviewUsers"  
+                  Margin="25,97,25,23" Width="750">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Image" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=Image}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=id}" 
+                        Header="id" 
+                        Width="80"/>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Address}" 
+                        Header="adress" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Capacity}" 
+                        Header="Capacity" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=Phone}" 
+                        Header="Phone" 
+                        Width="150"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Grid>
 </Page>
