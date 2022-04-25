@@ -60,7 +60,7 @@
             <TextBlock x:Name="Title" Width="220" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,0,0" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
         </Border>
 
-        <Grid x:Name="GridBackground" Background="{DynamicResource TransparentBackground}" Opacity="0" Visibility="Hidden"/>
+        <Grid Margin="0,37,0,0" x:Name="GridBackground" Background="{DynamicResource TransparentBackground}" Opacity="0" Visibility="Hidden"/>
 
 
         <!--TitleBar-->
