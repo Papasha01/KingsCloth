@@ -11,16 +11,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KingsCloth
+namespace KingsCloth.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DiscoveryView.xaml
+    /// Логика взаимодействия для Catalog.xaml
     /// </summary>
-    public partial class DiscoveryView : UserControl
+    public partial class Catalog : Page
     {
-        public DiscoveryView()
+        public Catalog()
         {
             InitializeComponent();
+        }
+
+        private void ButtonAddProduct_Click (object sender, RoutedEventArgs e)
+        {
+            CatalogDialog dialog = new CatalogDialog();
+            dialog.Show();
         }
     }
 }

@@ -35,12 +35,12 @@
         </StackPanel>
         <StackPanel Height="400" RenderTransformOrigin="0.3,0.3">
             <TextBox
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            materialDesign:HintAssist.Hint="Login"
-            materialDesign:TextFieldAssist.HasClearButton="True" 
-            Foreground="{DynamicResource TextColor}"
-            Width="200"
-            FontFamily="Mukta Light" 
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Login"
+                materialDesign:TextFieldAssist.HasClearButton="True" 
+                Foreground="{DynamicResource TextColor}"
+                Width="200"
+                FontFamily="Mukta Light" 
                 FontSize="18" 
                 FontWeight="Normal" 
                 CaretBrush="{DynamicResource PrimTextColor}" 

@@ -208,7 +208,7 @@
                     x:Name="MainView" 
                     DockPanel.Dock="Top" 
                     HorizontalAlignment="Stretch">
-                    <StackPanel Height="250" RenderTransformOrigin="0.3,0.3" Margin="-3,-200,0,0">
+                    <StackPanel Height="300" RenderTransformOrigin="0.3,0.3" Margin="-3,-150,0,0">
 
                         <!--Home-->
                         <Grid >
@@ -255,11 +255,11 @@
                                 HorizontalAlignment="Left" 
                                 HorizontalContentAlignment="Left" 
                                 VerticalAlignment="Top" 
-                                Click="ButtonVatalog_Click" >
+                                Click="ButtonCatalog_Click" >
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="Home" 
+                                            Kind="Basket" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="30" 
@@ -267,7 +267,7 @@
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
-                                            Text="Home" 
+                                            Text="Catalog" 
                                             Foreground="{DynamicResource TextColor}" 
                                             VerticalAlignment="Center" 
                                             Margin="20 5" />

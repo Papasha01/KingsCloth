@@ -125,5 +125,12 @@ namespace KingsCloth
             Title.Visibility = Visibility.Visible;
 
         }
+
+        private void ButtonCatalog_Click(object sender, RoutedEventArgs e)
+        {
+            fContainer.Navigate(new System.Uri("Pages/Catalog.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Catalog";
+            Title.Visibility = Visibility.Visible;
+        }
     }
 }
