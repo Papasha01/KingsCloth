@@ -33,8 +33,6 @@ namespace KingsCloth
 
             if (data.Rows.Count > 0)
             {
-                
-
                 switch (data.Rows[0]["id_access"])
                 {
                     case 1:
@@ -52,6 +50,7 @@ namespace KingsCloth
                 }
 
             }
+            
         }
 
 

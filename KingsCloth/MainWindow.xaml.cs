@@ -49,22 +49,6 @@ namespace KingsCloth
 
         private void ButtonOpenSettings_Click(object sender, RoutedEventArgs e)
         {
-            //string connStr = "server=194.87.215.89;user=root;database=kingscloth;password=1747;";
-
-            MySqlConnectionStringBuilder mysqlCSB = new MySqlConnectionStringBuilder();
-            mysqlCSB.Server = "194.87.215.89";  // IP адоес БД
-            mysqlCSB.Database = "kingscloth";    // Имя БД
-            mysqlCSB.UserID = "monty";        // Имя пользователя БД
-            mysqlCSB.Password = "some_pass";   // Пароль пользователя БД
-            //mysqlCSB.CharacterSet = "cp1251"; // Кодировка Базы Данных
-
-            MySqlConnection conn = new MySqlConnection(mysqlCSB.ConnectionString);
-            conn.Open();
-            string query = "select title from access";
-            MySqlCommand command = new MySqlCommand(query, conn);
-            string answer = command.ExecuteScalar().ToString();
-            Console.WriteLine(answer);
-            conn.Close();
 
         }
         private void ButtonStorage_Click(object sender, RoutedEventArgs e)
@@ -123,6 +107,11 @@ namespace KingsCloth
             fContainer.Navigate(new System.Uri("Pages/Stats.xaml", UriKind.RelativeOrAbsolute));
             Title.Text = "Stats";
             Title.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonCatalog_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

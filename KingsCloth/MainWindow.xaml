@@ -172,7 +172,7 @@
                         BorderBrush="{x:Null}" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Center" 
-                        Click="ButtonOpenMenu_Click">
+                        Click="ButtonOpenMenu_Click" Cursor="Hand">
                         <materialDesign:PackIcon 
                             Kind="Menu" 
                             Foreground="{DynamicResource TextColor}" 
@@ -255,10 +255,11 @@
                                 HorizontalAlignment="Left" 
                                 HorizontalContentAlignment="Left" 
                                 VerticalAlignment="Top" 
-                                Click="ButtonVatalog_Click" >
+                                Click="ButtonCatalog_Click" Cursor="Hand" >
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
+                                            
                                             Kind="Home" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
@@ -288,7 +289,7 @@
                                 HorizontalAlignment="Left" 
                                 HorizontalContentAlignment="Left" 
                                 VerticalAlignment="Top" 
-                                Click="ButtonAddUser_Click" >
+                                Click="ButtonAddUser_Click" Cursor="Hand" >
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
