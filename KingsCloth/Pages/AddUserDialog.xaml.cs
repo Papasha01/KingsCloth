@@ -48,9 +48,12 @@ namespace KingsCloth.Pages.PagesAssets
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            reqDB req = new reqDB();
-            req.insert_user(tx_login.Text, tx_name.Text, tx_surname.Text, tx_pass.Text, 1);
-            //Close();
+            if (tx_login.Text != "" && tx_pass.Text != "")
+            {
+                reqDB req = new reqDB();
+                req.insert_user(tx_login.Text, tx_name.Text, tx_surname.Text, tx_pass.Text, 1);
+                Close();
+            }
         }
     }
 }

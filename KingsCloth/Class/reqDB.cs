@@ -8,13 +8,13 @@ namespace KingsCloth
 {
     public class reqDB
     {
-        DB db = new DB();
+        db_con db_con = new db_con();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         DataTable table = new DataTable();
         public DataTable select_access(string log, string pas)
         {
             table.Clear();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `user` where login = @log and password = aes_encrypt(@pas,'potato6')", db.getConn());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `user` where login = @log and password = aes_encrypt(@pas,'potato6')", db_con.getConn());
             command.Parameters.Add("@log", MySqlDbType.VarChar).Value = log;
             command.Parameters.Add("@pas", MySqlDbType.VarChar).Value = pas;
             adapter.SelectCommand = command;
@@ -22,10 +22,10 @@ namespace KingsCloth
             return table;
         }
 
-        public DataTable load_users()
+        public DataTable select_user()
         {
             table.Clear();
-            MySqlCommand command = new MySqlCommand("SELECT `id`,`login`,`name`,`surname`,`id_access` FROM `user`", db.getConn());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `user`", db_con.getConn());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             return table;
@@ -34,15 +34,15 @@ namespace KingsCloth
         public void insert_user(string log, string name, string surname, string pass, int id_access)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO `user` (`id`, `login`, `name`, `surname`, `password`, `id_access`) " +
-                "VALUES (NULL, @log, @name, @surname, aes_encrypt(@pas,'potato6'), '1')", db.getConn());
+                "VALUES (NULL, @log, @name, @surname, aes_encrypt(@pas,'potato6'), '1')", db_con.getConn());
             command.Parameters.Add("@log", MySqlDbType.VarChar).Value = log;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = surname;
             command.Parameters.Add("@pas", MySqlDbType.VarChar).Value = pass;
             command.Parameters.Add("@id_access", MySqlDbType.Int32).Value = id_access;
-            db.openConn();
+            db_con.openConn();
             command.ExecuteNonQuery();
-            db.closeConn();
+            db_con.closeConn();
         }
     }
 }

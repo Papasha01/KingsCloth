@@ -82,29 +82,32 @@
 
         </StackPanel>
 
-
-
         <ListView x:Name="listviewUsers"  
                   Margin="25,113,25,23" Width="750">
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
+                        x:Name="id"
                         DisplayMemberBinding="{Binding Path=id}" 
                         Header="id" 
                         Width="80"/>
                     <GridViewColumn 
+                        x:Name="login"
                         DisplayMemberBinding="{Binding Path=login}" 
                         Header="Login" 
                         Width="150"/>
                     <GridViewColumn 
-                        DisplayMemberBinding="{Binding Path=Name}" 
+                        x:Name="Name"
+                        DisplayMemberBinding="{Binding Path=name}" 
                         Header="Name" 
                         Width="150"/>
                     <GridViewColumn 
-                        DisplayMemberBinding="{Binding Path=Surname}" 
+                        x:Name="Surname"
+                        DisplayMemberBinding="{Binding Path=surname}" 
                         Header="Surname" 
                         Width="150"/>
                     <GridViewColumn 
+                        x:Name="id_access"
                         DisplayMemberBinding="{Binding Path=id_access}" 
                         Header="Access" 
                         Width="150"/>

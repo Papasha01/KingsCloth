@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KingsCloth
 {
-    class DB
+    class db_con
     {
         MySqlConnection conn = new MySqlConnection("Database=kingscloth;Server=194.87.215.89;User=monty;Password=some_pass");
 
