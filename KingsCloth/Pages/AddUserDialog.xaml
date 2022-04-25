@@ -35,6 +35,7 @@
         </StackPanel>
         <StackPanel Height="400" RenderTransformOrigin="0.3,0.3">
             <TextBox
+            x:Name="tx_login"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
             materialDesign:HintAssist.Hint="Login"
             materialDesign:TextFieldAssist.HasClearButton="True" 
