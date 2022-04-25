@@ -35,12 +35,12 @@
         </StackPanel>
         <StackPanel Height="400" RenderTransformOrigin="0.3,0.3">
             <TextBox
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                materialDesign:HintAssist.Hint="Login"
-                materialDesign:TextFieldAssist.HasClearButton="True" 
-                Foreground="{DynamicResource TextColor}"
-                Width="200"
-                FontFamily="Mukta Light" 
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            materialDesign:HintAssist.Hint="Login"
+            materialDesign:TextFieldAssist.HasClearButton="True" 
+            Foreground="{DynamicResource TextColor}"
+            Width="200"
+            FontFamily="Mukta Light" 
                 FontSize="18" 
                 FontWeight="Normal" 
                 CaretBrush="{DynamicResource PrimTextColor}" 
@@ -50,6 +50,7 @@
                 Margin="50,40,50,0" Height="45" />
 
             <TextBox
+                x:Name="tx_name"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Name"
                 materialDesign:TextFieldAssist.HasClearButton="True" 
@@ -65,6 +66,7 @@
                 Margin="50,15,50,0" Height="45" VerticalAlignment="Top" />
 
             <TextBox
+                x:Name="tx_surname"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Surname"
                 materialDesign:TextFieldAssist.HasClearButton="True" 
@@ -80,6 +82,7 @@
                 Margin="50,15,50,0" Height="45" VerticalAlignment="Top" />
 
             <TextBox
+                x:Name="tx_pass"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Password"
                 VerticalAlignment="Top"
