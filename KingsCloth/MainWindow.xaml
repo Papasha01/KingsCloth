@@ -390,7 +390,7 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="HomeVariant" 
+                                            Kind="Warehouse" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="30" 
