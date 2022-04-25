@@ -49,5 +49,9 @@ namespace KingsCloth.Pages
 
         }
 
+        private void ButtonAddUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

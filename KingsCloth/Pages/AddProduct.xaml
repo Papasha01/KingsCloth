@@ -114,7 +114,7 @@
 
 
         </StackPanel>
-        <StackPanel Orientation="Vertical" Width="200" Height="450" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <StackPanel Orientation="Vertical" Width="250" Height="450" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock
               Style="{StaticResource MaterialDesignHeadline6TextBlock}"
               Text="Size" Foreground="{DynamicResource PrimTextColor}" Margin="0,60,0,5" />
@@ -168,6 +168,20 @@
                 materialDesign:CheckBoxAssist.CheckBoxSize="25"
                 Background="{DynamicResource CheckBox}"
                 Margin="0,12,0,0"/>
+
+            <Button
+            Style="{StaticResource MaterialDesignFlatLightButton}"
+            Click="ButtonAddUser_Click"
+            Content="Add User"
+            Foreground="{DynamicResource TextColor}"
+            Width="200"
+            HorizontalAlignment="Left" 
+            Margin="20,30,0,0" 
+            VerticalAlignment="Stretch" 
+            FontFamily="Mukta Light" 
+            FontSize="18" 
+            Cursor="Hand" 
+            BorderBrush="{DynamicResource TextColor}" />
         </StackPanel>
     </Grid>
 </Page>

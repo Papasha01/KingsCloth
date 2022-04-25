@@ -243,6 +243,39 @@
                             </Button>
                         </Grid>
 
+                        <!--Catalog-->
+                        <Grid >
+                            <Button 
+                                x:Name="ButtonCatalog" 
+                                Margin="0,0,0,0" 
+                                Height="50" 
+                                Width="200" 
+                                Background="{x:Null}" 
+                                BorderBrush="{x:Null}" 
+                                HorizontalAlignment="Left" 
+                                HorizontalContentAlignment="Left" 
+                                VerticalAlignment="Top" 
+                                Click="ButtonVatalog_Click" >
+                                <Button.Content>
+                                    <DockPanel>
+                                        <materialDesign:PackIcon 
+                                            Kind="Home" 
+                                            DockPanel.Dock="Left" 
+                                            Foreground="{DynamicResource TextColor}" 
+                                            Height="30" 
+                                            Width="30" 
+                                            Margin="-3 0" 
+                                            Padding="0" />
+                                        <TextBlock 
+                                            Text="Home" 
+                                            Foreground="{DynamicResource TextColor}" 
+                                            VerticalAlignment="Center" 
+                                            Margin="20 5" />
+                                    </DockPanel>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+
                         <!--AddUser-->
                         <Grid>
                             <Button 
