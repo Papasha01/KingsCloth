@@ -80,6 +80,24 @@
                 Background="{x:Null}"
                 Margin="0,30,0,0"/>
 
+            <TextBox
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Material"
+                VerticalAlignment="Top"
+                materialDesign:TextFieldAssist.HasClearButton="True" 
+                Foreground="{DynamicResource TextColor}"
+                Width="150" 
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18" 
+                FontWeight="Normal" 
+                CaretBrush="{DynamicResource PrimTextColor}" 
+                SelectionBrush="{DynamicResource PrimTextColor}" 
+                Cursor="Arrow" 
+                Background="{x:Null}" 
+                HorizontalAlignment="Stretch" 
+                Margin="0,35,0,0" TextChanged="TextBox_TextChanged"/>
+
             <ComboBox
                 materialDesign:HintAssist.Hint="Category" 
                 Foreground="{DynamicResource TextColor}"
@@ -117,65 +135,266 @@
         <StackPanel Orientation="Vertical" Width="250" Height="450" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock
               Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-              Text="Size" Foreground="{DynamicResource PrimTextColor}" Margin="0,60,0,5" />
-            <CheckBox
-                Content="XS"
-                TextBlock.Foreground="{DynamicResource TextColor}"
-                TextBlock.FontSize="16"
-                materialDesign:CheckBoxAssist.CheckBoxSize="25" 
-                Background="{DynamicResource CheckBox}" 
-                Margin="0,12,0,0"/>
+              Text="Size" Foreground="{DynamicResource PrimTextColor}" Margin="0,30,0,5" />
+            <StackPanel 
+                Grid.Row="0" 
+                Orientation="Horizontal" 
+                FlowDirection="LeftToRight">
+                <Grid Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox
+                        x:Name="FilledComboBoxEnabledCheckBoxXS"
+                        IsChecked="False"
+                        Margin="0,0,0,8"
+                        Height="30"
+                        Width="60"
+                        TextBlock.Foreground="{DynamicResource TextColor}"
+                        TextBlock.FontSize="16"
+                        materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                        Background="{DynamicResource CheckBox}" 
+                        Content="XS" />
+                    <TextBox
+                        x:Name="FilledTextBoxXS"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Amount"
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        Foreground="{DynamicResource TextColor}"
 
-            <CheckBox
-                Content="S"
-                TextBlock.Foreground="{DynamicResource TextColor}"
-                TextBlock.FontSize="16"
-                materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"
-                Margin="0,12,0,0"/>
-            <CheckBox
-                Content="M"
-                TextBlock.Foreground="{DynamicResource TextColor}"
-                TextBlock.FontSize="16"
-                materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"
-                Margin="0,12,0,0"/>
-            <CheckBox
-                Content="L" 
-                TextBlock.Foreground="{DynamicResource TextColor}"
-                TextBlock.FontSize="16"
-                materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"
-                Margin="0,12,0,0"/>
-            <CheckBox
-                Content="XL" 
-                TextBlock.Foreground="{DynamicResource TextColor}"
-                TextBlock.FontSize="16"
-                materialDesign:CheckBoxAssist.CheckBoxSize="25" 
-                Background="{DynamicResource CheckBox}"
-                Margin="0,12,0,0"/>
-            <CheckBox
-                Content="XXL" 
-                TextBlock.Foreground="{DynamicResource TextColor}"
-                TextBlock.FontSize="16"
-                materialDesign:CheckBoxAssist.CheckBoxSize="25"
-                Background="{DynamicResource CheckBox}"
-                Margin="0,12,0,0"/>
-            
+                        FontFamily="Mukta Light" 
+                        FontSize="16" 
+                        FontWeight="Normal" 
+                        CaretBrush="{DynamicResource PrimTextColor}" 
+                        SelectionBrush="{DynamicResource PrimTextColor}" 
+                        Cursor="Arrow" 
+                        Background="{x:Null}" 
+                        Margin="10,-3,-95,15"
+                        TextChanged="TextBox_TextChanged"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBoxXS}" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="0" 
+                Orientation="Horizontal" 
+                FlowDirection="LeftToRight">
+                <Grid Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox
+                        x:Name="FilledComboBoxEnabledCheckBoxS"
+                        IsChecked="False"
+                        Margin="0,0,0,8"
+                        Height="30"
+                        Width="60"
+                        TextBlock.Foreground="{DynamicResource TextColor}"
+                        TextBlock.FontSize="16"
+                        materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                        Background="{DynamicResource CheckBox}" 
+                        Content="S" />
+                    <TextBox
+                        x:Name="FilledTextBoxS"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Amount"
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        Foreground="{DynamicResource TextColor}"
+
+                        FontFamily="Mukta Light" 
+                        FontSize="16" 
+                        FontWeight="Normal" 
+                        CaretBrush="{DynamicResource PrimTextColor}" 
+                        SelectionBrush="{DynamicResource PrimTextColor}" 
+                        Cursor="Arrow" 
+                        Background="{x:Null}" 
+                        Margin="10,-3,-95,15"
+                        TextChanged="TextBox_TextChanged"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBoxS}" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="0" 
+                Orientation="Horizontal" 
+                FlowDirection="LeftToRight">
+                <Grid Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox
+                        x:Name="FilledComboBoxEnabledCheckBoxM"
+                        IsChecked="False"
+                        Margin="0,0,0,8"
+                        Height="30"
+                        Width="60"
+                        TextBlock.Foreground="{DynamicResource TextColor}"
+                        TextBlock.FontSize="16"
+                        materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                        Background="{DynamicResource CheckBox}" 
+                        Content="M" />
+                    <TextBox
+                        x:Name="FilledTextBoxM"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Amount"
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        Foreground="{DynamicResource TextColor}"
+
+                        FontFamily="Mukta Light" 
+                        FontSize="16" 
+                        FontWeight="Normal" 
+                        CaretBrush="{DynamicResource PrimTextColor}" 
+                        SelectionBrush="{DynamicResource PrimTextColor}" 
+                        Cursor="Arrow" 
+                        Background="{x:Null}" 
+                        Margin="10,-3,-95,15"
+                        TextChanged="TextBox_TextChanged"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBoxM}" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="0" 
+                Orientation="Horizontal" 
+                FlowDirection="LeftToRight">
+                <Grid Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox
+                        x:Name="FilledComboBoxEnabledCheckBoxL"
+                        IsChecked="False"
+                        Margin="0,0,0,8"
+                        Height="30"
+                        Width="60"
+                        TextBlock.Foreground="{DynamicResource TextColor}"
+                        TextBlock.FontSize="16"
+                        materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                        Background="{DynamicResource CheckBox}" 
+                        Content="L" />
+                    <TextBox
+                        x:Name="FilledTextBoxL"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Amount"
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        Foreground="{DynamicResource TextColor}"
+
+                        FontFamily="Mukta Light" 
+                        FontSize="16" 
+                        FontWeight="Normal" 
+                        CaretBrush="{DynamicResource PrimTextColor}" 
+                        SelectionBrush="{DynamicResource PrimTextColor}" 
+                        Cursor="Arrow" 
+                        Background="{x:Null}" 
+                        Margin="10,-3,-95,15"
+                        TextChanged="TextBox_TextChanged"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBoxL}" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="0" 
+                Orientation="Horizontal" 
+                FlowDirection="LeftToRight">
+                <Grid Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox
+                        x:Name="FilledComboBoxEnabledCheckBoxXL"
+                        IsChecked="False"
+                        Margin="0,0,0,8"
+                        Height="30"
+                        Width="60"
+                        TextBlock.Foreground="{DynamicResource TextColor}"
+                        TextBlock.FontSize="16"
+                        materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                        Background="{DynamicResource CheckBox}" 
+                        Content="XL" />
+                    <TextBox
+                        x:Name="FilledTextBoxXL"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Amount"
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        Foreground="{DynamicResource TextColor}"
+
+                        FontFamily="Mukta Light" 
+                        FontSize="16" 
+                        FontWeight="Normal" 
+                        CaretBrush="{DynamicResource PrimTextColor}" 
+                        SelectionBrush="{DynamicResource PrimTextColor}" 
+                        Cursor="Arrow" 
+                        Background="{x:Null}" 
+                        Margin="10,-3,-95,15"
+                        TextChanged="TextBox_TextChanged"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBoxXL}" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="0" 
+                Orientation="Horizontal" 
+                FlowDirection="LeftToRight">
+                <Grid Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox
+                        x:Name="FilledComboBoxEnabledCheckBoxXXL"
+                        IsChecked="False"
+                        Margin="0,0,0,8"
+                        Height="30"
+                        Width="60"
+                        TextBlock.Foreground="{DynamicResource TextColor}"
+                        TextBlock.FontSize="16"
+                        materialDesign:CheckBoxAssist.CheckBoxSize="25" 
+                        Background="{DynamicResource CheckBox}" 
+                        Content="XXL" />
+                    <TextBox
+                        x:Name="FilledTextBoxXXL"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Amount"
+                        materialDesign:TextFieldAssist.HasClearButton="True" 
+                        Foreground="{DynamicResource TextColor}"
+
+                        FontFamily="Mukta Light" 
+                        FontSize="16" 
+                        FontWeight="Normal" 
+                        CaretBrush="{DynamicResource PrimTextColor}" 
+                        SelectionBrush="{DynamicResource PrimTextColor}" 
+                        Cursor="Arrow" 
+                        Background="{x:Null}" 
+                        Margin="10,-3,-95,15"
+                        TextChanged="TextBox_TextChanged"
+                        IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBoxXXL}" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+
+
+
 
             <Button
-            Style="{StaticResource MaterialDesignFlatLightButton}"
-            Click="ButtonAddUser_Click"
-            Content="Add User"
-            Foreground="{DynamicResource TextColor}"
-            Width="200"
-            HorizontalAlignment="Left" 
-            Margin="20,30,0,0" 
-            VerticalAlignment="Stretch" 
-            FontFamily="Mukta Light" 
-            FontSize="18" 
-            Cursor="Hand" 
-            BorderBrush="{DynamicResource TextColor}" />
+                Margin="0,10,0,0"
+                Style="{StaticResource MaterialDesignRaisedButton}" 
+                Click="ButtonAddProduct_Click"
+                Width="160" Height="50"
+                Background="{DynamicResource PrimaryBackgroundColor}"
+                BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Cursor="Hand">
+                <TextBlock
+                    Text="Add product" 
+                    Cursor="Hand"
+                    FontFamily="Mukta Light"
+                    Foreground="{DynamicResource TextColor}"/>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
