@@ -56,7 +56,8 @@
             Margin="88,50,20,20"
             NavigationUIVisibility="Hidden"/>
 
-        <Border x:Name="border"  Height="37" VerticalAlignment="Top" MouseDown="Window_MouseDown" Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,0">
+        <!--MouseDown="Window_MouseDown" не забыть вставить!!!!!!!!!!-->
+        <Border x:Name="border"  Height="37" VerticalAlignment="Top"   Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,0">
             <TextBlock x:Name="Title" Width="220" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,0,0" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
         </Border>
 
@@ -66,21 +67,9 @@
         <!--TitleBar-->
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,3,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
             <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
-            <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
-                        <Setter Property="Content" Value="{DynamicResource maximize}"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
-                                <Setter Property="Content" Value="{DynamicResource restore}"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
             <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
         </StackPanel>
-        
+
         <!--BurgMenu-->
         <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="{DynamicResource SecundaryBackgroundColor}">
             <DockPanel>
@@ -208,7 +197,7 @@
                     x:Name="MainView" 
                     DockPanel.Dock="Top" 
                     HorizontalAlignment="Stretch">
-                    <StackPanel Height="300" RenderTransformOrigin="0.3,0.3" Margin="-3,-150,0,0">
+                    <StackPanel Height="350" RenderTransformOrigin="0.3,0.3" Margin="-3,-100,0,0">
 
                         <!--Home-->
                         <Grid >
@@ -229,8 +218,8 @@
                                             Kind="Home" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
+                                            Height="35" 
+                                            Width="35" 
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
@@ -259,15 +248,57 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="Basket" 
+                                            Kind="Cart" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
+                                            Height="35" 
+                                            Width="35" 
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
                                             Text="Catalog" 
+                                            Foreground="{DynamicResource TextColor}" 
+                                            VerticalAlignment="Center" 
+                                            Margin="20 5" />
+                                    </DockPanel>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+
+                        <Grid>
+                            <Button 
+                                x:Name="ButtonBacket" 
+                                Margin="0" 
+                                Height="60" 
+                                Width="200" 
+                                Background="{x:Null}" 
+                                BorderBrush="{x:Null}" 
+                                HorizontalAlignment="Left" 
+                                HorizontalContentAlignment="Left" 
+                                VerticalAlignment="Top" 
+                                Click="ButtonBacket_Click" Cursor="Hand" >
+                                <Button.Content>
+                                    <DockPanel>
+                                        <materialDesign:Badged
+                                            x:Name="CountingBadge"
+                                            BadgeColorZoneMode="PrimaryDark"
+                                            Badge="1"
+                                            BadgePlacementMode="TopRight"
+                                            BadgeBackground="Red"  
+                                            VerticalAlignment="Bottom" 
+                                            Margin="0,0,0,0">
+                                            
+                                            <materialDesign:PackIcon 
+                                                Kind="Basket" 
+                                                DockPanel.Dock="Left" 
+                                                Foreground="{DynamicResource TextColor}" 
+                                                Height="35" 
+                                                Width="35" 
+                                                Margin="-4 0" 
+                                                Padding="0" />
+                                        </materialDesign:Badged>
+                                        <TextBlock 
+                                            Text="Backet" 
                                             Foreground="{DynamicResource TextColor}" 
                                             VerticalAlignment="Center" 
                                             Margin="20 5" />
@@ -295,8 +326,8 @@
                                             Kind="AccountAdd" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
+                                            Height="35" 
+                                            Width="35" 
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
@@ -328,8 +359,8 @@
                                             Kind="CartAdd" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
+                                            Height="35" 
+                                            Width="35" 
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
@@ -361,8 +392,8 @@
                                             Kind="Assignment" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
+                                            Height="35" 
+                                            Width="35" 
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
@@ -393,8 +424,8 @@
                                             Kind="Warehouse" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
-                                            Height="30" 
-                                            Width="30" 
+                                            Height="35" 
+                                            Width="35" 
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
@@ -412,7 +443,7 @@
                 </Grid>
             </DockPanel>
         </Grid>
-        
+
 
 
 

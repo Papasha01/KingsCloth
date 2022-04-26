@@ -25,6 +25,7 @@ namespace KingsCloth
         public MainWindow()
         {
             InitializeComponent();
+
         }
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -74,13 +75,13 @@ namespace KingsCloth
                 this.DragMove();
         }
 
-        private void btnRestore_Click(object sender, RoutedEventArgs e)
-        {
-            if (WindowState == WindowState.Normal)
-                WindowState = WindowState.Maximized;
-            else
-                WindowState = WindowState.Normal;
-        }
+        //private void btnRestore_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (WindowState == WindowState.Normal)
+        //        WindowState = WindowState.Maximized;
+        //    else
+        //        WindowState = WindowState.Normal;
+        //}
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
@@ -115,6 +116,11 @@ namespace KingsCloth
             fContainer.Navigate(new System.Uri("Pages/Catalog.xaml", UriKind.RelativeOrAbsolute));
             Title.Text = "Catalog";
             Title.Visibility = Visibility.Visible;
+
+        }
+
+        private void ButtonBacket_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
