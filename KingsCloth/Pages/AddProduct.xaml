@@ -20,6 +20,7 @@
                 <DropShadowBitmapEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="1" Softness="2" />
             </Border.BitmapEffect>
             <Image 
+                x:Name="picture"
                 Height="200" 
                 Width="200" 
                 VerticalAlignment="Top" 
@@ -41,10 +42,24 @@
             Cursor="Hand" 
             BorderBrush="{DynamicResource TextColor}" />
 
+        <Button
+            Style="{StaticResource MaterialDesignFlatLightButton}"
+            Click="clck_upload"
+            Content="upload"
+            Foreground="{DynamicResource TextColor}"
+            Width="200"
+            HorizontalAlignment="Left" 
+            Margin="20,309,0,109" 
+            FontFamily="Mukta Light" 
+            FontSize="18" 
+            Cursor="Hand" 
+            BorderBrush="{DynamicResource TextColor}" />
+
 
         <StackPanel Width="200" Height="450">
 
             <TextBox
+                x:Name="tx_title"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Title"
                 VerticalAlignment="Top"
@@ -63,6 +78,7 @@
                 Margin="0,35,0,0" TextChanged="TextBox_TextChanged"/>
 
             <TextBox
+                x:Name="tx_cost"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Cost"
                 VerticalAlignment="Center"
@@ -81,6 +97,7 @@
                 Margin="0,30,0,0"/>
 
             <TextBox
+                x:Name="tx_material"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Material"
                 VerticalAlignment="Top"
@@ -99,6 +116,7 @@
                 Margin="0,35,0,0" TextChanged="TextBox_TextChanged"/>
 
             <ComboBox
+                x:Name="cmb_category"
                 materialDesign:HintAssist.Hint="Category" 
                 Foreground="{DynamicResource TextColor}"
                 Width="150"
@@ -107,12 +125,19 @@
                 FontSize="18"
                 Margin="0,40,0,0" >
                 <ComboBoxItem
+                    Content="T-shirt" />
+                <ComboBoxItem
+                    Content="Sweatshirt" />
+                <ComboBoxItem
                     Content="Hoodie" />
                 <ComboBoxItem
-                    Content="T-shirt" />
+                    Content="Backpacks" />
+                <ComboBoxItem
+                    Content="Shirts" />
             </ComboBox>
 
             <ComboBox
+                x:Name="cmb_color"
                 materialDesign:HintAssist.Hint="Color" 
                 Foreground="{DynamicResource TextColor}"
                 Width="150"
@@ -157,7 +182,8 @@
                         Background="{DynamicResource CheckBox}" 
                         Content="XS" />
                     <TextBox
-                        x:Name="FilledTextBoxXS"
+                        x:Name="tx_xs"
+                        Text="0"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Amount"
                         materialDesign:TextFieldAssist.HasClearButton="True" 
@@ -197,7 +223,8 @@
                         Background="{DynamicResource CheckBox}" 
                         Content="S" />
                     <TextBox
-                        x:Name="FilledTextBoxS"
+                        Text="0"
+                        x:Name="tx_s"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Amount"
                         materialDesign:TextFieldAssist.HasClearButton="True" 
@@ -237,7 +264,8 @@
                         Background="{DynamicResource CheckBox}" 
                         Content="M" />
                     <TextBox
-                        x:Name="FilledTextBoxM"
+                        Text="0"
+                        x:Name="tx_m"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Amount"
                         materialDesign:TextFieldAssist.HasClearButton="True" 
@@ -277,7 +305,8 @@
                         Background="{DynamicResource CheckBox}" 
                         Content="L" />
                     <TextBox
-                        x:Name="FilledTextBoxL"
+                        Text="0"
+                        x:Name="tx_l"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Amount"
                         materialDesign:TextFieldAssist.HasClearButton="True" 
@@ -317,7 +346,8 @@
                         Background="{DynamicResource CheckBox}" 
                         Content="XL" />
                     <TextBox
-                        x:Name="FilledTextBoxXL"
+                        Text="0"
+                        x:Name="tx_xl"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Amount"
                         materialDesign:TextFieldAssist.HasClearButton="True" 
@@ -357,7 +387,8 @@
                         Background="{DynamicResource CheckBox}" 
                         Content="XXL" />
                     <TextBox
-                        x:Name="FilledTextBoxXXL"
+                        Text="0"
+                        x:Name="tx_xxl"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Amount"
                         materialDesign:TextFieldAssist.HasClearButton="True" 

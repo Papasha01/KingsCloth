@@ -7,7 +7,7 @@ namespace KingsCloth
 {
     class db_con
     {
-        MySqlConnection conn = new MySqlConnection("Database=kingscloth;Server=194.87.215.89;User=monty;Password=some_pass");
+        MySqlConnection conn = new MySqlConnection("Database=kingscloth; Server=194.87.215.89; User=monty; Password=some_pass; Character Set=utf8");
 
         public void openConn()
         {

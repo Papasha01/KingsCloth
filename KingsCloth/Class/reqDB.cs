@@ -44,5 +44,56 @@ namespace KingsCloth
             command.ExecuteNonQuery();
             db_con.closeConn();
         }
+
+        public void insert_product(string name, int price, int id_category, string material, string color, string description, byte[] photo)
+        {
+            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`product` (`id`, `name`, `photo`, `price`, `id_category`, `material`, `color`, `description`) " +
+                "VALUES (NULL, @name, @photo, @price, @id_category, @material, @color, @description)", db_con.getConn());
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+            command.Parameters.Add("@price", MySqlDbType.Int32).Value = price;
+            command.Parameters.Add("@id_category", MySqlDbType.Int32).Value = id_category + 1;
+            command.Parameters.Add("@material", MySqlDbType.VarChar).Value = material;
+            command.Parameters.Add("@color", MySqlDbType.VarChar).Value = color;
+            command.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
+            command.Parameters.Add("@photo", MySqlDbType.Blob).Value = photo;
+            db_con.openConn();
+            command.ExecuteNonQuery();
+            db_con.closeConn();
+        }
+        
+        public DataTable select_max_id_product()
+        {
+            table.Clear();
+            MySqlCommand command = new MySqlCommand("SELECT max(id) FROM product", db_con.getConn());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            return table;
+        }
+
+        public void insert_size(int id_product, int xs, int s, int m, int l, int xl, int xxl)
+        {
+            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`size` (`id`, `id_product`, `xs`, `s`, `m`, `l`, `xl`, `xxl`) " +
+                "VALUES (NULL, @id_product, @xs, @s, @m, @l, @xl, @xxl)", db_con.getConn());
+            command.Parameters.Add("@id_product", MySqlDbType.Int32).Value = id_product;
+            command.Parameters.Add("@xs", MySqlDbType.Int32).Value = xs;
+            command.Parameters.Add("@s", MySqlDbType.Int32).Value = s;
+            command.Parameters.Add("@m", MySqlDbType.Int32).Value = m;
+            command.Parameters.Add("@l", MySqlDbType.Int32).Value = l;
+            command.Parameters.Add("@xl", MySqlDbType.Int32).Value = xl;
+            command.Parameters.Add("@xxl", MySqlDbType.Int32).Value = xxl;
+            db_con.openConn();
+            command.ExecuteNonQuery();
+            db_con.closeConn();
+        }
+
+        public byte[] sel_pic(int id_product)
+        {
+            table.Clear();
+            MySqlCommand command = new MySqlCommand("SELECT photo FROM product where id = @id_product", db_con.getConn());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            byte[] img = (byte[])table.Rows[0]["photo"];
+            return img;
+        }
     }
 }
