@@ -37,23 +37,6 @@
                 FontFamily="Mukta Light"
                 Foreground="{DynamicResource TextColor}"/>
             </Button>
-            <Button
-
-            Style="{StaticResource MaterialDesignRaisedButton}" 
-            Click="btnRefresh_Click"
-            Width="120" Height="50"
-            Margin="20,0,20,0"
-            Background="{DynamicResource PrimaryBackgroundColor}"
-            BorderBrush="{DynamicResource PrimaryBackgroundColor}"
-            materialDesign:ButtonAssist.CornerRadius="10"
-            materialDesign:ShadowAssist.ShadowDepth="Depth2"
-            Cursor="Hand">
-                <TextBlock
-                Text="Update Table" 
-                Cursor="Hand"
-                FontFamily="Mukta Light"
-                Foreground="{DynamicResource TextColor}"/>
-            </Button>
 
             <materialDesign:PackIcon 
                 Height="40" 

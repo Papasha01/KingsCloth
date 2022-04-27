@@ -26,16 +26,18 @@ namespace KingsCloth.Pages
             InitializeComponent();
         }
 
-        private void ButtonAddProduct_Click (object sender, RoutedEventArgs e)
+        private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
             CatalogDialog dialog = new CatalogDialog();
             dialog.Show();
         }
 
-        private void ButtonBasket_Click (object sender, RoutedEventArgs e)
+        private void ButtonBasket_Click(object sender, RoutedEventArgs e)
         {
-            fContainer.NavigationService.Navigate(new Uri("Pages/Basket.xaml", UriKind.Relative));
+            //fContainer.NavigationService.Navigate(new Uri("Pages/Basket.xaml", UriKind.Relative));
 
+            reqDB req = new reqDB();
+            var table = req.select_product();
 
         }
     }

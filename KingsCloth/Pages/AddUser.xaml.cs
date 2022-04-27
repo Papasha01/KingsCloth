@@ -23,6 +23,7 @@ namespace KingsCloth.Pages
         public AddUser()
         {
             InitializeComponent();
+            update_listView();
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -32,7 +33,8 @@ namespace KingsCloth.Pages
         }
 
         DataTable table = new DataTable();
-        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+
+        private void update_listView()
         {
             listviewUsers.Items.Clear();
 
@@ -41,13 +43,15 @@ namespace KingsCloth.Pages
 
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                this.listviewUsers.Items.Add(new users {
-                    id = (int)table.Rows[i][0], 
-                    login = table.Rows[i][1].ToString(), 
-                    name = table.Rows[i][2].ToString(), 
-                    surname = table.Rows[i][3].ToString(), 
-                    password = table.Rows[i][4].ToString(), 
-                    id_access = table.Rows[i][5].ToString()});
+                this.listviewUsers.Items.Add(new users
+                {
+                    id = (int)table.Rows[i][0],
+                    login = table.Rows[i][1].ToString(),
+                    name = table.Rows[i][2].ToString(),
+                    surname = table.Rows[i][3].ToString(),
+                    password = table.Rows[i][4].ToString(),
+                    id_access = table.Rows[i][5].ToString()
+                });
 
             }
         }

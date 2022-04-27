@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
-using System.IO;
 using System.Drawing;
 
 
@@ -36,8 +35,6 @@ namespace KingsCloth.Pages
         {
 
         }
-
-
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
@@ -63,7 +60,7 @@ namespace KingsCloth.Pages
         {
             reqDB req = new reqDB();
 
-            using (var stream = new MemoryStream(req.sel_pic(21)))
+            using (var stream = new MemoryStream(req.select_picture_product(21)))
             {
                 var image = new BitmapImage();
                 image.BeginInit();
@@ -81,16 +78,46 @@ namespace KingsCloth.Pages
 
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            reqDB req = new reqDB();
-            req.insert_product(tx_title.Text, Convert.ToInt32(tx_cost.Text), (int)cmb_category.SelectedIndex, tx_material.Text, cmb_color.Text, "some text", imageData);
-            int max_id_product = Convert.ToInt32(req.select_max_id_product().Rows[0][0]);
-            req.insert_size(max_id_product,
-                Convert.ToInt32(tx_xs.Text),
-                Convert.ToInt32(tx_s.Text),
-                Convert.ToInt32(tx_m.Text),
-                Convert.ToInt32(tx_l.Text),
-                Convert.ToInt32(tx_xl.Text),
-                Convert.ToInt32(tx_xxl.Text));
+            try
+            {
+                if (Convert.ToInt32(tx_xs.Text) +
+                Convert.ToInt32(tx_s.Text) +
+                Convert.ToInt32(tx_m.Text) +
+                Convert.ToInt32(tx_l.Text) +
+                Convert.ToInt32(tx_xl.Text) +
+                Convert.ToInt32(tx_xxl.Text) > 0)
+                {
+                    reqDB req = new reqDB();
+                    req.insert_product(tx_title.Text, Convert.ToInt32(tx_cost.Text), (int)cmb_category.SelectedIndex, tx_material.Text, cmb_color.Text, "some text", imageData);
+                    int max_id_product = Convert.ToInt32(req.select_max_id_product().Rows[0][0]);
+                    req.insert_size(max_id_product,
+                        Convert.ToInt32(tx_xs.Text),
+                        Convert.ToInt32(tx_s.Text),
+                        Convert.ToInt32(tx_m.Text),
+                        Convert.ToInt32(tx_l.Text),
+                        Convert.ToInt32(tx_xl.Text),
+                        Convert.ToInt32(tx_xxl.Text));
+                }
+                else
+                {
+                    MessageBox.Show("Не указано количество товара");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Укажите корректные данные");
+                tx_xs.Text = "0";
+                tx_s.Text = "0";
+                tx_m.Text = "0";
+                tx_l.Text = "0";
+                tx_xl.Text = "0";
+                tx_xxl.Text = "0";
+
+                tx_title.Text = "";
+                tx_cost.Text = "";
+                tx_material.Text = "";
+
+            }
         }
     }
 }

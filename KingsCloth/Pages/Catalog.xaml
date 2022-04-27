@@ -104,7 +104,7 @@
             </Button>
         </StackPanel>
 
-        <ListView x:Name="listviewUsers"  
+        <!--<ListView x:Name="lv_product"  
                   Margin="10,68,10,10"
                   Width="760" 
                   HorizontalAlignment="Left">
@@ -121,10 +121,9 @@
                     <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
 
                         <TextBlock 
-                            Text="Title" 
+                            Text="Title:" 
                             Foreground="{DynamicResource TextColor}"   
-                            Height="20" 
-                            HorizontalAlignment="Center"/>
+                            FontFamily="Mukta Light" />
                         <TextBlock 
                             Text="Size: " 
                             Foreground="{DynamicResource TextColor}"  
@@ -167,7 +166,7 @@
                     </Button>
                 </StackPanel>
             </ListViewItem>
-        </ListView>
+        </ListView>-->
     </Grid>
 
 
