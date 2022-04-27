@@ -49,19 +49,20 @@
         </ProgressBar>
 
         <ToggleButton
+            x:Name="TogButt"
             Height="150" 
             Width="150" 
             Style="{StaticResource MaterialDesignActionAccentToggleButton}"
-            IsChecked="True"
+            IsChecked="False"
             Margin="0,0,0,70"
             ToolTip="MaterialDesignActionAccentToggleButton"
-            materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Check}"
+            materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Check, Size=120}"
             >
             <materialDesign:PackIcon 
                 Kind="DotsHorizontal" 
                 DockPanel.Dock="Left" 
-                Height="150" 
-                Width="150" 
+                Height="120" 
+                Width="120" 
                 Margin="0,0,0,0" 
                 Padding="0" FontSize="36" />
 

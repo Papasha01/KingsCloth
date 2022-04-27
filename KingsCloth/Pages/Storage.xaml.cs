@@ -24,11 +24,12 @@ namespace KingsCloth.Pages
         public Storage()
         {
             InitializeComponent();
-            
+            update_listView();
+
         }
 
         DataTable table = new DataTable();
-        byte[] imageData;
+
 
         private void update_listView()
         {
@@ -72,7 +73,7 @@ namespace KingsCloth.Pages
             //    req.insert_storage(imageData);
             //}
 
-            update_listView();
+            
         }
     }
 }

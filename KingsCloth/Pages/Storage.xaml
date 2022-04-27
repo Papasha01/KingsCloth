@@ -32,8 +32,8 @@
                         Width="80"/>
                     <GridViewColumn 
                         DisplayMemberBinding="{Binding Path=address}" 
-                        Header="adress" 
-                        Width="150"/>
+                        Header="Adress" 
+                        Width="200"/>
                     <GridViewColumn 
                         DisplayMemberBinding="{Binding Path=capacity}" 
                         Header="Capacity" 
@@ -44,6 +44,19 @@
                         Width="150"/>
                 </GridView>
             </ListView.View>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
 
         </ListView>
         <Button Content="Button" Margin="0,418,0,0" Click="Button_Click"/>

@@ -43,7 +43,11 @@ namespace KingsCloth.Pages
             PrBar.Value = _dispTimerCounter;
             if (_dispTimerCounter > MaxTimerCounter)
             {
-                _dispTimerCounter = MinTimerCounter;
+
+                TogButt.Background = new SolidColorBrush(Colors.Green);
+                PrBar.Background = new SolidColorBrush(Colors.Green);
+                PrBar.Foreground = new SolidColorBrush(Colors.Green);
+                TogButt.IsChecked = true;
             }
         }
 
