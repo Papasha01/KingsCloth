@@ -9,19 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Stats">
     <Grid>
-
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
-
         </Border>
-        <materialDesign:Badged
-            Margin="50,50,0,0"
-            x:Name="CountingBadge"
-            BadgeColorZoneMode="PrimaryDark">
-            <Button
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
-                Click="Button_Click"
-                Content="CLICK ME!"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-        </materialDesign:Badged>
     </Grid>
 </Page>

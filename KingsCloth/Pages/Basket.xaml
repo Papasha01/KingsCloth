@@ -12,41 +12,40 @@
     <Grid>
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
         </Border>
-
-        <ListView x:Name="listviewUsers"  
-                  Margin="10,68,10,10"
-                  Width="760" 
+        <StackPanel Orientation="Horizontal">
+            <ListView x:Name="listviewUsers"  
+                  Margin="10,10,0,10"
+                  Width="570" 
+                  Height="420"
                   HorizontalAlignment="Left">
-            <ListViewItem 
+                <ListViewItem 
                 Margin="0,10,0,0"
-                Width="650" 
+                Width="570" 
                 HorizontalAlignment="Left" 
                 BorderBrush="Transparent" 
                 Background="Transparent" 
-
                  >
-                <StackPanel  Orientation="Horizontal" Height="100">
-                    <Image Source="/Pages/PagesAssets/2.png" Height="80"></Image>
-                    <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
-
-                        <TextBlock 
+                    <StackPanel  Orientation="Horizontal" Height="100">
+                        <Image Source="/Pages/PagesAssets/2.png" Height="80"></Image>
+                        <StackPanel Orientation="Vertical" Height="100" Width="250" Margin="10,0,0,0">
+                            <TextBlock 
                             Text="Title" 
                             Foreground="{DynamicResource TextColor}"   
                             Height="20" 
                             HorizontalAlignment="Center"/>
-                        <TextBlock 
+                            <TextBlock 
                             Text="Size: " 
                             Foreground="{DynamicResource TextColor}"  
                             FontFamily="Mukta Light" />
-                        <TextBlock 
+                            <TextBlock 
                             Text="Color: " 
                             Foreground="{DynamicResource TextColor}"  
                             FontFamily="Mukta Light" />
-                        <TextBlock 
+                            <TextBlock 
                             Text="Left: " 
                             Foreground="{DynamicResource TextColor}"  
                             FontFamily="Mukta Light" />
-                        <TextBlock 
+                            <TextBlock 
                             Text="Cost: " 
                             Foreground="{DynamicResource TextColor}"  
                             Margin="0,5,0,0" 
@@ -56,52 +55,118 @@
                             FontSize="18" 
                             TextAlignment="Left"/>
 
-                    </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
 
-                    <StackPanel Orientation="Horizontal">
-
-                        <Button
+                            <Button
+                            IsDefault="True"
                             Style="{StaticResource MaterialDesignOutlinedLightButton}"
                             Width="50"
                             Height="50"
                             Foreground="{DynamicResource TextColor}"
-                            BorderBrush="{DynamicResource TextColor}">
-                            <TextBlock
+                            BorderBrush="{DynamicResource TextColor}"
+                            Click="ButtonMinus_Click"
+                            materialDesign:ButtonAssist.CornerRadius="4,0,0,4"
+                            >
+
+                                <TextBlock
                                 Text="-"
                                 FontSize="32" FontFamily="Mukta Light"/>
-                        </Button>
-                        <TextBox
-                            VerticalAlignment="Center"
-                            Height="50"
-                            Width="50"
-                            VerticalScrollBarVisibility="Auto"
-                            BorderThickness="0,1,0,1"
-                            BorderBrush="{DynamicResource TextColor}" FontFamily="Mukta Light" Padding="0,0,0,0" Cursor="Arrow" IsEnabled="False"/>
-                        <Button
-                            Style="{StaticResource MaterialDesignOutlinedLightButton}"
-                            Width="50"
-                            Height="50"
-                            Foreground="{DynamicResource TextColor}"
-                            BorderBrush="{DynamicResource TextColor}">
-                            <TextBlock
-                                Text="+"
-                                FontSize="32" FontFamily="Mukta Light"/>
-                        </Button>
+                            </Button>
+                            <TextBox
+                                x:Name="CountTextBox"
+                                VerticalAlignment="Center"
+                                Height="50"
+                                Width="50"
+                                Text="1"
+                                VerticalScrollBarVisibility="Auto"
+                                BorderThickness="0,1,0,1"
+                                PreviewTextInput="TextBox_PreviewTextInput"
+                                BorderBrush="{DynamicResource TextColor}" 
+                                Foreground="{DynamicResource PrimTextColor}"
+                                FontFamily="Mukta Light" 
+                                Padding="0,12,0,0" 
+                                Cursor="Arrow" 
+                                FontSize="18" 
+                                TextAlignment="Center" 
+                                IsReadOnly="True" 
+                                TextWrapping="NoWrap" 
+                                FontStyle="Normal" 
+                                FontWeight="Normal" 
+                                FontStretch="Normal" 
+                                HorizontalAlignment="Center"/>
+                            <Button
+                                Style="{StaticResource MaterialDesignOutlinedLightButton}"
+                                Width="50"
+                                Height="50"
+                                Foreground="{DynamicResource TextColor}"
+                                BorderBrush="{DynamicResource TextColor}"
+                                materialDesign:ButtonAssist.CornerRadius="0,4,4,0"
+                                Click="ButtonPlus_Click">
+                                <TextBlock
+                                    Text="+"
+                                    FontSize="32" FontFamily="Mukta Light"/>
+                            </Button>
 
-                        <Button
-                        Style="{StaticResource MaterialDesignIconButton}"
-                        Click="ButtonDelete_Click" 
-                        Width="60"
-                        Height="60"
-                        Margin="25,0,0,0"
-                        Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Cursor="Hand">
-                            <materialDesign:PackIcon
-                            Kind="TrashCanOutline" />
-                        </Button>
+                            <Button
+                                Style="{StaticResource MaterialDesignIconButton}"
+                                Click="ButtonDelete_Click" 
+                                Width="60"
+                                Height="60"
+                                Margin="25,0,0,0"
+                                Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Cursor="Hand">
+                                <materialDesign:PackIcon
+                                    Kind="TrashCanOutline" />
+                            </Button>
+                        </StackPanel>
+
                     </StackPanel>
-                </StackPanel>
-            </ListViewItem>
-        </ListView>
+                </ListViewItem>
 
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+
+            <Line X1="0" Y1="30" X2="0" Y2="420" Margin="25,0,0,0">
+                <Line.Stroke>
+                    <RadialGradientBrush GradientOrigin="0.1,0.1" Center="0.1,0.1" RadiusX="0.1" RadiusY="0.1">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="{DynamicResource Primary900}" Offset="0.1" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Line.Stroke>
+            </Line>
+
+
+            <Button
+
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            Click="ButtonSendCheck_Click"
+            Width="120" Height="50"
+            Margin="40,0,20,25"
+            Background="{DynamicResource PrimaryBackgroundColor}"
+            BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+            materialDesign:ButtonAssist.CornerRadius="10"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            Cursor="Hand" VerticalAlignment="Bottom">
+                <TextBlock
+                Text="Оплатить" 
+                Cursor="Hand"
+                FontFamily="Mukta Light"
+                Foreground="{DynamicResource TextColor}"/>
+            </Button>
+
+        </StackPanel>
     </Grid>
 </Page>
