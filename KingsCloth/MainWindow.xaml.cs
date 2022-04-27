@@ -121,7 +121,9 @@ namespace KingsCloth
 
         private void ButtonBacket_Click(object sender, RoutedEventArgs e)
         {
-
+            fContainer.Navigate(new System.Uri("Pages/Basket.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Basket";
+            Title.Visibility = Visibility.Visible;
         }
     }
 }
