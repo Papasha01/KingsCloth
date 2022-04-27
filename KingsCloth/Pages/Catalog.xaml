@@ -104,6 +104,40 @@
             </Button>
         </StackPanel>
 
+        <ListView x:Name="listviewUsers"  
+                  Margin="0,50,25,23" Width="800">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn 
+                        x:Name="image"
+                        DisplayMemberBinding="{Binding Path=image}" 
+                        Header="Image" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        x:Name="name"
+                        DisplayMemberBinding="{Binding Path=name}" 
+                        Header="Name" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        x:Name="price"
+                        DisplayMemberBinding="{Binding Path=price}" 
+                        Header="Price" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        x:Name="material"
+                        DisplayMemberBinding="{Binding Path=material}" 
+                        Header="Material" 
+                        Width="150"/>
+                    <GridViewColumn 
+                        x:Name="color"
+                        DisplayMemberBinding="{Binding Path=color}" 
+                        Header="Color" 
+                        Width="150"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
         <!--<ListView x:Name="lv_product"  
                   Margin="10,68,10,10"
                   Width="760" 
