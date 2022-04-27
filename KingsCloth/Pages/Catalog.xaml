@@ -8,8 +8,70 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Catalog">
+    <Page.Resources>
+        <Style x:Key="CatalogStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Width" Value="650"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <StackPanel Orientation="Horizontal" Height="100">
+                            <Image Source="/Pages/PagesAssets/2.png" Height="80"></Image>
+                            <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
 
-    <Grid>
+                                <TextBlock 
+                                    Text="Title:" 
+                                    Foreground="{DynamicResource TextColor}"   
+                                    FontFamily="Mukta Light" />
+                                <TextBlock 
+                                    Text="Size: " 
+                                    Foreground="{DynamicResource TextColor}"  
+                                    FontFamily="Mukta Light" />
+                                <TextBlock 
+                            Text="Color: " 
+                            Foreground="{DynamicResource TextColor}"  
+                            FontFamily="Mukta Light" />
+                                <TextBlock 
+                                    Text="Left: " 
+                                    Foreground="{DynamicResource TextColor}"  
+                                    FontFamily="Mukta Light" />
+                                <TextBlock 
+                            Text="Cost: " 
+                            Foreground="{DynamicResource TextColor}"  
+                            Margin="0,5,0,0" 
+                            Height="34" 
+                            HorizontalAlignment="Stretch" 
+                            FontFamily="Mukta Light" 
+                            FontSize="18" 
+                            TextAlignment="Left"/>
+
+                            </StackPanel>
+
+                            <TextBlock 
+                        Width="150" 
+                        Foreground="{DynamicResource TextColor}"  
+                        Text="Description" 
+                        FontFamily="Mukta Light" />
+
+                            <Button
+                                Style="{StaticResource MaterialDesignIconButton}"
+                                Click="ButtonAddProduct_Click" 
+                                Width="60"
+                                Height="60"
+                                Margin="25,0,0,0"
+                                Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
+                                <materialDesign:PackIcon
+                                    Kind="Plus" />
+                            </Button>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+        <Grid>
 
         <Frame
             Name="fContainer"
@@ -104,52 +166,24 @@
             </Button>
         </StackPanel>
 
-        <ListView x:Name="listviewUsers"  
-                  Margin="0,50,25,23" Width="800">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn 
-                        x:Name="image"
-                        DisplayMemberBinding="{Binding Path=image}" 
-                        Header="Image" 
-                        Width="150"/>
-                    <GridViewColumn 
-                        x:Name="name"
-                        DisplayMemberBinding="{Binding Path=name}" 
-                        Header="Name" 
-                        Width="150"/>
-                    <GridViewColumn 
-                        x:Name="price"
-                        DisplayMemberBinding="{Binding Path=price}" 
-                        Header="Price" 
-                        Width="150"/>
-                    <GridViewColumn 
-                        x:Name="material"
-                        DisplayMemberBinding="{Binding Path=material}" 
-                        Header="Material" 
-                        Width="150"/>
-                    <GridViewColumn 
-                        x:Name="color"
-                        DisplayMemberBinding="{Binding Path=color}" 
-                        Header="Color" 
-                        Width="150"/>
-                </GridView>
-            </ListView.View>
+       
 
-        </ListView>
-
-        <!--<ListView x:Name="lv_product"  
+        <ListView x:Name="lv_product"  
                   Margin="10,68,10,10"
                   Width="760" 
-                  HorizontalAlignment="Left">
-            <ListViewItem 
+                  HorizontalAlignment="Left"
+                  
+                  >
+            <ListViewItem Style="{StaticResource CatalogStyle}">
+                
+            </ListViewItem>
+           
+            <!--<ListViewItem 
                 Margin="0,10,0,0"
                 Width="650" 
                 HorizontalAlignment="Left" 
                 BorderBrush="Transparent" 
-                Background="Transparent" 
-
-                 >
+                Background="Transparent" >
                 <StackPanel  Orientation="Horizontal" Height="100">
                     <Image Source="/Pages/PagesAssets/2.png" Height="80"></Image>
                     <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
@@ -199,8 +233,8 @@
                             Kind="Plus" />
                     </Button>
                 </StackPanel>
-            </ListViewItem>
-        </ListView>-->
+            </ListViewItem>-->
+        </ListView>
     </Grid>
 
 
