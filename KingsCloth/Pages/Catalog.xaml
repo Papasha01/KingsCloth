@@ -21,7 +21,7 @@
                             <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
 
                                 <TextBlock 
-                                    Text="Title:" 
+                                    Text="{Binding name}" 
                                     Foreground="{DynamicResource TextColor}"   
                                     FontFamily="Mukta Light" />
                                 <TextBlock 
