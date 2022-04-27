@@ -33,4 +33,13 @@
         </Setter>
     </Style>
 
+    <Style x:Key="CustomMaterialDesignFlatButton" 
+        BasedOn="{StaticResource MaterialDesignFlatButton}"
+        TargetType="{x:Type Button}">
+        <Style.Resources>
+            <Color x:Key="PrimaryHueMidBrushColor">Red</Color>
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Red" />
+        </Style.Resources>
+    </Style>
+
 </ResourceDictionary>

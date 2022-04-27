@@ -188,9 +188,7 @@
                         materialDesign:HintAssist.Hint="Amount"
                         materialDesign:TextFieldAssist.HasClearButton="True" 
                         Foreground="{DynamicResource TextColor}"
-
                         FontFamily="Mukta Light" 
-
                         FontSize="16" 
                         FontWeight="Normal" 
                         CaretBrush="{DynamicResource PrimTextColor}" 
