@@ -45,7 +45,7 @@
                 </GridView>
             </ListView.View>
 
-            <ListView.ItemContainerStyle>
+            <!--<ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="Background" Value="Transparent" />
                     <Setter Property="Template">
@@ -56,9 +56,8 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-            </ListView.ItemContainerStyle>
+            </ListView.ItemContainerStyle>-->
 
         </ListView>
-        <Button Content="Button" Margin="0,418,0,0" Click="Button_Click"/>
     </Grid>
 </Page>

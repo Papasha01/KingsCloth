@@ -15,6 +15,9 @@
     <!-- Color Picker  -->
     <SolidColorBrush x:Key="TransparentGreen" Color="#9963AB3F"/>
     <SolidColorBrush x:Key="TransparentRed" Color="#99E64539"/>
+    <SolidColorBrush x:Key="TransparentBlue" Color="#662415D8"/>
+    <SolidColorBrush x:Key="TransparentBlack" Color="#66000000"/>
+    <SolidColorBrush x:Key="TransparentGray" Color="#66414040"/>
 
 
     <!-- Primary Colors -->
