@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Media.Imaging;
 
 namespace KingsCloth
 {
@@ -30,7 +31,7 @@ namespace KingsCloth
         public string color { get; set; }
         public int price { get; set; }
         public string description { get; set; }
-        //public byte[] photo { get; set; }
+        public BitmapSource image { get; set; }
         //public int id_category { get; set; }
         //public string material { get; set; }
     }

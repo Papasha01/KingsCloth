@@ -63,7 +63,7 @@ namespace KingsCloth.Pages
 
             using (var stream = new MemoryStream(req.select_picture_product(21)))
             {
-                var image = new BitmapImage();
+                BitmapImage image = new BitmapImage();
                 image.BeginInit();
                 image.CacheOption = BitmapCacheOption.OnLoad;
                 image.StreamSource = stream;

@@ -39,7 +39,7 @@ namespace KingsCloth.Pages
 
             reqDB db = new reqDB();
             var table = db.select_product();
-
+            
             List<products> productList = new List<products>();
             productList = (from DataRow dr in table.Rows
                            select new products()
@@ -47,7 +47,8 @@ namespace KingsCloth.Pages
                                name = dr["name"].ToString(),
                                color = dr["color"].ToString(),
                                price = Convert.ToInt32(dr["price"]),
-                               description = dr["description"].ToString()
+                               description = dr["description"].ToString(),
+                               image = (BitmapSource)new ImageSourceConverter().ConvertFrom(dr["image"])
                            }).ToList();
 
             listview_product.Items.Clear();

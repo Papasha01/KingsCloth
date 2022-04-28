@@ -177,7 +177,15 @@
                             <RowDefinition Height="70"/>
                             <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
-
+                        <Image  Height="80">
+                            <Image.Source>
+                                <Binding Path="image">
+                                    <Binding.TargetNullValue>
+                                        Source="/Pages/PagesAssets/2.png"
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
                         <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
                             <TextBlock 
                                     Text="{Binding name}" 
