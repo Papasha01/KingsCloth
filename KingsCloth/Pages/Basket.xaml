@@ -161,10 +161,11 @@
             materialDesign:ShadowAssist.ShadowDepth="Depth2"
             Cursor="Hand" VerticalAlignment="Bottom">
                 <TextBlock
-                Text="Оплатить" 
-                Cursor="Hand"
-                FontFamily="Mukta Light"
-                Foreground="{DynamicResource TextColor}"/>
+                    Text="Pay" 
+                    Cursor="Hand"
+                    FontSize="18"
+                    FontFamily="Mukta Light"
+                    Foreground="{DynamicResource TextColor}"/>
             </Button>
 
         </StackPanel>

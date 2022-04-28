@@ -25,7 +25,6 @@ namespace KingsCloth.Pages
         {
             InitializeComponent();
             update_listView();
-
         }
 
         DataTable table = new DataTable();

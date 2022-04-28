@@ -42,19 +42,7 @@
             Cursor="Hand" 
             BorderBrush="{DynamicResource TextColor}" />
 
-        <Button
-            Style="{StaticResource MaterialDesignFlatLightButton}"
-            Click="clck_upload"
-            Content="upload"
-            Foreground="{DynamicResource TextColor}"
-            Width="200"
-            HorizontalAlignment="Left" 
-            Margin="20,309,0,109" 
-            FontFamily="Mukta Light" 
-            FontSize="18" 
-            Cursor="Hand" 
-            BorderBrush="{DynamicResource TextColor}" />
-
+        
 
         <StackPanel Width="200" Height="450">
 
@@ -144,7 +132,7 @@
                 Height="45"
                 FontFamily="Mukta Light" 
                 FontSize="18"
-                Margin="0,40,0,0" >
+                Margin="0,40,0,0"  >
                 <ComboBoxItem
                     Content="Red" 
                     Foreground="White"
@@ -153,6 +141,18 @@
                     Content="Green"
                     Foreground="White"
                     Background="{DynamicResource TransparentGreen}"/>
+                <ComboBoxItem
+                    Content="Blue"
+                    Foreground="White"
+                    Background="{DynamicResource TransparentBlue}"/>
+                <ComboBoxItem
+                    Content="Black"
+                    Foreground="White"
+                    Background="{DynamicResource TransparentBlack}"/>
+                <ComboBoxItem
+                    Content="Gray"
+                    Foreground="White"
+                    Background="{DynamicResource TransparentGray}"/>
             </ComboBox>
 
 

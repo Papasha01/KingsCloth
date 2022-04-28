@@ -70,7 +70,7 @@
         </Style>
     </Page.Resources>
 
-        <Grid>
+    <Grid>
 
         <Frame
             Name="fContainer"
@@ -80,7 +80,7 @@
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
 
         </Border>
-        
+
         <StackPanel 
             Grid.Row="0" 
             Height="60" 
