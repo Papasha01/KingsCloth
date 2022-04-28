@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,9 +37,21 @@ namespace KingsCloth.Pages
         {
             //fContainer.NavigationService.Navigate(new Uri("Pages/Basket.xaml", UriKind.Relative));
 
-            reqDB req = new reqDB();
-            var table = req.select_product();
+            reqDB db = new reqDB();
+            var table = db.select_product();
 
+            List<products> productList = new List<products>();
+            productList = (from DataRow dr in table.Rows
+                           select new products()
+                           {
+                               name = dr["name"].ToString(),
+                               color = dr["color"].ToString(),
+                               price = Convert.ToInt32(dr["price"]),
+                               description = dr["description"].ToString()
+                           }).ToList();
+
+            listview_product.Items.Clear();
+            listview_product.ItemsSource = productList;
         }
     }
 }
