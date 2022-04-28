@@ -48,6 +48,7 @@ namespace KingsCloth.Pages
                 PrBar.Background = new SolidColorBrush(Colors.Green);
                 PrBar.Foreground = new SolidColorBrush(Colors.Green);
                 TogButt.IsChecked = true;
+                _dispTimer.Stop();
             }
         }
 

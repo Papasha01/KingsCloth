@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
+using System.Net;
 
 namespace KingsCloth.Pages
 {
@@ -51,6 +53,18 @@ namespace KingsCloth.Pages
 
         private void ButtonSendCheck_Click(object sender, RoutedEventArgs e)
         {
+            MailAddress from = new MailAddress("kings.cloth.dp@gmail.com", "Rinat");
+            //Куда отправлять
+            MailAddress to = new MailAddress("nicken1898@gmail.com");
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = "Тест";
+            m.Body = "<h2>Письмо-тест работы smtp-клиента</h2>";
+            m.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("kings.cloth.dp@gmail.com", "KingsCloth");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+            Console.Read();
             SuccessfulDialog dialog = new SuccessfulDialog();
             dialog.Show();
         }
