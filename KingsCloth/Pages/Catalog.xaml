@@ -165,18 +165,17 @@
             </Button>
         </StackPanel>
 
-        <ListView x:Name="listview_product"
-                  Margin="10,68,10,10"
-                  Width="760" 
-                  HorizontalAlignment="Left">
+        <ListView 
+            x:Name="listview_product"
+            Margin="10,68,10,10"
+            Width="760" 
+            HorizontalAlignment="Left">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="20" Width="400">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70"/>
-                            <RowDefinition Height="310"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
@@ -184,18 +183,18 @@
                                     Text="{Binding name}" 
                                     Foreground="{DynamicResource TextColor}"   
                                     FontFamily="Mukta Light" />
-                            <!--<TextBlock 
+                            <TextBlock 
                                     Text="{Binding size}" 
                                     Foreground="{DynamicResource TextColor}"  
-                                    FontFamily="Mukta Light" />-->
+                                    FontFamily="Mukta Light" />
                             <TextBlock 
-                            Text="{Binding color}" 
-                            Foreground="{DynamicResource TextColor}"  
-                            FontFamily="Mukta Light" />
-                            <!--<TextBlock 
+                                Text="{Binding color}" 
+                                Foreground="{DynamicResource TextColor}"  
+                                FontFamily="Mukta Light" />
+                            <TextBlock 
                                     Text="{Binding left}" 
                                     Foreground="{DynamicResource TextColor}"  
-                                    FontFamily="Mukta Light" />-->
+                                    FontFamily="Mukta Light" />
                             <TextBlock 
                             Text="{Binding price}" 
                             Foreground="{DynamicResource TextColor}"  
