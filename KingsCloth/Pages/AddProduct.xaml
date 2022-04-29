@@ -45,7 +45,7 @@
             BorderBrush="{DynamicResource TextColor}" />
             
             <TextBox
-                x:Name=""
+                x:Name="tx_description"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 materialDesign:HintAssist.Hint="Description"
                 VerticalAlignment="Top"
@@ -189,21 +189,13 @@
 
             <ComboBox
                 x:Name="cmb_storage"
-                materialDesign:HintAssist.Hint="Storage Id" 
+                materialDesign:HintAssist.Hint="Storage adress" 
                 Foreground="{DynamicResource TextColor}"
                 Width="150"
                 Height="45"
                 FontFamily="Mukta Light" 
                 FontSize="18"
                 Margin="0,20,0,0"  >
-                <ComboBoxItem
-                    Content="1" />
-                <ComboBoxItem
-                    Content="2" />
-                <ComboBoxItem
-                    Content="3" />
-                <ComboBoxItem
-                    Content="4" />
             </ComboBox>
 
 

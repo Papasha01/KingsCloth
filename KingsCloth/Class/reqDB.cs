@@ -44,7 +44,7 @@ namespace KingsCloth
             db_con.closeConn();
         }
 
-        public void insert_product(string name, int price, int id_category, string material, string color, string description, byte[] image, int id_size)
+        public void insert_product(string name, int price, int id_category, string material, string color, string description, byte[] image, int id_storage, int id_size)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`product` (`id`, `name`, `image`, `price`, `id_category`, `material`, `color`, `description`, id_storage, id_size) " +
                 "VALUES (NULL, @name, @image, @price, @id_category, @material, @color, @description, @id_storage, @id_size)", db_con.getConn());
@@ -55,8 +55,8 @@ namespace KingsCloth
             command.Parameters.Add("@color", MySqlDbType.VarChar).Value = color;
             command.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
             command.Parameters.Add("@image", MySqlDbType.Blob).Value = image;
-            command.Parameters.Add("@id_storage", MySqlDbType.Blob).Value = 1;      //Временно
-            command.Parameters.Add("@id_size", MySqlDbType.Blob).Value = 1;         //Временно
+            command.Parameters.Add("@id_storage", MySqlDbType.Blob).Value = id_storage;
+            command.Parameters.Add("@id_size", MySqlDbType.Blob).Value = id_size;
             db_con.openConn();
             command.ExecuteNonQuery();
             db_con.closeConn();
@@ -109,6 +109,15 @@ namespace KingsCloth
         {
             DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `storage`", db_con.getConn());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable select_storage_address()
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT id, address FROM `storage`", db_con.getConn());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             return table;

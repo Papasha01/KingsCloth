@@ -28,9 +28,20 @@ namespace KingsCloth.Pages
         {
             InitializeComponent();
 
+            update_items_storage();
         }
 
         byte[] imageData = null;
+        reqDB db = new reqDB();
+        private void update_items_storage()
+        {
+            var dt = db.select_storage_address();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cmb_storage.Items.Add(dt.Rows[i]["id"].ToString() + " " + dt.Rows[i]["address"].ToString());
+            }
+        }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -45,15 +56,22 @@ namespace KingsCloth.Pages
             };
             if (openFileDialog.ShowDialog() == true)
             {
-                var file = openFileDialog.FileName;
-
-                using (FileStream fs = new FileStream(file, FileMode.Open))
+                var path = openFileDialog.FileName;
+                try
                 {
-                    imageData = new byte[fs.Length];
-                    fs.Read(imageData, 0, imageData.Length);
+                    using (FileStream fs = new FileStream(path, FileMode.Open))
+                    {
+                        imageData = new byte[fs.Length];
+                        fs.Read(imageData, 0, imageData.Length);
+                        fs.Dispose();
+                    }
                 }
-
-                picture.Source = new BitmapImage(new Uri(file));
+                catch (Exception)
+                {
+                    MessageBox.Show("Выберете другую картинку");
+                }
+                
+                picture.Source = new BitmapImage(new Uri(path));
             }
         }
 
@@ -88,7 +106,16 @@ namespace KingsCloth.Pages
                 Convert.ToInt32(tx_xl.Text) +
                 Convert.ToInt32(tx_xxl.Text) > 0)
                 {
-                    reqDB req = new reqDB();
+                    string cmb = cmb_storage.Text;
+                    string id_storage = "";
+                    for (int i = 0; i < cmb.Length; i++)
+                    {
+                        if (!Char.IsWhiteSpace(cmb[i]))
+                            id_storage += cmb[i];
+                        else break;
+                    }
+
+                        reqDB req = new reqDB();
                     req.insert_size(
                         Convert.ToInt32(tx_xs.Text),
                         Convert.ToInt32(tx_s.Text),
@@ -97,7 +124,7 @@ namespace KingsCloth.Pages
                         Convert.ToInt32(tx_xl.Text),
                         Convert.ToInt32(tx_xxl.Text));
                     int max_id_size = Convert.ToInt32(req.select_max_id_size().Rows[0][0]);
-                    req.insert_product(tx_title.Text, Convert.ToInt32(tx_cost.Text), (int)cmb_category.SelectedIndex, tx_material.Text, cmb_color.Text, "some text", imageData, max_id_size);
+                    req.insert_product(tx_title.Text, Convert.ToInt32(tx_cost.Text), cmb_category.SelectedIndex, tx_material.Text, cmb_color.Text, tx_description.Text, imageData, Convert.ToInt32(id_storage), max_id_size);
                 }
                 else
                 {

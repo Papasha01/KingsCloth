@@ -36,8 +36,6 @@ namespace KingsCloth.Pages
 
         private void ButtonBasket_Click(object sender, RoutedEventArgs e)
         {
-            //fContainer.NavigationService.Navigate(new Uri("Pages/Basket.xaml", UriKind.Relative));
-
             reqDB req = new reqDB();
             var dt = req.select_product();
 
@@ -54,18 +52,6 @@ namespace KingsCloth.Pages
                 product.left = req.select_product_quantity((int)dt.Rows[i]["id_size"]);
                 productList.Add(product);
             }
-
-            //List<products> productList = new List<products>();
-            //productList = (from DataRow dr in table.Rows
-            //               select new products()
-            //               {
-            //                   name = dr["name"].ToString(),
-            //                   color = dr["color"].ToString(),
-            //                   price = Convert.ToInt32(dr["price"]),
-            //                   description = dr["description"].ToString(),
-            //                   image = (BitmapSource)new ImageSourceConverter().ConvertFrom(dr["image"])
-            //                   left = req.select_storage()
-            //               }).ToList();
 
             listview_product.Items.Clear();
             listview_product.ItemsSource = productList;
