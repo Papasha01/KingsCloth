@@ -3,14 +3,88 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KingsCloth.Pages"
+      xmlns:local="clr-namespace:KingsCloth.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HelpMenu">
 
     <Grid>
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}"/>
+        <StackPanel VerticalAlignment="Center">
+            <Border 
+                CornerRadius="20" 
+                Background="{DynamicResource PrimaryBackgroundColor}" 
+                Margin="0,0,0,0" 
+                Height="auto" 
+                Width="600"
+                materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                <StackPanel  Width="550" Margin="0,0,0,0">
+                    <TextBlock
+                        Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                        Text="FAQs" Foreground="{DynamicResource PrimTextColor}" 
+                        Margin="-20,0,0,5"
+                        Padding="20,0,0,0"/>
+                    <Expander
+                        Background="{DynamicResource PrimaryBackgroundColor}"
+                        Foreground="{DynamicResource FAQs}"
+                        HorizontalAlignment="Stretch"
+                        FontFamily="Mukta Light"
+                        Header="What should I do if I didn't receive the tracking number?">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Width="450"
+                            Height="50"
+                            Margin="24,0,24,12" HorizontalAlignment="Left">
+                            <TextBlock
+                                FontSize="14"
+                                TextWrapping="Wrap"
+                                Foreground="{DynamicResource TextColor}"
+                                Text="Contact customer service and provide them with your order number to get a new tracking number" />
+                            
+                        </StackPanel>
+                    </Expander>
+                    <Border/>
+                    <Expander
+                        Background="{DynamicResource PrimaryBackgroundColor}"
+                        Foreground="{DynamicResource FAQs}"
+                        HorizontalAlignment="Stretch"
+                        FontFamily="Mukta Light"
+                        Header="What to do if there is no product of the right size?" >
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <TextBlock
+                                FontSize="14"
+                                TextWrapping="Wrap"
+                                Foreground="{DynamicResource TextColor}"
+                                Text="Wait for the next delivery of products" />
+                            
+                        </StackPanel>
+                    </Expander>
+                    <Border/>
+                    <Expander
+                        Background="{DynamicResource PrimaryBackgroundColor}"
+                        Foreground="{DynamicResource FAQs}"
+                        FontFamily="Mukta Light"
+                        HorizontalAlignment="Stretch"
+                        Header="Will there be new products?">
+                        <StackPanel
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+                            Margin="24,8,24,16">
+                            <TextBlock
+                                FontSize="14"
+                                TextWrapping="Wrap"
+                                Foreground="{DynamicResource TextColor}"
+                                Text="New products will be added in the near future" />
+                            
 
-
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Grid>
 </Page>

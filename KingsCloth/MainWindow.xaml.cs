@@ -61,7 +61,9 @@ namespace KingsCloth
 
         private void ButtonOpenHelp_Click(object sender, RoutedEventArgs e)
         {
-
+            fContainer.Navigate(new System.Uri("Pages/HelpMenu.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Help";
+            Title.Visibility = Visibility.Visible;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
