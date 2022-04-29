@@ -14,37 +14,69 @@
 
 
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}"/>
-
-        <Border CornerRadius="10" Height="220" Width="200" Background="{DynamicResource ShadowDropBackground}" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top">
-            <Border.BitmapEffect>
-                <DropShadowBitmapEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="1" Softness="2" />
-            </Border.BitmapEffect>
-            <Image 
+        <StackPanel Orientation="Vertical" Height="450">
+            
+            
+            <Border CornerRadius="10" Height="200" Width="180" Background="{DynamicResource ShadowDropBackground}" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top">
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="1" Softness="2" />
+                </Border.BitmapEffect>
+                <Image 
                 x:Name="picture"
-                Height="200" 
-                Width="200" 
+                Height="180" 
+                Width="180" 
                 VerticalAlignment="Top" 
                 Source="/Pages/PagesAssets/2.png"
                 />
-        </Border>
+            </Border>
 
-        <Button
+            <Button
             Style="{StaticResource MaterialDesignFlatLightButton}"
             Click="ButtonBase_OnClick"
             Content="Load Image"
             Foreground="{DynamicResource TextColor}"
             Width="200"
             HorizontalAlignment="Left" 
-            Margin="20,80,0,0" 
+            Margin="20,10,0,0" 
             VerticalAlignment="Stretch" 
             FontFamily="Mukta Light" 
             FontSize="18" 
             Cursor="Hand" 
             BorderBrush="{DynamicResource TextColor}" />
+            
+            <TextBox
+                x:Name=""
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                materialDesign:HintAssist.Hint="Description"
+                VerticalAlignment="Top"
+                materialDesign:TextFieldAssist.HasClearButton="True" 
+                Foreground="{DynamicResource TextColor}"
+                Width="240" 
+                Height="130"
+                FontFamily="Mukta Light" 
+                FontSize="18" 
+                FontWeight="Normal" 
+                CaretBrush="{DynamicResource PrimTextColor}" 
+                SelectionBrush="{DynamicResource PrimTextColor}" 
+                Cursor="Arrow" 
+                Background="{x:Null}" 
+                HorizontalAlignment="Left" 
+                Margin="25,25,0,0" TextChanged="TextBox_TextChanged"/>
+            
+
+
+        </StackPanel>
+
 
         
 
         <StackPanel Width="200" Height="450">
+
+            <TextBlock
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="Info" Foreground="{DynamicResource PrimTextColor}" 
+                Margin="0,30,0,5"
+                Padding="20,0,0,0"/>
 
             <TextBox
                 x:Name="tx_title"
@@ -63,7 +95,7 @@
                 Cursor="Arrow" 
                 Background="{x:Null}" 
                 HorizontalAlignment="Stretch" 
-                Margin="0,35,0,0" TextChanged="TextBox_TextChanged"/>
+                Margin="0,0,0,0" TextChanged="TextBox_TextChanged"/>
 
             <TextBox
                 x:Name="tx_cost"
@@ -71,7 +103,7 @@
                 materialDesign:HintAssist.Hint="Cost"
                 VerticalAlignment="Center"
                 materialDesign:TextFieldAssist.HasClearButton="True"
-                materialDesign:TextFieldAssist.SuffixText="₽" 
+                materialDesign:TextFieldAssist.SuffixText="$" 
                 Foreground="{DynamicResource TextColor}"
                 Width="150" 
                 Height="45"
@@ -82,7 +114,7 @@
                 SelectionBrush="{DynamicResource PrimTextColor}" 
                 Cursor="Arrow" 
                 Background="{x:Null}"
-                Margin="0,30,0,0"/>
+                Margin="0,20,0,0"/>
 
             <TextBox
                 x:Name="tx_material"
@@ -101,7 +133,7 @@
                 Cursor="Arrow" 
                 Background="{x:Null}" 
                 HorizontalAlignment="Stretch" 
-                Margin="0,35,0,0" TextChanged="TextBox_TextChanged"/>
+                Margin="0,20,0,0" TextChanged="TextBox_TextChanged"/>
 
             <ComboBox
                 x:Name="cmb_category"
@@ -111,7 +143,7 @@
                 Height="45"
                 FontFamily="Mukta Light" 
                 FontSize="18"
-                Margin="0,40,0,0" >
+                Margin="0,20,0,0" >
                 <ComboBoxItem
                     Content="T-shirt" />
                 <ComboBoxItem
@@ -132,7 +164,7 @@
                 Height="45"
                 FontFamily="Mukta Light" 
                 FontSize="18"
-                Margin="0,40,0,0"  >
+                Margin="0,20,0,0"  >
                 <ComboBoxItem
                     Content="Red" 
                     Foreground="White"
@@ -153,6 +185,25 @@
                     Content="Gray"
                     Foreground="White"
                     Background="{DynamicResource TransparentGray}"/>
+            </ComboBox>
+
+            <ComboBox
+                x:Name="cmb_storage"
+                materialDesign:HintAssist.Hint="Storage Id" 
+                Foreground="{DynamicResource TextColor}"
+                Width="150"
+                Height="45"
+                FontFamily="Mukta Light" 
+                FontSize="18"
+                Margin="0,20,0,0"  >
+                <ComboBoxItem
+                    Content="1" />
+                <ComboBoxItem
+                    Content="2" />
+                <ComboBoxItem
+                    Content="3" />
+                <ComboBoxItem
+                    Content="4" />
             </ComboBox>
 
 

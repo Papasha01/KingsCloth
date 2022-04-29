@@ -113,11 +113,6 @@ namespace KingsCloth.Pages
                 tx_l.Text = "0";
                 tx_xl.Text = "0";
                 tx_xxl.Text = "0";
-
-                tx_title.Text = "";
-                tx_cost.Text = "";
-                tx_material.Text = "";
-
             }
         }
 
