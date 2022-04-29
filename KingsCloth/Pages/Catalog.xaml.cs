@@ -25,7 +25,6 @@ namespace KingsCloth.Pages
         public Catalog()
         {
             InitializeComponent();
-            load_product();
         }
 
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
@@ -34,7 +33,8 @@ namespace KingsCloth.Pages
             dialog.Show();
         }
 
-        private void load_product()
+
+        private void ButtonBasket_Click(object sender, RoutedEventArgs e)
         {
             reqDB req = new reqDB();
             var dt = req.select_product();
@@ -56,6 +56,5 @@ namespace KingsCloth.Pages
             listview_product.Items.Clear();
             listview_product.ItemsSource = productList;
         }
-
-    }      
+    }
 }

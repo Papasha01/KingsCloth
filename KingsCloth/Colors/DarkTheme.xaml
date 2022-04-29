@@ -6,9 +6,8 @@
 
     <SolidColorBrush x:Key="CheckBox" Color="#FF747A80"/>
 
-    <SolidColorBrush x:Key="TextColor" Color="#818288"/>
+    <SolidColorBrush x:Key="TextColor" Color="#78797f"/>
     <SolidColorBrush x:Key="PrimTextColor" Color="#909198"/>
-    <SolidColorBrush x:Key="FAQs" Color="#c4c5cc"/>
 
     <SolidColorBrush x:Key="TransparentTextColor" Color="#4C78797F"/>
     <SolidColorBrush x:Key="TransparentBackground" Color="#9926272B"/>
