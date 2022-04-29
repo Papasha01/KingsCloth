@@ -37,19 +37,34 @@ namespace KingsCloth.Pages
         {
             //fContainer.NavigationService.Navigate(new Uri("Pages/Basket.xaml", UriKind.Relative));
 
-            reqDB db = new reqDB();
-            var table = db.select_product();
-            
+            reqDB req = new reqDB();
+            var dt = req.select_product();
+
             List<products> productList = new List<products>();
-            productList = (from DataRow dr in table.Rows
-                           select new products()
-                           {
-                               name = dr["name"].ToString(),
-                               color = dr["color"].ToString(),
-                               price = Convert.ToInt32(dr["price"]),
-                               description = dr["description"].ToString(),
-                               image = (BitmapSource)new ImageSourceConverter().ConvertFrom(dr["image"])
-                           }).ToList();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                products product = new products();
+                product.name = dt.Rows[i]["name"].ToString();
+                product.color = dt.Rows[i]["color"].ToString();
+                product.price = (int)dt.Rows[i]["price"];
+                product.description = dt.Rows[i]["description"].ToString();
+                if (dt.Rows[i]["image"] != System.DBNull.Value)
+                    product.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(dt.Rows[i]["image"]);
+                product.left = req.select_product_quantity((int)dt.Rows[i]["id_size"]);
+                productList.Add(product);
+            }
+
+            //List<products> productList = new List<products>();
+            //productList = (from DataRow dr in table.Rows
+            //               select new products()
+            //               {
+            //                   name = dr["name"].ToString(),
+            //                   color = dr["color"].ToString(),
+            //                   price = Convert.ToInt32(dr["price"]),
+            //                   description = dr["description"].ToString(),
+            //                   image = (BitmapSource)new ImageSourceConverter().ConvertFrom(dr["image"])
+            //                   left = req.select_storage()
+            //               }).ToList();
 
             listview_product.Items.Clear();
             listview_product.ItemsSource = productList;

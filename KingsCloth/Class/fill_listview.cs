@@ -32,7 +32,7 @@ namespace KingsCloth
         public int price { get; set; }
         public string description { get; set; }
         public BitmapSource image { get; set; }
-        //public int id_category { get; set; }
+        public int left { get; set; }
         //public string material { get; set; }
     }
 }

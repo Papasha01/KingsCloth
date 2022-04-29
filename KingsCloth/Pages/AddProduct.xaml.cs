@@ -89,19 +89,19 @@ namespace KingsCloth.Pages
                 Convert.ToInt32(tx_xxl.Text) > 0)
                 {
                     reqDB req = new reqDB();
-                    req.insert_product(tx_title.Text, Convert.ToInt32(tx_cost.Text), (int)cmb_category.SelectedIndex, tx_material.Text, cmb_color.Text, "some text", imageData);
-                    int max_id_product = Convert.ToInt32(req.select_max_id_product().Rows[0][0]);
-                    req.insert_size(max_id_product,
+                    req.insert_size(
                         Convert.ToInt32(tx_xs.Text),
                         Convert.ToInt32(tx_s.Text),
                         Convert.ToInt32(tx_m.Text),
                         Convert.ToInt32(tx_l.Text),
                         Convert.ToInt32(tx_xl.Text),
                         Convert.ToInt32(tx_xxl.Text));
+                    int max_id_size = Convert.ToInt32(req.select_max_id_size().Rows[0][0]);
+                    req.insert_product(tx_title.Text, Convert.ToInt32(tx_cost.Text), (int)cmb_category.SelectedIndex, tx_material.Text, cmb_color.Text, "some text", imageData, max_id_size);
                 }
                 else
                 {
-                    MessageBox.Show("Не указано количество товара");
+                    MessageBox.Show("Ошибка при добавлении товара");
                 }
             }
             catch (Exception)

@@ -10,10 +10,9 @@ namespace KingsCloth
     {
         db_con db_con = new db_con();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        DataTable table = new DataTable();
         public DataTable select_access(string log, string pas)
         {
-            table.Clear();
+            DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `user` where login = @log and password = aes_encrypt(@pas,'potato6')", db_con.getConn());
             command.Parameters.Add("@log", MySqlDbType.VarChar).Value = log;
             command.Parameters.Add("@pas", MySqlDbType.VarChar).Value = pas;
@@ -24,7 +23,7 @@ namespace KingsCloth
 
         public DataTable select_user()
         {
-            table.Clear();
+            DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `user`", db_con.getConn());
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -45,10 +44,10 @@ namespace KingsCloth
             db_con.closeConn();
         }
 
-        public void insert_product(string name, int price, int id_category, string material, string color, string description, byte[] image)
+        public void insert_product(string name, int price, int id_category, string material, string color, string description, byte[] image, int id_size)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`product` (`id`, `name`, `image`, `price`, `id_category`, `material`, `color`, `description`) " +
-                "VALUES (NULL, @name, @image, @price, @id_category, @material, @color, @description)", db_con.getConn());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`product` (`id`, `name`, `image`, `price`, `id_category`, `material`, `color`, `description`, id_storage, id_size) " +
+                "VALUES (NULL, @name, @image, @price, @id_category, @material, @color, @description, @id_storage, @id_size)", db_con.getConn());
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@price", MySqlDbType.Int32).Value = price;
             command.Parameters.Add("@id_category", MySqlDbType.Int32).Value = id_category + 1;
@@ -56,25 +55,26 @@ namespace KingsCloth
             command.Parameters.Add("@color", MySqlDbType.VarChar).Value = color;
             command.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
             command.Parameters.Add("@image", MySqlDbType.Blob).Value = image;
+            command.Parameters.Add("@id_storage", MySqlDbType.Blob).Value = 1;      //Временно
+            command.Parameters.Add("@id_size", MySqlDbType.Blob).Value = 1;         //Временно
             db_con.openConn();
             command.ExecuteNonQuery();
             db_con.closeConn();
         }
-        
-        public DataTable select_max_id_product()
+
+        public DataTable select_max_id_size()
         {
-            table.Clear();
-            MySqlCommand command = new MySqlCommand("SELECT max(id) FROM product", db_con.getConn());
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT max(id) FROM size", db_con.getConn());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             return table;
         }
 
-        public void insert_size(int id_product, int xs, int s, int m, int l, int xl, int xxl)
+        public void insert_size(int xs, int s, int m, int l, int xl, int xxl)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`size` (`id`, `id_product`, `xs`, `s`, `m`, `l`, `xl`, `xxl`) " +
-                "VALUES (NULL, @id_product, @xs, @s, @m, @l, @xl, @xxl)", db_con.getConn());
-            command.Parameters.Add("@id_product", MySqlDbType.Int32).Value = id_product;
+            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`size` (`id`, `xs`, `s`, `m`, `l`, `xl`, `xxl`) " +
+                "VALUES (NULL, @xs, @s, @m, @l, @xl, @xxl)", db_con.getConn());
             command.Parameters.Add("@xs", MySqlDbType.Int32).Value = xs;
             command.Parameters.Add("@s", MySqlDbType.Int32).Value = s;
             command.Parameters.Add("@m", MySqlDbType.Int32).Value = m;
@@ -88,7 +88,7 @@ namespace KingsCloth
 
         public byte[] select_picture_product(int id_product)
         {
-            table.Clear();
+            DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand("SELECT photo FROM product where id = @id_product", db_con.getConn());
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -98,7 +98,7 @@ namespace KingsCloth
 
         public DataTable select_product()
         {
-            table.Clear();
+            DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `product`", db_con.getConn());
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -107,16 +107,35 @@ namespace KingsCloth
 
         public DataTable select_storage()
         {
-            table.Clear();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `warehouse`", db_con.getConn());
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `storage`", db_con.getConn());
             adapter.SelectCommand = command;
             adapter.Fill(table);
             return table;
         }
 
+        public int select_product_quantity(int id_size)
+        {DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT xs, s, m, l, xl, xxl FROM `size` where id = @id_size", db_con.getConn());
+            command.Parameters.Add("@id_size", MySqlDbType.Int32).Value = id_size;
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            if (table.Rows.Count != 0)
+            {
+                int left = (int)table.Rows[0][0] +
+                (int)table.Rows[0][1] +
+                (int)table.Rows[0][2] +
+                (int)table.Rows[0][3] +
+                (int)table.Rows[0][4] +
+                (int)table.Rows[0][5];
+                return left;
+            }
+            else return 0;
+        }
+
         public void insert_storage(byte[] image)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`warehouse` (`image`, `id`, `address`, `capacity`, `phone`) " +
+            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`storage` (`image`, `id`, `address`, `capacity`, `phone`) " +
                 "VALUES (@image, NULL, '136155, Московская область, город Кашира, пер. Космонавтов, 05', '984', '+78917199917')", db_con.getConn());
 
             command.Parameters.Add("@image", MySqlDbType.Blob).Value = image;
