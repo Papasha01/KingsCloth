@@ -57,7 +57,7 @@
             NavigationUIVisibility="Hidden"/>
 
         <!--MouseDown="Window_MouseDown" не забыть вставить!!!!!!!!!!-->
-        <Border x:Name="border"  Height="37" VerticalAlignment="Top"   Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,0">
+        <Border x:Name="border"  Height="37" MouseDown="Window_MouseDown" VerticalAlignment="Top"   Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,0">
             <TextBlock x:Name="Title" Width="220" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,0,0" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
         </Border>
 

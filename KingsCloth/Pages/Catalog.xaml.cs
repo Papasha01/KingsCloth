@@ -33,6 +33,7 @@ namespace KingsCloth.Pages
             dialog.Show();
         }
 
+
         private void ButtonBasket_Click(object sender, RoutedEventArgs e)
         {
             //fContainer.NavigationService.Navigate(new Uri("Pages/Basket.xaml", UriKind.Relative));

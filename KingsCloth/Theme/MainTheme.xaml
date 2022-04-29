@@ -41,5 +41,7 @@
             <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="Red" />
         </Style.Resources>
     </Style>
+    
+    
 
 </ResourceDictionary>

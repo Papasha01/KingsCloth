@@ -72,10 +72,6 @@
 
     <Grid>
 
-        <Frame
-            Name="fContainer"
-            Margin="88,50,20,20"
-            NavigationUIVisibility="Hidden"/>
 
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
 
@@ -165,65 +161,72 @@
             </Button>
         </StackPanel>
 
+
         <ListView 
             x:Name="listview_product"
             Margin="10,68,10,10"
-            Width="760" 
+            Width="780" 
             HorizontalAlignment="Left">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" Width="760" HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="20" Width="400">
+                    <Grid Margin="20">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="70"/>
-                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Image  Height="80">
-                            <Image.Source>
-                                <Binding Path="image">
-                                    <Binding.TargetNullValue>
-                                        Source="/Pages/PagesAssets/2.png"
-                                    </Binding.TargetNullValue>
-                                </Binding>
-                            </Image.Source>
-                        </Image>
-                        <StackPanel Orientation="Vertical" Height="100" Width="300" Margin="10,0,0,0">
-                            <TextBlock 
-                                    Text="{Binding name}" 
-                                    Foreground="{DynamicResource TextColor}"   
-                                    FontFamily="Mukta Light" />
-                            <TextBlock 
-                                    Text="{Binding size}" 
+
+
+                        <StackPanel Orientation="Vertical" Height="200" Width="180" Margin="10,0,0,0">
+                            <Border Width="50" Height="25" CornerRadius="10,0,10,0" Background="{DynamicResource SecundaryBackgroundColor}" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                                <TextBlock 
+                                    Text="{Binding price}" 
                                     Foreground="{DynamicResource TextColor}"  
-                                    FontFamily="Mukta Light" />
+                                    Margin="0,0,0,0" 
+                                    Padding="4,3,0,0"
+                                    Height="34" 
+                                    HorizontalAlignment="Stretch" 
+                                    FontFamily="Mukta Light" 
+                                    FontSize="18" 
+                                    TextAlignment="Left"/>
+                            </Border>
+
+                            <Image  Height="130" Width="140">
+                                <Image.Source>
+                                    <Binding Path="image">
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+
                             <TextBlock 
-                                Text="{Binding color}" 
-                                Foreground="{DynamicResource TextColor}"  
-                                FontFamily="Mukta Light" />
-                            <TextBlock 
-                                    Text="{Binding left}" 
-                                    Foreground="{DynamicResource TextColor}"  
-                                    FontFamily="Mukta Light" />
-                            <TextBlock 
-                            Text="{Binding price}" 
-                            Foreground="{DynamicResource TextColor}"  
-                            Margin="0,5,0,0" 
-                            Height="34" 
-                            HorizontalAlignment="Stretch" 
-                            FontFamily="Mukta Light" 
-                            FontSize="18" 
-                            TextAlignment="Left"/>
+                                Text="{Binding name}" 
+                                Margin="0,5,0,0"
+                                Foreground="{DynamicResource TextColor}"   
+                                FontFamily="Mukta Light" 
+                                FontSize="24"
+                                HorizontalAlignment="Center" />
 
                         </StackPanel>
-
-                        <TextBlock 
-                        Width="150" 
-                        Foreground="{DynamicResource TextColor}"  
-                        Text="{Binding description}" 
-                        FontFamily="Mukta Light" />
-
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <!--<ListView.Resources>
+                <Style x:Key="ListViewStlyle1" TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border CornerRadius="20">
+                                    
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.Resources>-->
         </ListView>
     </Grid>
 
