@@ -26,7 +26,7 @@ namespace KingsCloth
 
     public class products
     {
-        //public int id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string color { get; set; }
         public int price { get; set; }

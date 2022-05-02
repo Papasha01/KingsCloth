@@ -105,6 +105,16 @@ namespace KingsCloth
             return table;
         }
 
+        public DataTable select_product_by_id(int id)
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `product` where id = @id", db_con.getConn());
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            return table;
+        }
+
         public DataTable select_storage()
         {
             DataTable table = new DataTable();
@@ -123,23 +133,14 @@ namespace KingsCloth
             return table;
         }
 
-        public int select_product_quantity(int id_size)
-        {DataTable table = new DataTable();
+        public DataTable select_product_quantity(int id_size)
+        {
+            DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand("SELECT xs, s, m, l, xl, xxl FROM `size` where id = @id_size", db_con.getConn());
             command.Parameters.Add("@id_size", MySqlDbType.Int32).Value = id_size;
             adapter.SelectCommand = command;
             adapter.Fill(table);
-            if (table.Rows.Count != 0)
-            {
-                int left = (int)table.Rows[0][0] +
-                (int)table.Rows[0][1] +
-                (int)table.Rows[0][2] +
-                (int)table.Rows[0][3] +
-                (int)table.Rows[0][4] +
-                (int)table.Rows[0][5];
-                return left;
-            }
-            else return 0;
+            return table;
         }
 
         public void insert_storage(byte[] image)

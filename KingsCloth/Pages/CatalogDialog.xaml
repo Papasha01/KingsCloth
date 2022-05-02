@@ -16,7 +16,7 @@
     <Grid Background="{DynamicResource PrimaryBackgroundColor}">
 
         <!--MouseDown="Window_MouseDown" не забыть вставить!!!!!!!!!!-->
-        <Border x:Name="border" CornerRadius="8" Height="43" VerticalAlignment="Top" Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,-18,0,0">
+        <Border x:Name="border" CornerRadius="8" Height="53" VerticalAlignment="Top" Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,-18,0,0">
             <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Height="18" Text="Product" FontFamily="Mukta Light" VerticalAlignment="Top" Foreground="{DynamicResource TransparentTextColor}" FontWeight="Bold" FontSize="18" Margin="10,18,0,0" HorizontalAlignment="Left" Width="106" TextAlignment="Left" />
         </Border>
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
@@ -37,12 +37,14 @@
         <StackPanel RenderTransformOrigin="0.3,0.3" Margin="0,35,0,0">
 
             <TextBlock
+                x:Name="tx_name"
                 Text="Title" 
                 Cursor="Hand"
                 FontFamily="Mukta Light"
                 Foreground="{DynamicResource TextColor}" FontSize="24" TextAlignment="Center"/>
 
             <Image 
+                x:Name="pic_product"
                 Margin="0,10,0,0"
                 Height="150" 
                 Width="150" 
@@ -50,6 +52,7 @@
                 Source="/Pages/PagesAssets/2.png"/>
 
             <TextBlock
+                x:Name="tx_cost"
                 Margin="0,10,0,0"
                 Text="Cost: " 
                 Width="150" 
@@ -58,32 +61,10 @@
                 Foreground="{DynamicResource TextColor}" 
                 FontSize="24" 
                 TextAlignment="Left"/>
-            <ComboBox
-                materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource TextColor}"
-                materialDesign:HintAssist.Hint="Color" 
-                Foreground="{DynamicResource TextColor}"
-                Width="300"
-                Margin="0,10,0,0"
-                Height="35"
-                FontFamily="Mukta Light" 
-                FontSize="16" >
-                <ComboBoxItem
-                    Content="Black" 
-                    Foreground="{DynamicResource SecundaryBackgroundColor}"/>
-                <ComboBoxItem
-                    Content="Gray" 
-                    Foreground="{DynamicResource SecundaryBackgroundColor}"/>
-                <ComboBoxItem
-                    Content="Red" 
-                    Foreground="{DynamicResource SecundaryBackgroundColor}"/>
-                <ComboBoxItem
-                    Content="Green"
-                    Foreground="{DynamicResource SecundaryBackgroundColor}"/>
-
-            </ComboBox>
 
             <ListBox
+                x:Name="listbox"
+                
                 Style="{StaticResource MaterialDesignToolToggleListBox}"
                 SelectedIndex="0"
                 Margin="0,20,0,0" 
@@ -92,20 +73,27 @@
                 Foreground="{DynamicResource PrimTextColor}"
                 Background="{DynamicResource TernaryBackgroundColor}">
                 <ListBoxItem
+                    x:Name="btn_xs"
                     Content="{materialDesign:PackIcon Kind=SizeXs}" />
                 <ListBoxItem
+                    x:Name="btn_s"
                     Content="{materialDesign:PackIcon Kind=SizeS}" />
                 <ListBoxItem
+                    x:Name="btn_m"
                     Content="{materialDesign:PackIcon Kind=SizeM}" />
                 <ListBoxItem
+                    x:Name="btn_l"
                     Content="{materialDesign:PackIcon Kind=SizeL}" />
                 <ListBoxItem
+                    x:Name="btn_xl"
                     Content="{materialDesign:PackIcon Kind=SizeXl}" />
                 <ListBoxItem
+                    x:Name="btn_xxl"
                     Content="{materialDesign:PackIcon Kind=SizeXXl}" />
             </ListBox>
 
             <TextBlock
+                x:Name="tx_left"
                 Text="Left: " 
                 Cursor="Hand"
                 Margin="0,10,0,0"

@@ -52,17 +52,6 @@
                         Foreground="{DynamicResource TextColor}"  
                         Text="{Binding description}" 
                         FontFamily="Mukta Light" />
-
-                            <Button
-                                Style="{StaticResource MaterialDesignIconButton}"
-                                Click="ButtonAddProduct_Click" 
-                                Width="60"
-                                Height="60"
-                                Margin="25,0,0,0"
-                                Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
-                                <materialDesign:PackIcon
-                                    Kind="Plus" />
-                            </Button>
                         </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>
@@ -166,13 +155,15 @@
             x:Name="listview_product"
             Margin="10,68,10,10"
             Width="780" 
-            HorizontalAlignment="Left">
+            HorizontalAlignment="Left"
+            MouseLeftButtonUp="MouseLeftBtn">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Width="760" HorizontalAlignment="Center"></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
+                
                 <DataTemplate>
                     <Grid Margin="20">
                         <Grid.RowDefinitions>

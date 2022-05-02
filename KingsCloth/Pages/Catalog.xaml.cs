@@ -27,12 +27,21 @@ namespace KingsCloth.Pages
             InitializeComponent();
         }
 
-        private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
+        private void MouseLeftBtn(object sender, RoutedEventArgs e)
         {
-            CatalogDialog dialog = new CatalogDialog();
-            dialog.Show();
-        }
+            total.id_product = (listview_product.SelectedItem as products).id;
+            total.price = (listview_product.SelectedItem as products).price;
+            total.name = (listview_product.SelectedItem as products).name;
+            //total.left = (listview_product.SelectedItem as products).left;
+            total.color = (listview_product.SelectedItem as products).color;
+            total.description = (listview_product.SelectedItem as products).description;
+            total.image = (listview_product.SelectedItem as products).image;
 
+
+            Pages.CatalogDialog catalogDialog = new Pages.CatalogDialog();
+            catalogDialog.Show();
+
+        }
 
         private void ButtonBasket_Click(object sender, RoutedEventArgs e)
         {
@@ -43,17 +52,26 @@ namespace KingsCloth.Pages
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 products product = new products();
+                product.id = (int)dt.Rows[i]["id"];
                 product.name = dt.Rows[i]["name"].ToString();
                 product.color = dt.Rows[i]["color"].ToString();
                 product.price = (int)dt.Rows[i]["price"];
                 product.description = dt.Rows[i]["description"].ToString();
                 if (dt.Rows[i]["image"] != System.DBNull.Value)
                     product.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(dt.Rows[i]["image"]);
-                product.left = req.select_product_quantity((int)dt.Rows[i]["id_size"]);
+                total.left = req.select_product_quantity((int)dt.Rows[i]["id_size"]);
+                int all_lefl = 
+                (int)total.left.Rows[0][0] +
+                (int)total.left.Rows[0][1] +
+                (int)total.left.Rows[0][2] +
+                (int)total.left.Rows[0][3] +
+                (int)total.left.Rows[0][4] +
+                (int)total.left.Rows[0][5];
+                product.left = all_lefl;
+
                 productList.Add(product);
             }
 
-            listview_product.Items.Clear();
             listview_product.ItemsSource = productList;
         }
     }

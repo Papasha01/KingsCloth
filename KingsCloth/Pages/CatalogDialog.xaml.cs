@@ -20,6 +20,17 @@ namespace KingsCloth.Pages
         public CatalogDialog()
         {
             InitializeComponent();
+
+            Load();
+        }
+
+        private void Load()
+        {
+            tx_name.Text = total.name;
+            tx_cost.Text = total.price.ToString();
+            pic_product.Source = total.image;
+            tx_left.Text = total.left.ToString();
+            listbox.SelectedValue.ToString();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
