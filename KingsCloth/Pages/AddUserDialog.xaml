@@ -13,11 +13,11 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True">
-    <Grid Background="{DynamicResource PrimaryBackgroundColor}">
+    <Grid Background="{DynamicResource DialogMain}">
 
         <!--MouseDown="Window_MouseDown" не забыть вставить!!!!!!!!!!-->
-        <Border x:Name="border" CornerRadius="8" Height="43" VerticalAlignment="Top"  Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,-13,0,0">
-            <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Height="22" Text="Add User" FontFamily="Mukta Light" VerticalAlignment="Top" Foreground="{DynamicResource TransparentTextColor}" FontWeight="Bold" FontSize="18" Margin="10,18,0,0" HorizontalAlignment="Left" Width="106" TextAlignment="Left" />
+        <Border x:Name="border" CornerRadius="8" Height="43" VerticalAlignment="Top"  Background="{DynamicResource DialogBack}" Margin="0,-13,0,0">
+            <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Height="22" Text="Add User" FontFamily="Mukta Light" VerticalAlignment="Top" Foreground="{DynamicResource TransparentTextColorDark}" FontWeight="Bold" FontSize="18" Margin="10,18,0,0" HorizontalAlignment="Left" Width="106" TextAlignment="Left" />
         </Border>
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
 
@@ -125,8 +125,8 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             Click="btnAddUser_Click" 
             Margin="50,20,50,25"
-            Background="{DynamicResource PrimaryBackgroundColor}"
-            BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+            Background="{DynamicResource Button}"
+            BorderBrush="{DynamicResource Button}"
             materialDesign:ButtonAssist.CornerRadius="10"
             materialDesign:ShadowAssist.ShadowDepth="Depth2"
             Cursor="Hand">

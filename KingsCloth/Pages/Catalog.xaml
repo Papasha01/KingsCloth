@@ -78,7 +78,7 @@
             Width="140" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
-            BorderBrush="{DynamicResource SecundaryBackgroundColor}"
+            BorderBrush="{DynamicResource Button}"
             Content="T-shirt"
             Cursor="Hand" 
             BorderThickness="2,0,2,0" 
@@ -91,7 +91,7 @@
             Width="140" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
-            BorderBrush="{DynamicResource SecundaryBackgroundColor}"
+            BorderBrush="{DynamicResource Button}"
             Content="Sweatshirts"
             Cursor="Hand" 
             BorderThickness="0,0,2,0" 
@@ -104,7 +104,7 @@
             Width="140" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
-            BorderBrush="{DynamicResource SecundaryBackgroundColor}"
+            BorderBrush="{DynamicResource Button}"
             Content="Hoodie"
             Cursor="Hand" 
             BorderThickness="0,0,2,0" 
@@ -117,7 +117,7 @@
             Width="140" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
-            BorderBrush="{DynamicResource SecundaryBackgroundColor}"
+            BorderBrush="{DynamicResource Button}"
             Content="Backpacks"
             Cursor="Hand" 
             BorderThickness="0,0,2,0" 
@@ -130,13 +130,24 @@
             Width="140" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
-            BorderBrush="{DynamicResource SecundaryBackgroundColor}"
+            BorderBrush="{DynamicResource Button}"
             Content="Shirts"
             Cursor="Hand" 
             BorderThickness="0,0,2,0" 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Margin="0,10,0,0" />
+
+            <Button
+                Style="{StaticResource MaterialDesignIconButton}"
+                Background="{DynamicResource Button}"
+                Foreground="{DynamicResource TextColor}" 
+                Margin="20,0,0,0" 
+                Cursor="Hand"
+                Click="ButtonBasket_Click">
+                <materialDesign:PackIcon
+                    Kind="Basket" />
+            </Button>
         </StackPanel>
 
 

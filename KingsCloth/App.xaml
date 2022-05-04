@@ -12,7 +12,15 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
                 <ResourceDictionary Source="Theme/MainTheme.xaml"/>
                 <ResourceDictionary Source="assets/Icons.xaml"/>
-                <ResourceDictionary Source="Colors/DarkTheme.xaml"/>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary x:Name="DarkTheme">
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="Colors/LightTheme.xaml"/>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
 
