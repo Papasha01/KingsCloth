@@ -1,28 +1,30 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2f3136"/>
-    <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#202225"/>
-    <SolidColorBrush x:Key="TernaryBackgroundColor" Color="#36393f"/>
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#bababa"/>
+    <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#d2d2d2"/>
+    <SolidColorBrush x:Key="TernaryBackgroundColor" Color="#ffff"/>
 
     <SolidColorBrush x:Key="CheckBox" Color="#FF747A80"/>
 
     <!-- Element Colors -->
-    <SolidColorBrush x:Key="Button" Color="#2f3136"/>
+    <SolidColorBrush x:Key="Button" Color="#d2d2d2"/>
+    <SolidColorBrush x:Key="ListBox" Color="#d2d2d2"/>
 
     <!-- DialogWindow Colors -->
-    <SolidColorBrush x:Key="DialogMain" Color="#2f3136"/>
-    <SolidColorBrush x:Key="DialogBack" Color="#202225"/>
+    <SolidColorBrush x:Key="DialogMain" Color="#ffff"/>
+    <SolidColorBrush x:Key="DialogBack" Color="#bababa"/>
 
     <!-- Text Colors -->
-    <SolidColorBrush x:Key="TextColor" Color="#78797f"/>
+    <SolidColorBrush x:Key="TextColor" Color="#686868"/>
     <SolidColorBrush x:Key="PrimTextColor" Color="#909198"/>
+    <SolidColorBrush x:Key="Authhorization" Color="#909198"/>
 
     <!-- Transparent Colors -->
-    <SolidColorBrush x:Key="TransparentTextColorDark" Color="#4C78797F"/>
+    <SolidColorBrush x:Key="TransparentTextColorDark" Color="#ffff"/>
     <SolidColorBrush x:Key="TransparentTextColorLight" Color="#4C78797F"/>
     <SolidColorBrush x:Key="TransparentBackground" Color="#9926272B"/>
     <SolidColorBrush x:Key="ShadowDropBackground" Color="#7F32353A"/>
-
+    
     <!-- Color Picker  -->
     <SolidColorBrush x:Key="TransparentGreen" Color="#9963AB3F"/>
     <SolidColorBrush x:Key="TransparentRed" Color="#99E64539"/>

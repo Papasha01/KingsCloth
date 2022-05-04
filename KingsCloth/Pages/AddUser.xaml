@@ -66,14 +66,16 @@
         </StackPanel>
 
         <ListView x:Name="listviewUsers"  
-                  Margin="25,113,25,23" Width="750">
+                  Margin="25,113,25,23" Width="750"
+                  Foreground="{DynamicResource PrimTextColor}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
                         x:Name="id"
                         DisplayMemberBinding="{Binding Path=id}" 
                         Header="id" 
-                        Width="80"/>
+                        Width="80"
+                        />
                     <GridViewColumn 
                         x:Name="login"
                         DisplayMemberBinding="{Binding Path=login}" 

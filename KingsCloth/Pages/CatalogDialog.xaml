@@ -7,17 +7,19 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="CatalogDialog" 
-        Height="500" 
+        Height="480" 
         Width="350"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
-    <Grid Background="{DynamicResource PrimaryBackgroundColor}">
+        AllowsTransparency="True"
+        Style="{DynamicResource ModifiedWindow}">
+
+    <Grid Background="{DynamicResource DialogMain}">
 
         <!--MouseDown="Window_MouseDown" не забыть вставить!!!!!!!!!!-->
-        <Border x:Name="border" CornerRadius="8" Height="53" VerticalAlignment="Top" Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,-18,0,0">
-            <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Height="18" Text="Product" FontFamily="Mukta Light" VerticalAlignment="Top" Foreground="{DynamicResource TransparentTextColor}" FontWeight="Bold" FontSize="18" Margin="10,18,0,0" HorizontalAlignment="Left" Width="106" TextAlignment="Left" />
+        <Border x:Name="border" CornerRadius="0,0,8,8" Height="30" VerticalAlignment="Top" Background="{DynamicResource DialogBack}" >
+            <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Height="18" Text="Product" FontFamily="Mukta Light" VerticalAlignment="Top" Foreground="{DynamicResource TransparentTextColorDark}" FontWeight="Bold" FontSize="18" Margin="10,8,0,0" HorizontalAlignment="Left" Width="106" TextAlignment="Left" />
         </Border>
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
 
@@ -75,32 +77,32 @@
 
             <ListBox
                 x:Name="listbox"
-                
                 Style="{StaticResource MaterialDesignToolToggleListBox}"
                 SelectedIndex="0"
                 Margin="0,20,0,0" 
                 Height="40"
                 HorizontalAlignment="Center"
                 Foreground="{DynamicResource PrimTextColor}"
-                Background="{DynamicResource TernaryBackgroundColor}">
+                Background="{DynamicResource ListBox}">
                 <ListBoxItem
                     x:Name="btn_xs"
-                    Content="{materialDesign:PackIcon Kind=SizeXs}" />
+                    IsSelected="False"
+                    Content="{materialDesign:PackIcon Kind=SizeXs, Size=26}" />
                 <ListBoxItem
                     x:Name="btn_s"
-                    Content="{materialDesign:PackIcon Kind=SizeS}" />
+                    Content="{materialDesign:PackIcon Kind=SizeS, Size=26}" />
                 <ListBoxItem
                     x:Name="btn_m"
-                    Content="{materialDesign:PackIcon Kind=SizeM}" />
+                    Content="{materialDesign:PackIcon Kind=SizeM, Size=26}" />
                 <ListBoxItem
                     x:Name="btn_l"
-                    Content="{materialDesign:PackIcon Kind=SizeL}" />
+                    Content="{materialDesign:PackIcon Kind=SizeL, Size=26}" />
                 <ListBoxItem
                     x:Name="btn_xl"
-                    Content="{materialDesign:PackIcon Kind=SizeXl}" />
+                    Content="{materialDesign:PackIcon Kind=SizeXl,Size=26}" />
                 <ListBoxItem
                     x:Name="btn_xxl"
-                    Content="{materialDesign:PackIcon Kind=SizeXXl}" />
+                    Content="{materialDesign:PackIcon Kind=SizeXXl,Size=26}" />
             </ListBox>
 
             <TextBlock
@@ -117,10 +119,10 @@
             <Button
                 Style="{StaticResource MaterialDesignRaisedButton}" 
                 Click="ButtonAddProduct_Click" 
-                Margin="50,20,50,25"
+                Margin="50,10,50,25"
                 Height="50"
-                Background="{DynamicResource PrimaryBackgroundColor}"
-                BorderBrush="{DynamicResource PrimaryBackgroundColor}"
+                Background="{DynamicResource Button}"
+                BorderBrush="{DynamicResource Button}"
                 materialDesign:ButtonAssist.CornerRadius="10"
                 materialDesign:ShadowAssist.ShadowDepth="Depth2"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand">

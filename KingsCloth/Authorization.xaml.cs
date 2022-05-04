@@ -52,6 +52,12 @@ namespace KingsCloth
             
         }
 
+        public void btnGuest(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
+
 
 
 
