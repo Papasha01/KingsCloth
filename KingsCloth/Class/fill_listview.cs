@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Windows.Media.Imaging;
 
@@ -32,7 +33,29 @@ namespace KingsCloth
         public int price { get; set; }
         public string description { get; set; }
         public BitmapSource image { get; set; }
-        public int left { get; set; }
+        public int id_size { get; set; }
+
         //public string material { get; set; }
+    }
+
+    public class basket
+    {
+        public string name { get; set; }
+        public string color { get; set; }
+        public int price { get; set; }
+        public BitmapSource image { get; set; }
+        public int id_size { get; set; }
+        public int xs { get; set; }
+        public int s { get; set; }
+        public int m { get; set; }
+        public int l { get; set; }
+        public int xl { get; set; }
+        public int xxl { get; set; }
+    }
+
+    public class size
+    {
+
+
     }
 }

@@ -279,12 +279,31 @@ namespace KingsCloth.Pages
         public Basket()
         {
             InitializeComponent();
+            load();
         }
 
-        private void ButtonPlus_Click (object sender, RoutedEventArgs e)
+        private void load()
+        {
+
+            List<basket> basketList = new List<basket>();
+            for (int i = 0; i < basket_data.dt_prod.Length; i++)
+            {
+                basket basket = new basket();
+                basket.name = (string)basket_data.dt_prod[0].Rows[0]["name"];
+                
+                if (basket_data.dt_prod[0].Rows[0]["image"] != System.DBNull.Value)
+                    basket.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(basket_data.dt_prod[0].Rows[0]["image"]);
+
+                basketList.Add(basket);
+            }
+
+            listview_basket.ItemsSource = basketList;
+        }
+
+        private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
             i++;
-            CountTextBox.Text = Convert.ToString(i);
+            //CountTextBox.Text = Convert.ToString(i);
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -293,11 +312,11 @@ namespace KingsCloth.Pages
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void ButtonMinus_Click (object sender, RoutedEventArgs e)
+        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (i>0)
-            i--;
-            CountTextBox.Text = Convert.ToString(i);
+            if (i > 0)
+                i--;
+            //CountTextBox.Text = Convert.ToString(i);
         }
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
@@ -321,6 +340,11 @@ namespace KingsCloth.Pages
             Console.Read();
             SuccessfulDialog dialog = new SuccessfulDialog();
             dialog.Show();
+        }
+
+        private void listview_basket_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

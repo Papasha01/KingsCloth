@@ -25,27 +25,12 @@ namespace KingsCloth.Pages
         public Catalog()
         {
             InitializeComponent();
+            Load();
         }
 
-        private void MouseLeftBtn(object sender, RoutedEventArgs e)
-        {
-            total.id_product = (listview_product.SelectedItem as products).id;
-            total.price = (listview_product.SelectedItem as products).price;
-            total.name = (listview_product.SelectedItem as products).name;
-            //total.left = (listview_product.SelectedItem as products).left;
-            total.color = (listview_product.SelectedItem as products).color;
-            total.description = (listview_product.SelectedItem as products).description;
-            total.image = (listview_product.SelectedItem as products).image;
-
-
-            Pages.CatalogDialog catalogDialog = new Pages.CatalogDialog();
-            catalogDialog.Show();
-
-        }
-
-        private void ButtonBasket_Click(object sender, RoutedEventArgs e)
-        {
             reqDB req = new reqDB();
+        private void Load()
+        {
             var dt = req.select_product();
 
             List<products> productList = new List<products>();
@@ -57,22 +42,30 @@ namespace KingsCloth.Pages
                 product.color = dt.Rows[i]["color"].ToString();
                 product.price = (int)dt.Rows[i]["price"];
                 product.description = dt.Rows[i]["description"].ToString();
+                product.id_size = (int)dt.Rows[i]["id_size"];
                 if (dt.Rows[i]["image"] != System.DBNull.Value)
                     product.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(dt.Rows[i]["image"]);
-                total.left = req.select_product_quantity((int)dt.Rows[i]["id_size"]);
-                int all_lefl = 
-                (int)total.left.Rows[0][0] +
-                (int)total.left.Rows[0][1] +
-                (int)total.left.Rows[0][2] +
-                (int)total.left.Rows[0][3] +
-                (int)total.left.Rows[0][4] +
-                (int)total.left.Rows[0][5];
-                product.left = all_lefl;
 
                 productList.Add(product);
             }
 
             listview_product.ItemsSource = productList;
+        }
+
+        private void MouseLeftBtn(object sender, RoutedEventArgs e)
+        {
+            total.id_product = (listview_product.SelectedItem as products).id;
+            total.price = (listview_product.SelectedItem as products).price;
+            total.name = (listview_product.SelectedItem as products).name;
+            total.left = req.select_size((listview_product.SelectedItem as products).id_size);
+            total.color = (listview_product.SelectedItem as products).color;
+            total.description = (listview_product.SelectedItem as products).description;
+            total.image = (listview_product.SelectedItem as products).image;
+
+
+            Pages.CatalogDialog catalogDialog = new Pages.CatalogDialog();
+            catalogDialog.Show();
+
         }
     }
 }

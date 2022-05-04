@@ -133,11 +133,11 @@ namespace KingsCloth
             return table;
         }
 
-        public DataTable select_product_quantity(int id_size)
+        public DataTable select_size(int id_prod)
         {
             DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand("SELECT xs, s, m, l, xl, xxl FROM `size` where id = @id_size", db_con.getConn());
-            command.Parameters.Add("@id_size", MySqlDbType.Int32).Value = id_size;
+            MySqlCommand command = new MySqlCommand("SELECT xs, s, m, l, xl, xxl FROM `size` where id = @id_prod", db_con.getConn());
+            command.Parameters.Add("@id_prod", MySqlDbType.Int32).Value = id_prod;
             adapter.SelectCommand = command;
             adapter.Fill(table);
             return table;

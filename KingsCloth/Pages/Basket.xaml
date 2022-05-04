@@ -13,129 +13,59 @@
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
         </Border>
         <StackPanel Orientation="Horizontal">
-            <ListView x:Name="listviewUsers"  
-                  Margin="10,10,0,10"
-                  Width="570" 
-                  Height="420"
-                  HorizontalAlignment="Left">
-                <ListViewItem 
-                Margin="0,10,0,0"
-                Width="570" 
-                HorizontalAlignment="Left" 
-                BorderBrush="Transparent" 
-                Background="Transparent" 
-                 >
-                    <StackPanel  Orientation="Horizontal" Height="100">
-                        <Image Source="/Pages/PagesAssets/2.png" Height="80"></Image>
-                        <StackPanel Orientation="Vertical" Height="100" Width="250" Margin="10,0,0,0">
-                            <TextBlock 
-                            Text="Title" 
-                            Foreground="{DynamicResource TextColor}"   
-                            Height="20" 
-                            HorizontalAlignment="Center"/>
-                            <TextBlock 
-                            Text="Size: " 
-                            Foreground="{DynamicResource TextColor}"  
-                            FontFamily="Mukta Light" />
-                            <TextBlock 
-                            Text="Color: " 
-                            Foreground="{DynamicResource TextColor}"  
-                            FontFamily="Mukta Light" />
-                            <TextBlock 
-                            Text="Left: " 
-                            Foreground="{DynamicResource TextColor}"  
-                            FontFamily="Mukta Light" />
-                            <TextBlock 
-                            Text="Cost: " 
-                            Foreground="{DynamicResource TextColor}"  
-                            Margin="0,5,0,0" 
-                            Height="34" 
-                            HorizontalAlignment="Stretch" 
-                            FontFamily="Mukta Light" 
-                            FontSize="18" 
-                            TextAlignment="Left"/>
+            <ListView 
+            x:Name="listview_basket"
+            Margin="10,68,10,10"
+            Width="571"
+             MouseLeftButtonUp="listview_basket_MouseLeftButtonUp">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" Width="760" HorizontalAlignment="Center"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
 
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+                    <DataTemplate>
+                        <Grid Margin="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-                            <Button
-                            IsDefault="True"
-                            Style="{StaticResource MaterialDesignOutlinedLightButton}"
-                            Width="50"
-                            Height="50"
-                            Foreground="{DynamicResource TextColor}"
-                            BorderBrush="{DynamicResource TextColor}"
-                            Click="ButtonMinus_Click"
-                            materialDesign:ButtonAssist.CornerRadius="4,0,0,4"
-                            >
 
-                                <TextBlock
-                                Text="-"
-                                FontSize="32" FontFamily="Mukta Light"/>
-                            </Button>
-                            <TextBox
-                                x:Name="CountTextBox"
-                                VerticalAlignment="Center"
-                                Height="50"
-                                Width="50"
-                                Text="1"
-                                VerticalScrollBarVisibility="Auto"
-                                BorderThickness="0,1,0,1"
-                                PreviewTextInput="TextBox_PreviewTextInput"
-                                BorderBrush="{DynamicResource TextColor}" 
-                                Foreground="{DynamicResource PrimTextColor}"
+                            <StackPanel Orientation="Vertical" Height="200" Width="180" Margin="10,0,0,0">
+                                <Border Width="50" Height="25" CornerRadius="10,0,10,0" Background="{DynamicResource SecundaryBackgroundColor}" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                                    <TextBlock 
+                                    Text="{Binding price}" 
+                                    Foreground="{DynamicResource TextColor}"  
+                                    Margin="0,0,0,0" 
+                                    Padding="4,3,0,0"
+                                    Height="34" 
+                                    HorizontalAlignment="Stretch" 
+                                    FontFamily="Mukta Light" 
+                                    FontSize="18" 
+                                    TextAlignment="Left"/>
+                                </Border>
+
+                                <Image  Height="130" Width="140">
+                                    <Image.Source>
+                                        <Binding Path="image">
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+
+                                <TextBlock 
+                                Text="{Binding name}" 
+                                Margin="0,5,0,0"
+                                Foreground="{DynamicResource TextColor}"   
                                 FontFamily="Mukta Light" 
-                                Padding="0,12,0,0" 
-                                Cursor="Arrow" 
-                                FontSize="18" 
-                                TextAlignment="Center" 
-                                IsReadOnly="True" 
-                                TextWrapping="NoWrap" 
-                                FontStyle="Normal" 
-                                FontWeight="Normal" 
-                                FontStretch="Normal" 
-                                HorizontalAlignment="Center"/>
-                            <Button
-                                Style="{StaticResource MaterialDesignOutlinedLightButton}"
-                                Width="50"
-                                Height="50"
-                                Foreground="{DynamicResource TextColor}"
-                                BorderBrush="{DynamicResource TextColor}"
-                                materialDesign:ButtonAssist.CornerRadius="0,4,4,0"
-                                Click="ButtonPlus_Click">
-                                <TextBlock
-                                    Text="+"
-                                    FontSize="32" FontFamily="Mukta Light"/>
-                            </Button>
+                                FontSize="24"
+                                HorizontalAlignment="Center" />
 
-                            <Button
-                                Style="{StaticResource MaterialDesignIconButton}"
-                                Click="ButtonDelete_Click" 
-                                Width="60"
-                                Height="60"
-                                Margin="25,0,0,0"
-                                Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Cursor="Hand">
-                                <materialDesign:PackIcon
-                                    Kind="TrashCanOutline" />
-                            </Button>
-                        </StackPanel>
-
-                    </StackPanel>
-                </ListViewItem>
-
-
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListViewItem}">
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                    <ContentPresenter />
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ListView.ItemContainerStyle>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
 
             <Line X1="0" Y1="30" X2="0" Y2="420" Margin="25,0,0,0">
@@ -203,10 +133,6 @@
                         Foreground="{DynamicResource TextColor}"/>
                 </Button>
             </StackPanel>
-
-
-            
-
         </StackPanel>
     </Grid>
 </Page>

@@ -62,9 +62,19 @@
                 FontSize="24" 
                 TextAlignment="Left"/>
 
+            <TextBlock
+                x:Name="tx_left"
+                Text="Left: " 
+                Cursor="Hand"
+                Margin="0,10,0,0"
+                Width="150" 
+                FontFamily="Mukta Light"
+                Foreground="{DynamicResource TextColor}" FontSize="18" 
+                TextAlignment="Left"/>
+
             <ListBox
                 x:Name="listbox"
-                
+                SelectionChanged="listbox_SelectionChanged"
                 Style="{StaticResource MaterialDesignToolToggleListBox}"
                 SelectedIndex="0"
                 Margin="0,20,0,0" 
@@ -92,16 +102,7 @@
                     Content="{materialDesign:PackIcon Kind=SizeXXl}" />
             </ListBox>
 
-            <TextBlock
-                x:Name="tx_left"
-                Text="Left: " 
-                Cursor="Hand"
-                Margin="0,10,0,0"
-                Width="150" 
-                FontFamily="Mukta Light"
-                Foreground="{DynamicResource TextColor}" FontSize="18" 
-                TextAlignment="Left"/>
-
+           
 
             <Button
                 Style="{StaticResource MaterialDesignRaisedButton}" 
