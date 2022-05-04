@@ -16,7 +16,9 @@
         </Border>
 
         <ListView x:Name="listviewUsers"  
-                  Margin="25,27,25,23" Width="750">
+                  Margin="25,27,25,23" Width="750"
+                  Foreground="{DynamicResource PrimTextColor}"
+                  FontSize="12">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Image" Width="100">

@@ -18,6 +18,7 @@
     <SolidColorBrush x:Key="TextColor" Color="#686868"/>
     <SolidColorBrush x:Key="PrimTextColor" Color="#909198"/>
     <SolidColorBrush x:Key="Authhorization" Color="#909198"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#909198"/>
 
     <!-- Transparent Colors -->
     <SolidColorBrush x:Key="TransparentTextColorDark" Color="#ffff"/>
@@ -43,6 +44,8 @@
     <SolidColorBrush x:Key="TextFourthColor" Color="#4B5D78"/>
 
     <!-- Icon Colors -->
+    <SolidColorBrush x:Key="IconColor" Color="#FF747A80"/>
+    
     <SolidColorBrush x:Key="PrimaryIconColor" Color="#B0B7C3"/>
     <SolidColorBrush x:Key="SecundaryIconColor" Color="#8A94A6"/>
     <SolidColorBrush x:Key="TertiarIconyColor" Color="#4B5D78"/>

@@ -75,7 +75,7 @@
 
             <Button
             Style="{StaticResource MaterialDesignFlatLightButton}"
-            Width="140" Height="40"
+            Width="155" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
             BorderBrush="{DynamicResource Button}"
@@ -88,7 +88,7 @@
 
             <Button
             Style="{StaticResource MaterialDesignFlatLightButton}"
-            Width="140" Height="40"
+            Width="155" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
             BorderBrush="{DynamicResource Button}"
@@ -101,7 +101,7 @@
 
             <Button
             Style="{StaticResource MaterialDesignFlatLightButton}"
-            Width="140" Height="40"
+            Width="155" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
             BorderBrush="{DynamicResource Button}"
@@ -114,7 +114,7 @@
 
             <Button
             Style="{StaticResource MaterialDesignFlatLightButton}"
-            Width="140" Height="40"
+            Width="155" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
             BorderBrush="{DynamicResource Button}"
@@ -127,7 +127,7 @@
 
             <Button
             Style="{StaticResource MaterialDesignFlatLightButton}"
-            Width="140" Height="40"
+            Width="155" Height="40"
             Foreground="{DynamicResource PrimTextColor}"
             Background="{x:Null}"
             BorderBrush="{DynamicResource Button}"
@@ -138,16 +138,6 @@
             VerticalAlignment="Top" 
             Margin="0,10,0,0" />
 
-            <Button
-                Style="{StaticResource MaterialDesignIconButton}"
-                Background="{DynamicResource Button}"
-                Foreground="{DynamicResource TextColor}" 
-                Margin="20,0,0,0" 
-                Cursor="Hand"
-                Click="ButtonBasket_Click">
-                <materialDesign:PackIcon
-                    Kind="Basket" />
-            </Button>
         </StackPanel>
 
 
@@ -174,7 +164,8 @@
 
                         <StackPanel Orientation="Vertical" Height="200" Width="180" Margin="10,0,0,0">
                             <Border Width="50" Height="25" CornerRadius="10,0,10,0" Background="{DynamicResource SecundaryBackgroundColor}" HorizontalAlignment="Left" Margin="10,0,0,0" >
-                                <TextBlock 
+                                <StackPanel Orientation="Horizontal" Width="50" Height="25">
+                                    <TextBlock 
                                     Text="{Binding price}" 
                                     Foreground="{DynamicResource TextColor}"  
                                     Margin="0,0,0,0" 
@@ -184,6 +175,19 @@
                                     FontFamily="Mukta Light" 
                                     FontSize="18" 
                                     TextAlignment="Left"/>
+                                    <TextBlock 
+                                    Text="$" 
+                                    Foreground="{DynamicResource TextColor}"  
+                                    Margin="0,0,0,0" 
+                                    Padding="4,3,0,0"
+                                    Height="34" 
+                                    HorizontalAlignment="Stretch" 
+                                    FontFamily="Mukta Light" 
+                                    FontSize="18" 
+                                    TextAlignment="Left"/>
+
+                                </StackPanel>
+                                
                             </Border>
 
                             <Image  Height="130" Width="140">

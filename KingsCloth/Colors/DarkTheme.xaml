@@ -4,10 +4,10 @@
     <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#202225"/>
     <SolidColorBrush x:Key="TernaryBackgroundColor" Color="#36393f"/>
 
-    <SolidColorBrush x:Key="CheckBox" Color="#FF747A80"/>
-
+    
     <!-- Element Colors -->
     <SolidColorBrush x:Key="Button" Color="#2f3136"/>
+    <SolidColorBrush x:Key="CheckBox" Color="#FF747A80"/>
 
     <!-- DialogWindow Colors -->
     <SolidColorBrush x:Key="DialogMain" Color="#2f3136"/>
@@ -16,6 +16,7 @@
     <!-- Text Colors -->
     <SolidColorBrush x:Key="TextColor" Color="#78797f"/>
     <SolidColorBrush x:Key="PrimTextColor" Color="#909198"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="Transparent"/>
 
     <!-- Transparent Colors -->
     <SolidColorBrush x:Key="TransparentTextColorDark" Color="#4C78797F"/>
@@ -41,6 +42,8 @@
     <SolidColorBrush x:Key="TextFourthColor" Color="#4B5D78"/>
 
     <!-- Icon Colors -->
+    <SolidColorBrush x:Key="IconColor" Color="#B0B7C3"/>
+    
     <SolidColorBrush x:Key="PrimaryIconColor" Color="#B0B7C3"/>
     <SolidColorBrush x:Key="SecundaryIconColor" Color="#8A94A6"/>
     <SolidColorBrush x:Key="TertiarIconyColor" Color="#4B5D78"/>
