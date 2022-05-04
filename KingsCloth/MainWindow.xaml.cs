@@ -50,7 +50,9 @@ namespace KingsCloth
 
         private void ButtonOpenSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            fContainer.Navigate(new System.Uri("Pages/Settings.xaml", UriKind.RelativeOrAbsolute));
+            Title.Text = "Settings";
+            Title.Visibility = Visibility.Visible;
         }
         private void ButtonStorage_Click(object sender, RoutedEventArgs e)
         {
