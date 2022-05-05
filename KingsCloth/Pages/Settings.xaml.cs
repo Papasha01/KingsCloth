@@ -41,8 +41,20 @@ namespace KingsCloth.Pages
         {
             string theme = ST.SelectedItem.ToString();
 
-            App.Current.Resources.MergedDictionaries.Clear();
+
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Colors/DarkTheme.xaml", UriKind.RelativeOrAbsolute) });
+        }
+
+
+
+        private void ThemeToggle_Unchecked(object sender, RoutedEventArgs e)
+        {
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Colors/LightTheme.xaml", UriKind.RelativeOrAbsolute) });
+        }
+
+        private void ThemeToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Colors/DarkTheme.xaml", UriKind.RelativeOrAbsolute) });
         }
     }
 }

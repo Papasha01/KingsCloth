@@ -18,7 +18,7 @@
     <Grid Background="{DynamicResource DialogMain}">
 
         <!--MouseDown="Window_MouseDown" не забыть вставить!!!!!!!!!!-->
-        <Border x:Name="border" CornerRadius="0,0,8,8" Height="30" VerticalAlignment="Top" Background="{DynamicResource DialogBack}" >
+        <Border x:Name="border" MouseDown="Window_MouseDown" CornerRadius="0,0,8,8" Height="30" VerticalAlignment="Top" Background="{DynamicResource DialogBack}" >
             <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Height="18" Text="Product" FontFamily="Mukta Light" VerticalAlignment="Top" Foreground="{DynamicResource TransparentTextColorDark}" FontWeight="Bold" FontSize="18" Margin="10,8,0,0" HorizontalAlignment="Left" Width="106" TextAlignment="Left" />
         </Border>
         <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
@@ -34,7 +34,7 @@
                 x:Name="btnMinimize" 
                 Style="{DynamicResource IconButtonsStyle}" 
                 Content="{DynamicResource minimize}" 
-                Click="btnMinimize_Click"/>
+                Click="btnMinimize_Click" Cursor="Hand"/>
         </StackPanel>
         <StackPanel RenderTransformOrigin="0.3,0.3" Margin="0,35,0,0">
 
@@ -65,10 +65,10 @@
                 TextAlignment="Left"/>
 
             <TextBlock
-                x:Name="tx_material"
+                x:Name="tx_left"
                 Margin="0,10,0,0"
-                Text="Material: " 
-                Width="260" 
+                Text="Left: " 
+                Width="150" 
                 Cursor="Hand"
                 FontFamily="Mukta Light"
                 Foreground="{DynamicResource TextColor}" 
