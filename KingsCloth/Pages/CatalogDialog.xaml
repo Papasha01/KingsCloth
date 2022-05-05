@@ -75,8 +75,20 @@
                 FontSize="24" 
                 TextAlignment="Left"/>
 
+            <TextBlock
+                x:Name="tx_left"
+                Margin="0,10,0,0"
+                Text="Left: " 
+                Width="260" 
+                Cursor="Hand"
+                FontFamily="Mukta Light"
+                Foreground="{DynamicResource TextColor}" 
+                FontSize="24" 
+                TextAlignment="Left"/>
+
             <ListBox
                 x:Name="listbox"
+                SelectionChanged="listbox_SelectionChanged"
                 Style="{StaticResource MaterialDesignToolToggleListBox}"
                 SelectedIndex="0"
                 Margin="0,20,0,0" 
@@ -105,7 +117,7 @@
                     Content="{materialDesign:PackIcon Kind=SizeXXl,Size=26}" />
             </ListBox>
 
-           
+
 
             <Button
                 Style="{StaticResource MaterialDesignRaisedButton}" 

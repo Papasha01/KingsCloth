@@ -130,7 +130,6 @@ namespace KingsCloth.Pages
         public void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             enable_btn(listbox.SelectedIndex);
-
         }
     }
 }
