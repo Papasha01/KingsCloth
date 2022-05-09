@@ -23,30 +23,6 @@ namespace KingsCloth.Pages
             InitializeComponent();
         }
 
-       
-
-     
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string theme = ST.SelectedItem.ToString();
-
-            App.Current.Resources.MergedDictionaries.Clear();
-            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(theme + "Theme.xaml", UriKind.RelativeOrAbsolute) });
-            // Save Theme for next launch
-
-        }
-
-        private void ST_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string theme = ST.SelectedItem.ToString();
-
-
-            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Colors/DarkTheme.xaml", UriKind.RelativeOrAbsolute) });
-        }
-
-
-
         private void ThemeToggle_Unchecked(object sender, RoutedEventArgs e)
         {
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Colors/LightTheme.xaml", UriKind.RelativeOrAbsolute) });

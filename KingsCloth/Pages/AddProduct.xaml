@@ -15,9 +15,9 @@
 
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}"/>
         <StackPanel Orientation="Vertical" Height="450">
-            
-            
-            <Border CornerRadius="10" Height="200" Width="180" Background="{DynamicResource ShadowDropBackground}" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top">
+
+
+            <Border CornerRadius="10" Height="200" Width="180" Background="{DynamicResource Button}" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top">
                 <Border.BitmapEffect>
                     <DropShadowBitmapEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="1" Softness="2" />
                 </Border.BitmapEffect>

@@ -71,7 +71,7 @@ namespace KingsCloth.Pages
     "</tr>" +
     "<tr align=\"center\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:15px;font-weight:bold\">" +
     "<td height=\"15\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;font-weight:bold;color:#505050\">" +
-    "Кассовый чек</td>" +
+    "Cash receipt</td>" +
     "</tr>" +
     "<tr>" +
     "<td height=\"10\"></td>" +
@@ -83,7 +83,7 @@ namespace KingsCloth.Pages
     "<tr align=\"center\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:15px\">" +
     "<tr align=\"center\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:15px\">" +
     "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;color:#505050\">" +
-    "ИНТЕРНЕТ-МАГАЗИН <a href=\"King's Cloth\" target=\"_blank\">King's.Cloth.ru</a></td>" +
+    "Online-Store <a href=\"King's Cloth\" target=\"_blank\">King's.Cloth.ru</a></td>" +
     "</tr>" +
     "<tr>" +
     "<td>" +
@@ -91,26 +91,26 @@ namespace KingsCloth.Pages
     "<tbody>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Дата выдачи:</td>" +
+    "Date of issue:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "{Date}</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Сайт ФНС:</td>" +
+    "Website of the Federal Tax Service:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<a href=\"http://nalog.ru\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?hl=ru&amp;q=http://nalog.ru&amp;source=gmail&amp;ust=1651323559361000&amp;usg=AOvVaw2BbJTSprF6g3kv1CLlEX33\">nalog.ru</a></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Адрес электронной почты покупателя:</td>" +
+    "Buyer email address:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<a href=\"mailto:{recipient's mail}\" target=\"_blank\">{recipient's mail}</a></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Адрес электронной почты отправителя чека:</td>" +
+    "Check sender's email address:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<a href=\"mailto:kings.cloth.dp@gmail.com\" target=\"_blank\">kings.cloth.dp@gmail.com</a></td>" +
     "</tr>" +
@@ -166,19 +166,19 @@ namespace KingsCloth.Pages
     "<tbody>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"31\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050\">" +
-    "ИТОГ:</td>" +
+    "TOTAL:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050\">" +
     "{Cost}</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Предварительная оплата (аванс):</td>" +
+    "Prepayment (prepaid expense):</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "0.00</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Последующая оплата (кредит):</td>" +
+    "Other form of payment:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "0.00</td>" +
     "</tr>" +
@@ -190,63 +190,63 @@ namespace KingsCloth.Pages
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Наличными:</td>" +
+    "Cash:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "0.00</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Безналичными:</td>" +
+    "Cashless:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "{Cost}</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>в т.ч. налоги</i></td>" +
+    "<i>Including taxes</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>Сумма без НДС:</i></td>" +
+    "<i>Price without VAT:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>0.00</i></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>Сумма НДС 10/110:</i></td>" +
+    "<i>VAT amount 10/110:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>0.00</i></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>Сумма НДС 20/120:</i></td>" +
+    "<i>VAT amount 20/120:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>{NDS}</i></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>Сумма c НДС 0%:</i></td>" +
+    "<i>Amount including VAT 0%:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>0.00</i></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>Сумма c НДС 10%:</i></td>" +
+    "<i>Amount including VAT 10%:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>0.00</i></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>Сумма c НДС 20%:</i></td>" +
+    "<i>Amount including VAT 20%:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>0.00</i></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Система налогообложения:</td>" +
+    "Taxation system:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "ОСН</td>" +
+    "DOS</td>" +
     "</tr>" +
     "</tbody>" +
     "</table>" +

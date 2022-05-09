@@ -101,7 +101,7 @@ namespace KingsCloth.Pages
                         break;
                 }
                 DataTable dt_prod = req.select_product_by_id(total.id_product);
-                DataTable dt_size = req.select_size_by_size(total.id_product);
+                DataTable dt_size = req.select_size(total.id_product);
                 basket_data.insert(ref basket_data.dt_prod, dt_prod);
                 basket_data.insert(ref basket_data.dt_size, dt_size);
             }
