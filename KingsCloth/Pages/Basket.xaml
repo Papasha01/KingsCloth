@@ -16,23 +16,19 @@
             <ListView 
             x:Name="listview_basket"
             Margin="10,68,10,10"
-            Width="571"
-             MouseLeftButtonUp="listview_basket_MouseLeftButtonUp">
+            Width="571">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" Margin="1,0,0,0" Width="570" HorizontalAlignment="Center"></WrapPanel>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
-
                     <DataTemplate>
                         <Grid Margin="20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="120"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-
-
                             <StackPanel Orientation="Horizontal" Height="100" Width="550" Margin="10,0,0,0">
                                 <Image  Height="90" Width="90">
                                     <Image.Source>
@@ -90,6 +86,7 @@
                                             FontSize="32" 
                                             FontFamily="Mukta Light"/>
                                     </Button>
+                                    
                                     <TextBox
                                         x:Name="CountTextBox"
                                         VerticalAlignment="Center"
@@ -140,6 +137,15 @@
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="IsSelected" Value="True"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
             </ListView>
 
             <Line X1="0" Y1="30" X2="0" Y2="420" Margin="25,0,0,0">

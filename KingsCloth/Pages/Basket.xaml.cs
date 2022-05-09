@@ -284,19 +284,19 @@ namespace KingsCloth.Pages
 
         private void load()
         {
-
             List<basket> basketList = new List<basket>();
             for (int i = 0; i < basket_data.dt_prod.Length; i++)
             {
                 basket basket = new basket();
-                basket.name = (string)basket_data.dt_prod[0].Rows[0]["name"];
-                
-                if (basket_data.dt_prod[0].Rows[0]["image"] != System.DBNull.Value)
-                    basket.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(basket_data.dt_prod[0].Rows[0]["image"]);
+                basket.id = (int)basket_data.dt_prod[i].Rows[0]["id"];
+                basket.price = (int)basket_data.dt_prod[i].Rows[0]["price"];
+                basket.name = (string)basket_data.dt_prod[i].Rows[0]["name"];
+
+                if (basket_data.dt_prod[i].Rows[0]["image"] != System.DBNull.Value)
+                    basket.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(basket_data.dt_prod[i].Rows[0]["image"]);
 
                 basketList.Add(basket);
             }
-
             listview_basket.ItemsSource = basketList;
         }
 
@@ -321,7 +321,8 @@ namespace KingsCloth.Pages
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            var i = (listview_basket.SelectedItem as basket).id;
+            MessageBox.Show(Convert.ToString(i));
         }
 
         private void ButtonSendCheck_Click(object sender, RoutedEventArgs e)
@@ -340,11 +341,6 @@ namespace KingsCloth.Pages
             Console.Read();
             SuccessfulDialog dialog = new SuccessfulDialog();
             dialog.Show();
-        }
-
-        private void listview_basket_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

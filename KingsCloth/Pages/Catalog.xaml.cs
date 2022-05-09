@@ -62,7 +62,6 @@ namespace KingsCloth.Pages
             total.description = (listview_product.SelectedItem as products).description;
             total.image = (listview_product.SelectedItem as products).image;
 
-
             Pages.CatalogDialog catalogDialog = new Pages.CatalogDialog();
             catalogDialog.Show();
 

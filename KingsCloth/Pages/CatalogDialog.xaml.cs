@@ -63,11 +63,48 @@ namespace KingsCloth.Pages
 
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dt_prod = req.select_product_by_id(total.id_product);
-            DataTable dt_size = req.select_size(total.id_product);
-            basket_data.insert(ref basket_data.dt_prod, dt_prod);
-            basket_data.insert(ref basket_data.dt_size, dt_size);
 
+            MessageBox.Show(listbox.SelectedIndex.ToString());
+            if (listbox.SelectedIndex != -1)
+            {
+                switch (listbox.SelectedIndex)
+                {
+                    case 0:
+                        {
+
+                        }
+                        break;
+                    case 1:
+                        {
+
+                        }
+                        break;
+                    case 2:
+                        {
+
+                        }
+                        break;
+                    case 3:
+                        {
+
+                        }
+                        break;
+                    case 4:
+                        {
+
+                        }
+                        break;
+                    case 5:
+                        {
+
+                        }
+                        break;
+                }
+                DataTable dt_prod = req.select_product_by_id(total.id_product);
+                DataTable dt_size = req.select_size_by_size(total.id_product);
+                basket_data.insert(ref basket_data.dt_prod, dt_prod);
+                basket_data.insert(ref basket_data.dt_size, dt_size);
+            }
         }
 
         public void enable_btn(int index)
@@ -80,8 +117,11 @@ namespace KingsCloth.Pages
                         if (total.left.Rows[0]["xs"] != DBNull.Value && total.left.Rows[0]["xs"].ToString() != "0")
                             tx_left.Text = "Left: " + total.left.Rows[0]["xs"].ToString();
                         else
+                        {
                             btn_xs.IsEnabled = false;
                             btn_xs.IsSelected = false;
+                        }
+
                     }
                     break;
                 case 1:

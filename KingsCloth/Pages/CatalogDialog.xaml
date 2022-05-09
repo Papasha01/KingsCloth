@@ -75,17 +75,6 @@
                 FontSize="24" 
                 TextAlignment="Left"/>
 
-            <TextBlock
-                x:Name="tx_left"
-                Margin="0,10,0,0"
-                Text="Left: " 
-                Width="260" 
-                Cursor="Hand"
-                FontFamily="Mukta Light"
-                Foreground="{DynamicResource TextColor}" 
-                FontSize="24" 
-                TextAlignment="Left"/>
-
             <ListBox
                 x:Name="listbox"
                 SelectionChanged="listbox_SelectionChanged"
