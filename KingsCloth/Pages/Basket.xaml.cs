@@ -22,7 +22,6 @@ namespace KingsCloth.Pages
     public partial class Basket : Page
     {
         int i = 1;
-        
 
         public Basket()
         {
@@ -40,17 +39,18 @@ namespace KingsCloth.Pages
                 basket.count = 1;
                 basket.price = (int)basket_data.dt_prod.Rows[i]["price"];
                 basket.name = (string)basket_data.dt_prod.Rows[i]["name"];
-                basket.size = basket_data.dt_size.Columns[1].ColumnName.ToString();
-
                 
-                for (int y = 0; y < basket_data.dt_size.Rows.Count; y++)
+                for (int y = 1; y < basket_data.dt_size.Columns.Count; y++)
                 {
                     if (basket_data.dt_size.Rows[i][y] != DBNull.Value)
                     {
+                        basket.size = basket_data.dt_size.Columns[y].ColumnName.ToString();
                         basket.count_size = (int)basket_data.dt_size.Rows[i][y];
+                        break;
                     }
-                    
                 }
+
+
                 if (basket_data.dt_prod.Rows[i]["image"] != System.DBNull.Value)
                     basket.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(basket_data.dt_prod.Rows[i]["image"]);
 
@@ -64,14 +64,14 @@ namespace KingsCloth.Pages
             if ((listview_basket.SelectedItem as basket).count_size > (listview_basket.SelectedItem as basket).count)
             {
                 (listview_basket.SelectedItem as basket).count = (listview_basket.SelectedItem as basket).count + 1;
-            } 
+            }
             listview_basket.Items.Refresh();
         }
 
         private void ButtonMinus_Click(object sender, RoutedEventArgs e)
         {
             if ((listview_basket.SelectedItem as basket).count > 1)
-            (listview_basket.SelectedItem as basket).count = (listview_basket.SelectedItem as basket).count - 1;
+                (listview_basket.SelectedItem as basket).count = (listview_basket.SelectedItem as basket).count - 1;
             listview_basket.Items.Refresh();
         }
 

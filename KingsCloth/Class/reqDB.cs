@@ -136,7 +136,7 @@ namespace KingsCloth
         public DataTable select_size(int id_prod)
         {
             DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand("SELECT xs, s, m, l, xl, xxl FROM `size` where id = @id_prod", db_con.getConn());
+            MySqlCommand command = new MySqlCommand("SELECT id, xs, s, m, l, xl, xxl FROM `size` where id = @id_prod", db_con.getConn());
             command.Parameters.Add("@id_prod", MySqlDbType.Int32).Value = id_prod;
             adapter.SelectCommand = command;
             adapter.Fill(table);

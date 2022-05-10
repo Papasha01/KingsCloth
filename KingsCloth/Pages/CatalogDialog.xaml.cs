@@ -28,10 +28,14 @@ namespace KingsCloth.Pages
             Load();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            SnackbarTwo.IsActive = false;
-        }
+        reqDB req = new reqDB();
+
+        bool xs = false,
+            s = false,
+            m = false,
+            l = false,
+            xl = false,
+            xxl = false;
 
         private void Load()
         {
@@ -42,6 +46,46 @@ namespace KingsCloth.Pages
             {
                 enable_btn(i);
             }
+
+            for (int i = 0; i < basket_data.dt_prod.Rows.Count; i++)
+            {
+                if ((int)basket_data.dt_prod.Rows[i]["id"] == total.id_product)
+                {
+                    for (int y = 1; y < basket_data.dt_size.Columns.Count; y++)
+                    {
+                        if (basket_data.dt_size.Rows[i][y] != DBNull.Value && (int)basket_data.dt_size.Rows[i][y] > 0)
+                        {
+                            switch (basket_data.dt_size.Columns[y].ColumnName)
+                            {
+                                case "xs":
+                                    xs = true;
+                                    break;
+                                case "s":
+                                    s = true;
+                                    break;
+                                case "m":
+                                    m = true;
+                                    break;
+                                case "l":
+                                    l = true;
+                                    break;
+                                case "xl":
+                                    xl = true;
+                                    break;
+                                case "xxl":
+                                    xxl = true;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            SnackbarTwo.IsActive = false;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -68,17 +112,8 @@ namespace KingsCloth.Pages
                 this.DragMove();
         }
 
-        reqDB req = new reqDB();
-        bool xs = false,
-            s = false,
-            m = false,
-            l = false,
-            xl = false,
-            xxl = false;
         private void insert_main(string size)
         {
-
-
             if (basket_data.dt_prod.Columns.Count == 0 && basket_data.dt_size.Columns.Count == 0)
             {
                 basket_data.dt_prod = req.select_product_by_id(total.id_product);
@@ -165,7 +200,6 @@ namespace KingsCloth.Pages
                         }
                         break;
                 }
-
             }
             else
                 MessageBox.Show("Размер не выбран");
