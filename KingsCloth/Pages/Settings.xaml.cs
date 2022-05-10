@@ -57,11 +57,15 @@ namespace KingsCloth.Pages
         private void LightTheme_Checked(object sender, RoutedEventArgs e)
         {
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Colors/LightTheme.xaml", UriKind.RelativeOrAbsolute) });
+            Properties.Settings.Default.Theme = "Colors/LightTheme.xaml";
+            Properties.Settings.Default.Save();
         }
 
         private void DarkTheme_Checked(object sender, RoutedEventArgs e)
         {
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Colors/DarkTheme.xaml", UriKind.RelativeOrAbsolute) });
+            Properties.Settings.Default.Theme = "Colors/DarkTheme.xaml";
+            Properties.Settings.Default.Save();
         }
     }
 }
