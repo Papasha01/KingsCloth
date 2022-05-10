@@ -44,6 +44,20 @@
                                         FontFamily="Mukta Light" 
                                         FontSize="24"
                                         HorizontalAlignment="Center" />
+                                    <TextBlock 
+                                        Text="{Binding size}" 
+                                        Margin="0,5,0,0"
+                                        Foreground="{DynamicResource TextColor}"   
+                                        FontFamily="Mukta Light" 
+                                        FontSize="24"
+                                        HorizontalAlignment="Center" />
+                                    <TextBlock 
+                                        Text="{Binding count_size}" 
+                                        Margin="0,5,0,0"
+                                        Foreground="{DynamicResource TextColor}"   
+                                        FontFamily="Mukta Light" 
+                                        FontSize="24"
+                                        HorizontalAlignment="Center" />
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock 
                                             Text="Price: " 
@@ -88,11 +102,10 @@
                                     </Button>
 
                                     <TextBox
-                                        x:Name="CountTextBox"
                                         VerticalAlignment="Center"
                                         Height="50"
                                         Width="50"
-                                        Text="1"
+                                        Text="{Binding count}"
                                         VerticalScrollBarVisibility="Auto"
                                         BorderThickness="0,1,0,1"
                                         PreviewTextInput="TextBox_PreviewTextInput"

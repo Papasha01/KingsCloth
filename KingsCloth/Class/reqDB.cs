@@ -143,6 +143,16 @@ namespace KingsCloth
             return table;
         }
 
+        public DataTable select_size_by_size(int id_prod, string size)
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT id, " + size + " FROM `size` where id = @id_prod", db_con.getConn());
+            command.Parameters.Add("@id_prod", MySqlDbType.Int32).Value = id_prod;
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            return table;
+        }
+
         public void insert_storage(byte[] image)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`storage` (`image`, `id`, `address`, `capacity`, `phone`) " +

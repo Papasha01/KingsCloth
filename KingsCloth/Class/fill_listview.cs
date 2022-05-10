@@ -41,17 +41,15 @@ namespace KingsCloth
     public class basket
     {
         public int id { get; set; }
+        public int count { get; set; }
         public string name { get; set; }
         public string color { get; set; }
         public int price { get; set; }
         public BitmapSource image { get; set; }
         public int id_size { get; set; }
-        public int xs { get; set; }
-        public int s { get; set; }
-        public int m { get; set; }
-        public int l { get; set; }
-        public int xl { get; set; }
-        public int xxl { get; set; }
+        public string size { get; set; }
+        public int count_size { get; set; }
+
     }
 
     public class size

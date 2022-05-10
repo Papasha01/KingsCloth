@@ -60,51 +60,106 @@ namespace KingsCloth.Pages
         }
 
         reqDB req = new reqDB();
+        bool xs = false,
+            s = false,
+            m = false,
+            l = false,
+            xl = false,
+            xxl = false;
+        private void insert_main(string size)
+        {
+
+
+            if (basket_data.dt_prod.Columns.Count == 0 && basket_data.dt_size.Columns.Count == 0)
+            {
+                basket_data.dt_prod = req.select_product_by_id(total.id_product);
+                basket_data.dt_size = req.select_size((int)basket_data.dt_prod.Rows[basket_data.dt_prod.Rows.Count - 1]["id_size"]);
+                basket_data.dt_prod.Rows.Clear();
+                basket_data.dt_size.Rows.Clear();
+            }
+            basket_data.dt_prod.ImportRow(req.select_product_by_id(total.id_product).Rows[0]);
+            basket_data.dt_size.ImportRow(req.select_size_by_size((int)basket_data.dt_prod.Rows[basket_data.dt_prod.Rows.Count - 1]["id_size"], size).Rows[0]);
+        }
 
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBox.Show(listbox.SelectedIndex.ToString());
+            //MessageBox.Show(listbox.SelectedIndex.ToString());
             if (listbox.SelectedIndex != -1)
             {
                 switch (listbox.SelectedIndex)
                 {
                     case 0:
                         {
-
+                            if (xs == false)
+                            {
+                                insert_main("xs");
+                                xs = true;
+                            }
+                            else
+                                MessageBox.Show("Данный размер уже добавлен в корзину");
+                            
                         }
                         break;
                     case 1:
                         {
 
+                            if (s == false)
+                            {
+                                insert_main("s");
+                                s = true;
+                            }
+                            else
+                                MessageBox.Show("Данный размер уже добавлен в корзину");
                         }
                         break;
                     case 2:
                         {
-
+                            if (m == false)
+                            {
+                                insert_main("m");
+                                m = true;
+                            }
+                            else
+                                MessageBox.Show("Данный размер уже добавлен в корзину");
                         }
                         break;
                     case 3:
                         {
-
+                            if (l == false)
+                            {
+                                insert_main("l");
+                                l = true;
+                            }
+                            else
+                                MessageBox.Show("Данный размер уже добавлен в корзину");
                         }
                         break;
                     case 4:
                         {
-
-                        }
+                            if (xl == false)
+                            {
+                                insert_main("xl");
+                                xl = true;
+                            }
+                            else
+                                MessageBox.Show("Данный размер уже добавлен в корзину");                        }
                         break;
                     case 5:
                         {
-
+                            if (xxl == false)
+                            {
+                                insert_main("xxl");
+                                xxl = true;
+                            }
+                            else
+                                MessageBox.Show("Данный размер уже добавлен в корзину");
                         }
                         break;
                 }
-                DataTable dt_prod = req.select_product_by_id(total.id_product);
-                DataTable dt_size = req.select_size(total.id_product);
-                basket_data.insert(ref basket_data.dt_prod, dt_prod);
-                basket_data.insert(ref basket_data.dt_size, dt_size);
+
             }
+            else
+                MessageBox.Show("Размер не выбран");
         }
 
         public void enable_btn(int index)

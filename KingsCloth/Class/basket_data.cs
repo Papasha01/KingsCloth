@@ -8,8 +8,9 @@ namespace KingsCloth
 {
     public static class basket_data
     {
-        public static DataTable[] dt_prod = new DataTable[] {};
-        public static DataTable[] dt_size = new DataTable[] {};
+        public static DataTable dt_prod = new DataTable();
+        public static DataTable dt_size = new DataTable();
+        //public static DataTable[] dt_size = new DataTable[] {};
         //public static DataTable dt = new DataTable{};
 
         public static void insert(ref DataTable[] dataTables, DataTable dataTable)

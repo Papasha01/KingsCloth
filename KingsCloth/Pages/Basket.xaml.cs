@@ -285,15 +285,26 @@ namespace KingsCloth.Pages
         private void load()
         {
             List<basket> basketList = new List<basket>();
-            for (int i = 0; i < basket_data.dt_prod.Length; i++)
+            for (int i = 0; i < basket_data.dt_prod.Rows.Count; i++)
             {
                 basket basket = new basket();
-                basket.id = (int)basket_data.dt_prod[i].Rows[0]["id"];
-                basket.price = (int)basket_data.dt_prod[i].Rows[0]["price"];
-                basket.name = (string)basket_data.dt_prod[i].Rows[0]["name"];
+                basket.id = (int)basket_data.dt_prod.Rows[i]["id"];
+                basket.count = 1;
+                basket.price = (int)basket_data.dt_prod.Rows[i]["price"];
+                basket.name = (string)basket_data.dt_prod.Rows[i]["name"];
+                basket.size = basket_data.dt_size.Columns[1].ColumnName.ToString();
 
-                if (basket_data.dt_prod[i].Rows[0]["image"] != System.DBNull.Value)
-                    basket.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(basket_data.dt_prod[i].Rows[0]["image"]);
+                
+                for (int y = 0; y < basket_data.dt_size.Rows.Count; y++)
+                {
+                    if (basket_data.dt_size.Rows[i][y] != DBNull.Value)
+                    {
+                        basket.count_size = (int)basket_data.dt_size.Rows[i][y];
+                    }
+                    
+                }
+                if (basket_data.dt_prod.Rows[i]["image"] != System.DBNull.Value)
+                    basket.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(basket_data.dt_prod.Rows[i]["image"]);
 
                 basketList.Add(basket);
             }
@@ -302,8 +313,18 @@ namespace KingsCloth.Pages
 
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
-            i++;
-            //CountTextBox.Text = Convert.ToString(i);
+            if ((listview_basket.SelectedItem as basket).count_size > (listview_basket.SelectedItem as basket).count)
+            {
+                (listview_basket.SelectedItem as basket).count = (listview_basket.SelectedItem as basket).count + 1;
+            } 
+            listview_basket.Items.Refresh();
+        }
+
+        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
+        {
+            if ((listview_basket.SelectedItem as basket).count > 1)
+            (listview_basket.SelectedItem as basket).count = (listview_basket.SelectedItem as basket).count - 1;
+            listview_basket.Items.Refresh();
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -312,17 +333,16 @@ namespace KingsCloth.Pages
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
-        {
-            if (i > 0)
-                i--;
-            //CountTextBox.Text = Convert.ToString(i);
-        }
-
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            var i = (listview_basket.SelectedItem as basket).id;
-            MessageBox.Show(Convert.ToString(i));
+            basket_data.dt_prod.Rows.Remove(basket_data.dt_prod.Rows[listview_basket.SelectedIndex]);
+            basket_data.dt_size.Rows.Remove(basket_data.dt_size.Rows[listview_basket.SelectedIndex]);
+
+            List<basket> basket = new List<basket>();
+            basket = (List<basket>)listview_basket.ItemsSource;
+            basket.RemoveAt(listview_basket.SelectedIndex);
+            listview_basket.ItemsSource = basket;
+            listview_basket.Items.Refresh();
         }
 
         private void ButtonSendCheck_Click(object sender, RoutedEventArgs e)
