@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Net.Mail;
+using System.Net;
 
 
 namespace KingsCloth.Pages
@@ -19,6 +21,260 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class SuccessfulDialog : Window
     {
+
+        string mailr =
+    "<html>" +
+    "<tbody>" +
+    "<tr>" +
+    "<td>" +
+    "<table width=\"660\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td height=\"30\"></td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td width=\"20\"></td>" +
+    "<td width=\"620\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050;font-weight:bold\">" +
+    "Заказ № {Order number}: электронный чек</td>" +
+    "<td width=\"20\"></td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td height=\"8\"></td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td height=\"30\"></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td>" +
+    "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td width=\"660\">" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td width=\"130\"></td>" +
+    "<td width=\"400\" bgcolor=\"#EFEFEF\">" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td width=\"20\"></td>" +
+    "<td width=\"360\">" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"color:#505050\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td height=\"14\"></td>" +
+    "</tr>" +
+    "<tr align=\"center\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:15px;font-weight:bold\">" +
+    "<td height=\"15\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;font-weight:bold;color:#505050\">" +
+    "Cash receipt</td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td height=\"10\"></td>" +
+    "</tr>" +
+    "<tr align=\"center\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:15px\">" +
+    "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;color:#505050\">" +
+    "\"King's Cloth\"</td>" +
+    "</tr>" +
+    "<tr align=\"center\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:15px\">" +
+    "<tr align=\"center\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:15px\">" +
+    "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;color:#505050\">" +
+    "Online-Store <a href=\"King's Cloth\" target=\"_blank\">King's.Cloth.ru</a></td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td>" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Date of issue:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "{Date}</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Website of the Federal Tax Service:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<a href=\"http://nalog.ru\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?hl=ru&amp;q=http://nalog.ru&amp;source=gmail&amp;ust=1651323559361000&amp;usg=AOvVaw2BbJTSprF6g3kv1CLlEX33\">nalog.ru</a></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Buyer email address:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<a href=\"mailto:{recipient's mail}\" target=\"_blank\">{recipient's mail}</a></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Check sender's email address:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<a href=\"mailto:kings.cloth.dp@gmail.com\" target=\"_blank\">kings.cloth.dp@gmail.com</a></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td height=\"20\"></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "<td width=\"20\"></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "<td width=\"130\"></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td>" +
+    "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td width=\"660\">" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td width=\"130\"></td>" +
+    "<td width=\"400\" bgcolor=\"#EFEFEF\">" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td width=\"20\"></td>" +
+    "<td width=\"360\">" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"color:#505050\">" +
+    "<tbody>" +
+    "<tr>" +
+    "<td height=\"5\"></td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td>" +
+    "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" +
+    "<tbody>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"31\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050\">" +
+    "TOTAL:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050\">" +
+    "{Cost}</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Prepayment (prepaid expense):</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "0.00</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Other form of payment:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "0.00</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Иная форма оплаты:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "0.00</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Cash:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "0.00</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Cashless:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "{Cost}</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>Including taxes</i></td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "</td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>Price without VAT:</i></td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>0.00</i></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>VAT amount 10/110:</i></td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>0.00</i></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>VAT amount 20/120:</i></td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>{NDS}</i></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>Amount including VAT 0%:</i></td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>0.00</i></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>Amount including VAT 10%:</i></td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>0.00</i></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>Amount including VAT 20%:</i></td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "<i>0.00</i></td>" +
+    "</tr>" +
+    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
+    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "Taxation system:</td>" +
+    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
+    "DOS</td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "</tr>" +
+    "<tr>" +
+    "<td height=\"13\"></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "<td width=\"20\"></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "<td width=\"130\"></td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</table>" +
+    "</td>" +
+    "</tr>" +
+    "</tbody>" +
+    "</html>";
         const int MaxTimerCounter = 100;
         const int MinTimerCounter = 0;
 
@@ -36,6 +292,21 @@ namespace KingsCloth.Pages
             _dispTimer.Tick += new EventHandler(dispTimer_Tick);
             _dispTimer.Start();
         }
+        private void mailsend()
+        {
+            MailAddress from = new MailAddress("kings.cloth.dp@gmail.com", "King's Cloth");
+            //Куда отправлять
+            MailAddress to = new MailAddress("nicken1898@gmail.com");
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = "Check";
+            m.Body = mailr;
+            m.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("kings.cloth.dp@gmail.com", "KingsCloth");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+            Console.Read();
+        }
         void dispTimer_Tick(object sender, EventArgs e)
         {
             //сначала выводится значение, потом инкрементируется (не для всех очевидно)
@@ -49,7 +320,9 @@ namespace KingsCloth.Pages
                 PrBar.Foreground = new SolidColorBrush(Colors.Green);
                 TogButt.IsChecked = true;
                 _dispTimer.Stop();
+                mailsend();
             }
+
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

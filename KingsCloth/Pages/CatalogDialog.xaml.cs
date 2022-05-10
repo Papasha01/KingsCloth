@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace KingsCloth.Pages
 {
@@ -18,10 +19,18 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class CatalogDialog : Window
     {
+        DispatcherTimer timer = new DispatcherTimer();
         public CatalogDialog()
         {
             InitializeComponent();
+            timer.Interval = new TimeSpan(0, 0, 2);
+            timer.Tick += timer_Tick;
             Load();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            SnackbarTwo.IsActive = false;
         }
 
         private void Load()
@@ -160,6 +169,8 @@ namespace KingsCloth.Pages
             }
             else
                 MessageBox.Show("Размер не выбран");
+            SnackbarTwo.IsActive = true;
+            timer.Start();
         }
 
         public void enable_btn(int index)
