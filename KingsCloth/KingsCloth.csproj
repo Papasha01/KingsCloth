@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>kingsclothlogo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,10 @@
     <None Remove="KingsClothWhiteLOGO.png" />
     <None Remove="MiniLogo.png" />
     <None Remove="Pages\2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="kingsclothlogo.ico" />
   </ItemGroup>
 
   <ItemGroup>
