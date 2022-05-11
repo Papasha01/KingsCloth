@@ -26,58 +26,63 @@ namespace KingsCloth.Pages
         {
             SeriesCollection = new SeriesCollection
             {
-                new LineSeries
+                new PieSeries
                 {
-                    Values = new ChartValues<ObservableValue>
-                    {
-                        new ObservableValue(3),
-                        new ObservableValue(5),
-                        new ObservableValue(2),
-                        new ObservableValue(7),
-                        new ObservableValue(7),
-                        new ObservableValue(4)
-                    },
-                    PointGeometrySize = 0,
-                    StrokeThickness = 4,
-                    Fill = Brushes.Transparent
+                    Title = "Chrome",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(8) },
+                    DataLabels = true
                 },
-                new LineSeries
+                new PieSeries
                 {
-                    Values = new ChartValues<ObservableValue>
-                    {
-                        new ObservableValue(3),
-                        new ObservableValue(4),
-                        new ObservableValue(6),
-                        new ObservableValue(8),
-                        new ObservableValue(7),
-                        new ObservableValue(5)
-                    },
-                    PointGeometrySize = 0,
-                    StrokeThickness = 4,
-                    Fill = Brushes.Transparent
+                    Title = "Mozilla",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(6) },
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = "Opera",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(10) },
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = "Explorer",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(4) },
+                    DataLabels = true
                 }
             };
 
             DataContext = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         public SeriesCollection SeriesCollection { get; set; }
-
-        private void UpdateAllOnClick(object sender, RoutedEventArgs e)
+        private void Products_for_the_quarter(object sender, RoutedEventArgs e)
         {
-            var r = new Random();
-
-            foreach (var series in SeriesCollection)
-            {
-                foreach (var observable in series.Values.Cast<ObservableValue>())
-                {
-                    observable.Value = r.Next(0, 10);
-                }
-            }
+            ChartGrid.Visibility = Visibility.Visible;
+            CircleGrid.Visibility = Visibility.Hidden;
         }
+        private void Revenue(object sender, RoutedEventArgs e)
+        {
+            ChartGrid.Visibility = Visibility.Visible;
+            CircleGrid.Visibility = Visibility.Hidden;
+        }
+        private void Cost_of_goods(object sender, RoutedEventArgs e)
+        {
+            ChartGrid.Visibility = Visibility.Hidden;
+            CircleGrid.Visibility = Visibility.Visible;
+        }
+        private void Discounts_and_referrals(object sender, RoutedEventArgs e)
+        {
+            ChartGrid.Visibility = Visibility.Visible;
+            CircleGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void Surplus_value(object sender, RoutedEventArgs e)
+        {
+            ChartGrid.Visibility = Visibility.Visible;
+            CircleGrid.Visibility = Visibility.Hidden;
+        }
+
+
     }
 }

@@ -11,45 +11,212 @@
       Title="Stats">
     <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
 
         </Border>
+        <StackPanel Orientation="Vertical">
+            <StackPanel 
+                Grid.Row="0" 
+                Height="60" 
+                VerticalAlignment="Top" 
+                Orientation="Horizontal" 
+                FlowDirection="LeftToRight">
 
-        <Button Grid.Row="1"  Click="UpdateAllOnClick">
-            Move All
-        </Button>
-        <lvc:CartesianChart Name="Chart" Grid.Row="2" Series="{Binding SeriesCollection}" >
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Name="Axis">
-                    <lvc:Axis.Sections>
-                        <lvc:AxisSection Value="8.5" StrokeThickness="3" Stroke="#F9D648">
-                            <lvc:AxisSection.Fill>
-                                <SolidColorBrush Color="#A3A3FF" Opacity=".4"></SolidColorBrush>
-                            </lvc:AxisSection.Fill>
-                        </lvc:AxisSection>
-                        <lvc:AxisSection Value="4" SectionWidth="8" Label="Good">
-                            <lvc:AxisSection.Fill>
-                                <SolidColorBrush Color="#CDCDCD" Opacity=".4"></SolidColorBrush>
-                            </lvc:AxisSection.Fill>
-                        </lvc:AxisSection>
-                        <lvc:AxisSection Value="0" SectionWidth="4" Label="Bad">
-                            <lvc:AxisSection.Fill>
-                                <SolidColorBrush Color="#FF8585" Opacity=".4"></SolidColorBrush>
-                            </lvc:AxisSection.Fill>
-                        </lvc:AxisSection>
-                    </lvc:Axis.Sections>
-                </lvc:Axis>
-            </lvc:CartesianChart.AxisY>
-        </lvc:CartesianChart>
+                <Button
+                    Style="{StaticResource MaterialDesignFlatLightButton}"
+                    Width="155" Height="45"
+                    Foreground="{DynamicResource PrimTextColor}"
+                    Background="{x:Null}"
+                    BorderBrush="{DynamicResource Button}"
+                    Cursor="Hand" 
+                    BorderThickness="2,0,2,0" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="17,5,0,0" 
+                    Click="Products_for_the_quarter">
+                    <TextBlock 
+                        FontSize="14"
+                        TextWrapping="Wrap" 
+                        Text="Products for the quarter" TextAlignment="Center"/>
+                </Button>
+
+                <Button
+                    Style="{StaticResource MaterialDesignFlatLightButton}"
+                    Width="155" Height="45"
+                    Foreground="{DynamicResource PrimTextColor}"
+                    Background="{x:Null}"
+                    BorderBrush="{DynamicResource Button}"
+                    Cursor="Hand" 
+                    BorderThickness="0,0,2,0" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="0,5,0,0"
+                    Click="Revenue">
+                    <TextBlock 
+                        FontSize="18"
+                        TextWrapping="Wrap" 
+                        Text="Revenue"/>
+                </Button>
+
+
+                <Button
+                    Style="{StaticResource MaterialDesignFlatLightButton}"
+                    Width="155" Height="45"
+                    Foreground="{DynamicResource PrimTextColor}"
+                    Background="{x:Null}"
+                    BorderBrush="{DynamicResource Button}"
+                    Cursor="Hand" 
+                    BorderThickness="0,0,2,0" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="0,5,0,0" 
+                    Click="Cost_of_goods">
+                    <TextBlock 
+                        FontSize="18"
+                        TextWrapping="Wrap" 
+                        Text="Cost of goods"/>
+                </Button>
+
+                <Button
+                    Style="{StaticResource MaterialDesignFlatLightButton}"
+                    Width="155" Height="45"
+                    Foreground="{DynamicResource PrimTextColor}"
+                    Background="{x:Null}"
+                    BorderBrush="{DynamicResource Button}"
+                    Cursor="Hand" 
+                    BorderThickness="0,0,2,0" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="0,5,0,0" 
+                    Click="Discounts_and_referrals">
+                    <TextBlock 
+                        FontSize="15"
+                        TextWrapping="Wrap" 
+                        Text="Discounts and referrals" TextAlignment="Center"/>
+                </Button>
+
+                <Button
+                    Style="{StaticResource MaterialDesignFlatLightButton}"
+                    Width="155" Height="45"
+                    Foreground="{DynamicResource PrimTextColor}"
+                    Background="{x:Null}"
+                    BorderBrush="{DynamicResource Button}"
+                    Cursor="Hand" 
+                    BorderThickness="0,0,2,0" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="0,5,0,0" 
+                    Click="Surplus_value">
+                    <TextBlock 
+                        FontSize="18"
+                        TextWrapping="Wrap" 
+                        Text="Surplus value" 
+                        />
+                </Button>
 
 
 
+            </StackPanel>
+
+            <Line X1="40" Y1="00" X2="770" Y2="00" Margin="0,0,0,0">
+                <Line.Stroke>
+                    <RadialGradientBrush GradientOrigin="0.1,0.1" Center="0.1,0.1" RadiusX="0.1" RadiusY="0.1">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="{DynamicResource Primary900}" Offset="0.1" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Line.Stroke>
+            </Line>
+
+            <StackPanel Height="480" Orientation="Horizontal" VerticalAlignment="Bottom">
+
+                <StackPanel Width="260" Orientation="Vertical">
+                    <TextBlock
+                            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                            Text="Stats" Foreground="{DynamicResource PrimTextColor}" 
+                            Margin="0,10,0,5"
+                            FontSize="26"
+                            Padding="6,0,0,0" HorizontalAlignment="Center"/>
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                        
+
+                    </StackPanel>
+                </StackPanel>
+                
+                <Line Margin="10,0,0,0" X1="0" Y1="30" X2="0" Y2="440" Width="2">
+                    <Line.Stroke>
+                        <RadialGradientBrush GradientOrigin="0.1,0.1" Center="0.1,0.1" RadiusX="0.1" RadiusY="0.1">
+                            <GradientStop Color="{DynamicResource Primary900}" Offset="0.1" />
+                        </RadialGradientBrush>
+                    </Line.Stroke>
+                </Line>
+
+                <StackPanel Width="520" Height="auto" Orientation="Vertical">
+                    <TextBlock
+                            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                            Text="Graph" Foreground="{DynamicResource PrimTextColor}" 
+                            Margin="0,10,0,5"
+                            FontSize="26"
+                            Padding="6,0,0,0" HorizontalAlignment="Center"/>
+
+                    <Grid Margin="15,0,0,0" Width="500" Height="400" HorizontalAlignment="Left">
+                        <Grid x:Name="ChartGrid" Visibility="Hidden">
+                            <lvc:CartesianChart Name="Chart" Grid.Row="2" Series="{Binding SeriesCollection}" >
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Name="Axis">
+                                        <lvc:Axis.Sections>
+                                            <lvc:AxisSection Value="8.5" StrokeThickness="3" Stroke="#F9D648">
+                                                <lvc:AxisSection.Fill>
+                                                    <SolidColorBrush Color="#A3A3FF" Opacity=".4"></SolidColorBrush>
+                                                </lvc:AxisSection.Fill>
+                                            </lvc:AxisSection>
+                                            <lvc:AxisSection Value="4" SectionWidth="8" Label="Good">
+                                                <lvc:AxisSection.Fill>
+                                                    <SolidColorBrush Color="#CDCDCD" Opacity=".4"></SolidColorBrush>
+                                                </lvc:AxisSection.Fill>
+                                            </lvc:AxisSection>
+                                            <lvc:AxisSection Value="0" SectionWidth="4" Label="Bad">
+                                                <lvc:AxisSection.Fill>
+                                                    <SolidColorBrush Color="#FF8585" Opacity=".4"></SolidColorBrush>
+                                                </lvc:AxisSection.Fill>
+                                            </lvc:AxisSection>
+                                        </lvc:Axis.Sections>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                        </Grid>
+
+                        <Grid x:Name="CircleGrid" Visibility="Hidden">
+                            <lvc:PieChart Name="Сircle" Grid.Row="1" Series="{Binding SeriesCollection}" 
+                      LegendLocation="Right" InnerRadius="100" Margin="0 15">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
+                        </Grid>
+
+                        <!--<lvc:PieChart Name="Chart" Grid.Row="1" Series="{Binding SeriesCollection}" 
+                      LegendLocation="Right" InnerRadius="100" Margin="0 15">
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+                            </lvc:PieChart.ChartLegend>
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>-->
+                    </Grid>
+
+
+                    
+                </StackPanel>
+
+
+            </StackPanel>
+        </StackPanel>
+        
 
 
 
