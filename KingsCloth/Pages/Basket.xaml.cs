@@ -39,7 +39,7 @@ namespace KingsCloth.Pages
                 basket.count = 1;
                 basket.price = (int)basket_data.dt_prod.Rows[i]["price"];
                 basket.name = (string)basket_data.dt_prod.Rows[i]["name"];
-                
+
                 for (int y = 1; y < basket_data.dt_size.Columns.Count; y++)
                 {
                     if (basket_data.dt_size.Rows[i][y] != DBNull.Value)
@@ -50,13 +50,45 @@ namespace KingsCloth.Pages
                     }
                 }
 
-
                 if (basket_data.dt_prod.Rows[i]["image"] != System.DBNull.Value)
                     basket.image = (BitmapSource)new ImageSourceConverter().ConvertFrom(basket_data.dt_prod.Rows[i]["image"]);
 
                 basketList.Add(basket);
             }
             listview_basket.ItemsSource = basketList;
+
+            update_total_cost();
+            update_product_count();
+        }
+
+
+
+
+        private int update_product_count()
+        {
+            int product_count = 0;
+            for (int i = 0; i < listview_basket.Items.Count; i++)
+            {
+                product_count += (listview_basket.Items[i] as basket).count;
+            }
+
+            tx_product_count.Text = Convert.ToString("(" + product_count + ")");
+            return product_count;
+        }
+
+        
+
+        private Int64 update_total_cost()
+        {
+            Int64 total_cost = 0;
+
+            for (int i = 0; i < listview_basket.Items.Count; i++)
+            {
+                total_cost += (listview_basket.Items[i] as basket).price * (listview_basket.Items[i] as basket).count;
+            }
+
+            tx_total_cost.Text = Convert.ToString(total_cost + "$");
+            return total_cost;
         }
 
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
@@ -64,15 +96,22 @@ namespace KingsCloth.Pages
             if ((listview_basket.SelectedItem as basket).count_size > (listview_basket.SelectedItem as basket).count)
             {
                 (listview_basket.SelectedItem as basket).count = (listview_basket.SelectedItem as basket).count + 1;
+                update_product_count();
+                update_total_cost();
+                listview_basket.Items.Refresh();
             }
-            listview_basket.Items.Refresh();
         }
 
         private void ButtonMinus_Click(object sender, RoutedEventArgs e)
         {
             if ((listview_basket.SelectedItem as basket).count > 1)
+            {
                 (listview_basket.SelectedItem as basket).count = (listview_basket.SelectedItem as basket).count - 1;
-            listview_basket.Items.Refresh();
+                listview_basket.Items.Refresh();
+                update_product_count();
+                update_total_cost();
+            }
+
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -91,12 +130,38 @@ namespace KingsCloth.Pages
             basket.RemoveAt(listview_basket.SelectedIndex);
             listview_basket.ItemsSource = basket;
             listview_basket.Items.Refresh();
+            update_total_cost();
+            update_product_count();
         }
 
         private void ButtonSendCheck_Click(object sender, RoutedEventArgs e)
         {
-            SuccessfulDialog dialog = new SuccessfulDialog();
-            dialog.Show();
+            string products = "";
+
+            for (int i = 0; i < listview_basket.Items.Count; i++)
+            {
+                products += ((listview_basket.Items[i] as basket).name + "; ");
+            }
+
+
+            reqDB req = new reqDB();
+            try
+            {
+                req.insert_history(update_total_cost(),
+                    products,
+                    tx_fio.Text,
+                    Convert.ToInt64(tx_phone.Text),
+                    tx_email.Text,
+                    tx_address.Text,
+                    0, update_product_count());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Введены не корректные данные");
+            }
+
+            //SuccessfulDialog dialog = new SuccessfulDialog();
+            //dialog.Show();
         }
     }
 }

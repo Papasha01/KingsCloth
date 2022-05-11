@@ -163,5 +163,22 @@ namespace KingsCloth
             command.ExecuteNonQuery();
             db_con.closeConn();
         }
+
+        public void insert_history(Int64 cost, string name, string fio, Int64 phone, string email, string address, double discount, int count_prod)
+        {
+            MySqlCommand command = new MySqlCommand("INSERT INTO `kingscloth`.`history` (`сost`, `product`, `fio`, `phone`, `email`, `address`, `date`, `discount`, `count_product`) " +
+                "VALUES (@cost, @name, @fio, @phone, @email, @address, NULL, @discount, @count_prod)", db_con.getConn());
+            command.Parameters.Add("@cost", MySqlDbType.Int64).Value = cost;
+            command.Parameters.Add("@name", MySqlDbType.String).Value = name;
+            command.Parameters.Add("@fio", MySqlDbType.String).Value = fio;
+            command.Parameters.Add("@phone", MySqlDbType.Int64).Value = phone;
+            command.Parameters.Add("@email", MySqlDbType.String).Value = email;
+            command.Parameters.Add("@address", MySqlDbType.String).Value = address;
+            command.Parameters.Add("@discount", MySqlDbType.Double).Value = discount;
+            command.Parameters.Add("@count_prod", MySqlDbType.Int16).Value = count_prod;
+            db_con.openConn();
+            command.ExecuteNonQuery();
+            db_con.closeConn();
+        }
     }
 }

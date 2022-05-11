@@ -177,14 +177,15 @@
                     <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
                         <TextBlock
                             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-                            Text="Product:" Foreground="{DynamicResource PrimTextColor}" 
+                            Text="Product " Foreground="{DynamicResource PrimTextColor}" 
                             Margin="10,0,0,5"
                             FontSize="16"
                             Padding="6,0,0,0"/>
                         <!-- Кол-во товаров -->
                         <TextBlock
                             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-                            Text="" Foreground="{DynamicResource PrimTextColor}" 
+                            Text="{Binding tx_prod_count}" Foreground="{DynamicResource PrimTextColor}" 
+                            x:Name="tx_product_count"
                             Margin="0,0,0,5"
                             FontSize="16"
                             Padding="5,0,0,0"/>
@@ -221,7 +222,8 @@
                         <!-- Итоговая сумма -->
                         <TextBlock
                         Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-                        Text="" Foreground="{DynamicResource PrimTextColor}" 
+                        Text="" Foreground="{DynamicResource PrimTextColor}"
+                            x:Name="tx_total_cost"
                         Margin="0,0,0,5"
 
                             FontSize="24"
@@ -240,6 +242,7 @@
                         </Line.Stroke>
                     </Line>
                     <TextBox
+                        x:Name="tx_fio"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="FIO"
                         VerticalAlignment="Top"
@@ -257,6 +260,7 @@
                         HorizontalAlignment="Left" 
                         Margin="15,0,10,15"/>
                     <TextBox
+                        x:Name="tx_phone"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Phone"
                         VerticalAlignment="Top"
@@ -274,6 +278,7 @@
                         HorizontalAlignment="Left" 
                         Margin="15,0,10,15"/>
                     <TextBox
+                        x:Name="tx_email"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Email"
                         VerticalAlignment="Top"
@@ -291,6 +296,7 @@
                         HorizontalAlignment="Left" 
                         Margin="15,0,10,15"/>
                     <TextBox
+                        x:Name="tx_address"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Address"
                         VerticalAlignment="Top"
