@@ -81,7 +81,7 @@
                     x:Name="DarkTheme"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4"
-                    IsChecked="True"
+
                     Foreground="{DynamicResource SecundaryBackgroundColor}" Checked="DarkTheme_Checked">
                     <StackPanel>
                         <materialDesign:PackIcon

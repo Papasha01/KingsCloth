@@ -39,6 +39,7 @@ namespace KingsCloth
                         MainWindow mw = new MainWindow();
                         Hide();
                         mw.ShowDialog();
+                        Close();
                         break;
                     case 2:
                         MessageBox.Show("2");

@@ -58,7 +58,7 @@
 
         <!--MouseDown="Window_MouseDown" не забыть вставить!!!!!!!!!!-->
         <Border x:Name="border"  Height="37" MouseDown="Window_MouseDown" VerticalAlignment="Top"   Background="{DynamicResource SecundaryBackgroundColor}" Margin="0,0,0,0">
-            <TextBlock x:Name="Title" Width="220" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,0,0" FontFamily="Mukta Light" FontWeight="Bold" FontSize="36" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
+            <TextBlock x:Name="Title" Width="220" Height="40"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,1,0,0" FontFamily="Mukta Light" FontWeight="Bold" FontSize="32" Foreground="{DynamicResource TextColor}" TextAlignment="Center" Visibility="Hidden"/>
         </Border>
 
         <Grid Margin="0,37,0,0" x:Name="GridBackground" Background="{DynamicResource TransparentBackground}" Opacity="0" Visibility="Hidden"/>
@@ -397,7 +397,7 @@
                                             Margin="-3 0" 
                                             Padding="0" />
                                         <TextBlock 
-                                            Text="Add Product" 
+                                            Text="Stats" 
                                             Foreground="{DynamicResource TextColor}" 
                                             VerticalAlignment="Center" 
                                             Margin="20 5" />
