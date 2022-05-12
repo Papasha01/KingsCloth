@@ -96,7 +96,7 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="HelpCircle" 
+                                            Kind="HelpCircleOutline" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="30" 
@@ -129,7 +129,7 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="Settings" 
+                                            Kind="CogOutline" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="30" 
@@ -215,7 +215,7 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="Home" 
+                                            Kind="HomeOutline" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="35" 
@@ -248,7 +248,7 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="Cart" 
+                                            Kind="StorefrontOutline" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="35" 
@@ -289,7 +289,7 @@
                                             Margin="0,0,0,0">
                                             
                                             <materialDesign:PackIcon 
-                                                Kind="Basket" 
+                                                Kind="BasketOutline" 
                                                 DockPanel.Dock="Left" 
                                                 Foreground="{DynamicResource TextColor}" 
                                                 Height="35" 
@@ -323,7 +323,7 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="AccountAdd" 
+                                            Kind="AccountPlusOutline" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="35" 
@@ -389,7 +389,7 @@
                                 <Button.Content>
                                     <DockPanel>
                                         <materialDesign:PackIcon 
-                                            Kind="Assignment" 
+                                            Kind="ChartLine" 
                                             DockPanel.Dock="Left" 
                                             Foreground="{DynamicResource TextColor}" 
                                             Height="35" 

@@ -17,5 +17,8 @@ namespace KingsCloth
         public static BitmapSource image;
         public static DataTable left;
 
+        public static string cost;
+        public static string email;
+
     }
 }

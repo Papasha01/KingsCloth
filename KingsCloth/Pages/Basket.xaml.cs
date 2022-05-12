@@ -21,7 +21,6 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class Basket : Page
     {
-        int i = 1;
 
         public Basket()
         {
@@ -88,7 +87,9 @@ namespace KingsCloth.Pages
             }
 
             tx_total_cost.Text = Convert.ToString(total_cost + "$");
+            total.cost = total_cost.ToString();
             return total_cost;
+
         }
 
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
@@ -154,14 +155,15 @@ namespace KingsCloth.Pages
                     tx_email.Text,
                     tx_address.Text,
                     0, update_product_count());
+                total.email = tx_email.Text;
             }
             catch (Exception)
             {
                 MessageBox.Show("Введены не корректные данные");
             }
 
-            //SuccessfulDialog dialog = new SuccessfulDialog();
-            //dialog.Show();
+            SuccessfulDialog dialog = new SuccessfulDialog();
+            dialog.Show();
         }
     }
 }

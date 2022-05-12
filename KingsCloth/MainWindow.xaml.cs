@@ -25,7 +25,6 @@ namespace KingsCloth
         public MainWindow()
         {
             InitializeComponent();
-
         }
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
