@@ -289,7 +289,10 @@ namespace KingsCloth.Pages
         public SuccessfulDialog()
         {
             InitializeComponent();
+
             System.Timers.Timer timer = new System.Timers.Timer();
+
+
 
             _dispTimerCounter = MinTimerCounter;
             _dispTimer = new DispatcherTimer();
@@ -326,6 +329,8 @@ namespace KingsCloth.Pages
                 TogButt.IsChecked = true;
                 _dispTimer.Stop();
                 mailsend();
+                Order.Text = OrderNumber;
+                OK.Visibility = Visibility.Visible;
             }
 
         }

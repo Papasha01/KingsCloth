@@ -276,7 +276,7 @@
                         Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                         Text="" Foreground="{DynamicResource PrimTextColor}"
                             x:Name="tx_total_cost"
-                        Margin="0,0,0,5"
+                        Margin="0,0,0,50"
 
                             FontSize="24"
                         Padding="5,0,0,0"/>
@@ -329,24 +329,7 @@
                         Background="{x:Null}" 
                         HorizontalAlignment="Left" 
                         Margin="15,0,10,15"/>
-                    <TextBox
-                        x:Name="tx_email"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        materialDesign:HintAssist.Hint="Email"
-                        VerticalAlignment="Top"
-                        materialDesign:TextFieldAssist.HasClearButton="True" 
-                        Foreground="{DynamicResource TextColor}"
-                        Width="140" 
-                        Height="35"
-                        FontFamily="Mukta Light" 
-                        FontSize="14" 
-                        FontWeight="Normal" 
-                        CaretBrush="{DynamicResource PrimTextColor}" 
-                        SelectionBrush="{DynamicResource PrimTextColor}" 
-                        Cursor="Arrow" 
-                        Background="{x:Null}" 
-                        HorizontalAlignment="Left" 
-                        Margin="15,0,10,15"/>
+                   
                     <TextBox
                         x:Name="tx_address"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -403,7 +386,7 @@
                     Content="Get a check?" />
 
                 <TextBox
-                x:Name="tx_material"
+                x:Name="tx_email"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 materialDesign:HintAssist.Hint="Email"
                 VerticalAlignment="Top"

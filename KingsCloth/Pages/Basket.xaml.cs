@@ -153,17 +153,16 @@ namespace KingsCloth.Pages
                     tx_fio.Text,
                     Convert.ToInt64(tx_phone.Text),
                     tx_email.Text,
-                    tx_address.Text,
+                    tx_address.Text, DateTime.Now.ToString(),
                     0, update_product_count());
                 total.email = tx_email.Text;
+                SuccessfulDialog dialog = new SuccessfulDialog();
+                dialog.Show();
             }
             catch (Exception)
             {
                 MessageBox.Show("Введены не корректные данные");
             }
-
-            SuccessfulDialog dialog = new SuccessfulDialog();
-            dialog.Show();
         }
     }
 }
