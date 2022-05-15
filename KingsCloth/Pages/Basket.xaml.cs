@@ -92,9 +92,13 @@ namespace KingsCloth.Pages
             {
                 total_cost = (long)Math.Round(total_cost * 0.8);
                 discount = (long)Math.Round(total_cost * 0.2);
+                tx_total_cost.Text = Convert.ToString(total_cost + "$");
+            }
+            if(total.code == false)
+            {
+                tx_total_cost.Text = Convert.ToString(total_cost + "$");
             }
             
-            tx_total_cost.Text = Convert.ToString(total_cost + "$");
             total.cost = total_cost.ToString();
             total.discount = discount;
             return total_cost;
@@ -192,6 +196,8 @@ namespace KingsCloth.Pages
             else
             {
                 promo.Foreground = Brushes.Red;
+                total.code = false;
+                update_total_cost();
             }
         }
     }
