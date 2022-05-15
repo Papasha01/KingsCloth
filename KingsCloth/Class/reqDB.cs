@@ -181,5 +181,13 @@ namespace KingsCloth
             command.ExecuteNonQuery();
             db_con.closeConn();
         }
+
+        public long select_all_cost()
+        {
+
+            MySqlCommand command = new MySqlCommand("SELECT SUM(cost) FROM `history`", db_con.getConn());
+            object r1 = command.ExecuteScalar();
+            return (long)r1;
+        }
     }
 }

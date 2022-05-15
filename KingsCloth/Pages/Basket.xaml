@@ -244,9 +244,11 @@
                     </StackPanel>
 
                     <TextBox
+                        x:Name="promo"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         materialDesign:HintAssist.Hint="Promo code"
                         VerticalAlignment="Top"
+                        
                         materialDesign:TextFieldAssist.HasClearButton="True" 
                         Foreground="{DynamicResource TextColor}"
                         Width="120" 
@@ -259,7 +261,7 @@
                         Cursor="Arrow" 
                         Background="{x:Null}" 
                         HorizontalAlignment="Left" 
-                        Margin="18,0,10,10"/>
+                        Margin="18,0,10,10" TextChanged="TextBox_TextChanged"/>
 
 
 

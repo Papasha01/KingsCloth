@@ -189,12 +189,6 @@ namespace KingsCloth.Pages
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Other form of payment:</td>" +
-    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "0.00</td>" +
-    "</tr>" +
-    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
-    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "Cash:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "0.00</td>" +
@@ -214,12 +208,6 @@ namespace KingsCloth.Pages
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>Price without VAT:</i></td>" +
-    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>0.00</i></td>" +
-    "</tr>" +
-    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
-    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>VAT amount 10/110:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>0.00</i></td>" +
     "</tr>" +

@@ -22,32 +22,29 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class Stats : Page
     {
+        public double profit()
+        {
+            reqDB req = new reqDB();
+            long prof = req.select_all_cost();
+            return prof;
+        }
+
+        public SeriesCollection SeriesCollection { get; set; }
         public Stats()
         {
+
             SeriesCollection = new SeriesCollection
             {
                 new PieSeries
                 {
-                    Title = "Chrome",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(8) },
+                    Title = "Discount",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(20) },
                     DataLabels = true
                 },
                 new PieSeries
                 {
-                    Title = "Mozilla",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(6) },
-                    DataLabels = true
-                },
-                new PieSeries
-                {
-                    Title = "Opera",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(10) },
-                    DataLabels = true
-                },
-                new PieSeries
-                {
-                    Title = "Explorer",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(4) },
+                    Title = "Sales profit",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(profit()) },
                     DataLabels = true
                 }
             };
@@ -55,33 +52,33 @@ namespace KingsCloth.Pages
             DataContext = this;
         }
 
-        public SeriesCollection SeriesCollection { get; set; }
-        private void Products_for_the_quarter(object sender, RoutedEventArgs e)
-        {
-            ChartGrid.Visibility = Visibility.Visible;
-            CircleGrid.Visibility = Visibility.Hidden;
-        }
-        private void Revenue(object sender, RoutedEventArgs e)
-        {
-            ChartGrid.Visibility = Visibility.Visible;
-            CircleGrid.Visibility = Visibility.Hidden;
-        }
-        private void Cost_of_goods(object sender, RoutedEventArgs e)
-        {
-            ChartGrid.Visibility = Visibility.Hidden;
-            CircleGrid.Visibility = Visibility.Visible;
-        }
-        private void Discounts_and_referrals(object sender, RoutedEventArgs e)
-        {
-            ChartGrid.Visibility = Visibility.Visible;
-            CircleGrid.Visibility = Visibility.Hidden;
-        }
 
-        private void Surplus_value(object sender, RoutedEventArgs e)
-        {
-            ChartGrid.Visibility = Visibility.Visible;
-            CircleGrid.Visibility = Visibility.Hidden;
-        }
+        //private void Products_for_the_quarter(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
+        //private void Revenue(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
+        //private void Cost_of_goods(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Hidden;
+        //    CircleGrid.Visibility = Visibility.Visible;
+        //}
+        //private void Discounts_and_referrals(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
+
+        //private void Surplus_value(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
 
 
     }

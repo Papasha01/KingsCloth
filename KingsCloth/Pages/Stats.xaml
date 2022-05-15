@@ -15,7 +15,7 @@
 
         </Border>
         <StackPanel Orientation="Vertical">
-            <StackPanel 
+            <StackPanel Visibility="Hidden"
                 Grid.Row="0" 
                 Height="60" 
                 VerticalAlignment="Top" 
@@ -33,7 +33,7 @@
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
                     Margin="17,5,0,0" 
-                    Click="Products_for_the_quarter">
+                    >
                     <TextBlock 
                         FontSize="14"
                         TextWrapping="Wrap" 
@@ -50,8 +50,7 @@
                     BorderThickness="0,0,2,0" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
-                    Margin="0,5,0,0"
-                    Click="Revenue">
+                    Margin="0,5,0,0">
                     <TextBlock 
                         FontSize="18"
                         TextWrapping="Wrap" 
@@ -69,8 +68,7 @@
                     BorderThickness="0,0,2,0" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
-                    Margin="0,5,0,0" 
-                    Click="Cost_of_goods">
+                    Margin="0,5,0,0" >
                     <TextBlock 
                         FontSize="18"
                         TextWrapping="Wrap" 
@@ -87,8 +85,7 @@
                     BorderThickness="0,0,2,0" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
-                    Margin="0,5,0,0" 
-                    Click="Discounts_and_referrals">
+                    Margin="0,5,0,0" >
                     <TextBlock 
                         FontSize="15"
                         TextWrapping="Wrap" 
@@ -105,8 +102,7 @@
                     BorderThickness="0,0,2,0" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
-                    Margin="0,5,0,0" 
-                    Click="Surplus_value">
+                    Margin="0,5,0,0" >
                     <TextBlock 
                         FontSize="18"
                         TextWrapping="Wrap" 
@@ -118,7 +114,7 @@
 
             </StackPanel>
 
-            <Line X1="40" Y1="00" X2="770" Y2="00" Margin="0,0,0,0">
+            <Line X1="40" Y1="00" X2="770" Y2="00" Visibility="Hidden" Margin="0,0,0,0">
                 <Line.Stroke>
                     <RadialGradientBrush GradientOrigin="0.1,0.1" Center="0.1,0.1" RadiusX="0.1" RadiusY="0.1">
                         <RadialGradientBrush.GradientStops>
@@ -186,7 +182,7 @@
                             </lvc:CartesianChart>
                         </Grid>
 
-                        <Grid x:Name="CircleGrid" Visibility="Hidden">
+                        <Grid x:Name="CircleGrid">
                             <lvc:PieChart Name="Сircle" Grid.Row="1" Series="{Binding SeriesCollection}" 
                       LegendLocation="Right" InnerRadius="100" Margin="0 15">
                                 <lvc:PieChart.ChartLegend>

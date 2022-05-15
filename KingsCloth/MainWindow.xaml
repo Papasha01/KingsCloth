@@ -279,16 +279,7 @@
                                 Click="ButtonBacket_Click" Cursor="Hand" >
                                 <Button.Content>
                                     <DockPanel>
-                                        <materialDesign:Badged
-                                            x:Name="CountingBadge"
-                                            BadgeColorZoneMode="PrimaryDark"
-                                            Badge="1"
-                                            BadgePlacementMode="TopRight"
-                                            BadgeBackground="Red"  
-                                            VerticalAlignment="Bottom" 
-                                            Margin="0,0,0,0">
-                                            
-                                            <materialDesign:PackIcon 
+                                        <materialDesign:PackIcon 
                                                 Kind="BasketOutline" 
                                                 DockPanel.Dock="Left" 
                                                 Foreground="{DynamicResource TextColor}" 
@@ -296,7 +287,6 @@
                                                 Width="35" 
                                                 Margin="-4 0" 
                                                 Padding="0" />
-                                        </materialDesign:Badged>
                                         <TextBlock 
                                             Text="Backet" 
                                             Foreground="{DynamicResource TextColor}" 
