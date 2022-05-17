@@ -160,8 +160,10 @@ namespace KingsCloth.Pages
                 MessageBox.Show("Введены не корректные данные");
             }
 
-            //SuccessfulDialog dialog = new SuccessfulDialog();
-            //dialog.Show();
+            SuccessfulDialog dialog = new SuccessfulDialog();
+            total.email_consumer = tx_email.Text;
+            total.price_in_basket = update_total_cost();
+            dialog.Show();
         }
     }
 }
