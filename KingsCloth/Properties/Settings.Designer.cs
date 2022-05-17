@@ -23,15 +23,12 @@ namespace KingsCloth.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Colors/DarkTheme.xaml")]
-        public string Theme {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Theme {
             get {
-                return ((string)(this["Theme"]));
-            }
-            set {
-                this["Theme"] = value;
+                return ((bool)(this["Theme"]));
             }
         }
     }

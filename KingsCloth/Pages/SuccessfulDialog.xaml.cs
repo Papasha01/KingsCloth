@@ -21,7 +21,12 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class SuccessfulDialog : Window
     {
-
+        static string date = DateTime.Now.ToString();
+        static string cost = total.cost.ToString();
+        static string email = total.email.ToString();
+        static string NDS = Math.Round((Convert.ToDouble(cost) / 120 * 20), 2).ToString();
+        static Random Random = new Random();
+        static string OrderNumber = Random.Next(1000, 100000).ToString();
         string mailr =
     "<html>" +
     "<tbody>" +
@@ -35,7 +40,7 @@ namespace KingsCloth.Pages
     "<tr>" +
     "<td width=\"20\"></td>" +
     "<td width=\"620\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050;font-weight:bold\">" +
-    "Заказ № {Order number}: электронный чек</td>" +
+    "Order № "+OrderNumber+ ": electronic check</td>" +
     "<td width=\"20\"></td>" +
     "</tr>" +
     "<tr>" +
@@ -93,7 +98,7 @@ namespace KingsCloth.Pages
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "Date of issue:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "{Date}</td>" +
+    ""+ date + "</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
@@ -106,7 +111,7 @@ namespace KingsCloth.Pages
     "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "Buyer email address:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<a href=\"mailto:{recipient's mail}\" target=\"_blank\">{recipient's mail}</a></td>" +
+    "<a href=\"mailto:{recipient's mail}\" target=\"_blank\">"+ email +"</a></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
@@ -168,7 +173,7 @@ namespace KingsCloth.Pages
     "<td height=\"31\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050\">" +
     "TOTAL:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:31px;color:#505050\">" +
-    "{Cost}</td>" +
+    ""+cost+"$"+"</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
@@ -184,12 +189,6 @@ namespace KingsCloth.Pages
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "Иная форма оплаты:</td>" +
-    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "0.00</td>" +
-    "</tr>" +
-    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
-    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "Cash:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "0.00</td>" +
@@ -198,7 +197,7 @@ namespace KingsCloth.Pages
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "Cashless:</td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "{Cost}</td>" +
+    ""+cost+"$"+"</td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
@@ -214,15 +213,9 @@ namespace KingsCloth.Pages
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>VAT amount 10/110:</i></td>" +
-    "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>0.00</i></td>" +
-    "</tr>" +
-    "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
-    "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
     "<i>VAT amount 20/120:</i></td>" +
     "<td align=\"right\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
-    "<i>{NDS}</i></td>" +
+    "<i>"+NDS+"$"+"</i></td>" +
     "</tr>" +
     "<tr style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px\">" +
     "<td height=\"20\" width=\"220\" style=\"font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#505050\">" +
@@ -284,7 +277,10 @@ namespace KingsCloth.Pages
         public SuccessfulDialog()
         {
             InitializeComponent();
+
             System.Timers.Timer timer = new System.Timers.Timer();
+
+
 
             _dispTimerCounter = MinTimerCounter;
             _dispTimer = new DispatcherTimer();
@@ -321,6 +317,8 @@ namespace KingsCloth.Pages
                 TogButt.IsChecked = true;
                 _dispTimer.Stop();
                 mailsend();
+                Order.Text = OrderNumber;
+                OK.Visibility = Visibility.Visible;
             }
 
         }

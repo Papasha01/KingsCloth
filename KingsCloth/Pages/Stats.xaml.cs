@@ -22,62 +22,64 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class Stats : Page
     {
+        public double profit()
+        {
+            reqDB req = new reqDB();
+            long prof = req.select_all_cost();
+            return prof;
+        }
+
+        public SeriesCollection SeriesCollection { get; set; }
         public Stats()
         {
+
             SeriesCollection = new SeriesCollection
             {
-                new LineSeries
+                new PieSeries
                 {
-                    Values = new ChartValues<ObservableValue>
-                    {
-                        new ObservableValue(3),
-                        new ObservableValue(5),
-                        new ObservableValue(2),
-                        new ObservableValue(7),
-                        new ObservableValue(7),
-                        new ObservableValue(4)
-                    },
-                    PointGeometrySize = 0,
-                    StrokeThickness = 4,
-                    Fill = Brushes.Transparent
+                    Title = "Discount",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(20) },
+                    DataLabels = true
                 },
-                new LineSeries
+                new PieSeries
                 {
-                    Values = new ChartValues<ObservableValue>
-                    {
-                        new ObservableValue(3),
-                        new ObservableValue(4),
-                        new ObservableValue(6),
-                        new ObservableValue(8),
-                        new ObservableValue(7),
-                        new ObservableValue(5)
-                    },
-                    PointGeometrySize = 0,
-                    StrokeThickness = 4,
-                    Fill = Brushes.Transparent
+                    Title = "Sales profit",
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(profit()) },
+                    DataLabels = true
                 }
             };
 
             DataContext = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-        public SeriesCollection SeriesCollection { get; set; }
+        //private void Products_for_the_quarter(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
+        //private void Revenue(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
+        //private void Cost_of_goods(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Hidden;
+        //    CircleGrid.Visibility = Visibility.Visible;
+        //}
+        //private void Discounts_and_referrals(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
 
-        private void UpdateAllOnClick(object sender, RoutedEventArgs e)
-        {
-            var r = new Random();
+        //private void Surplus_value(object sender, RoutedEventArgs e)
+        //{
+        //    ChartGrid.Visibility = Visibility.Visible;
+        //    CircleGrid.Visibility = Visibility.Hidden;
+        //}
 
-            foreach (var series in SeriesCollection)
-            {
-                foreach (var observable in series.Values.Cast<ObservableValue>())
-                {
-                    observable.Value = r.Next(0, 10);
-                }
-            }
-        }
+
     }
 }

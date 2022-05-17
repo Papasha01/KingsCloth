@@ -22,10 +22,10 @@ namespace KingsCloth
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
-
         }
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -129,5 +129,6 @@ namespace KingsCloth
             Title.Text = "Basket";
             Title.Visibility = Visibility.Visible;
         }
+
     }
 }

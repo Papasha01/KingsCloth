@@ -67,35 +67,61 @@
 
         <ListView x:Name="listviewUsers"  
                   Margin="25,113,25,23" Width="750"
-                  Foreground="{DynamicResource PrimTextColor}">
+                  Foreground="{DynamicResource PrimTextColor}"
+                  FontSize="14" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
                         x:Name="id"
                         DisplayMemberBinding="{Binding Path=id}" 
-                        Header="id" 
-                        Width="80"
-                        />
+                        Width="80">
+                        <TextBlock 
+                            Text="id"
+                            Margin="0,0,0,0"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextColor}"
+                            FontFamily="Mukta Light"/>
+                    </GridViewColumn>
                     <GridViewColumn 
                         x:Name="login"
-                        DisplayMemberBinding="{Binding Path=login}" 
-                        Header="Login" 
-                        Width="150"/>
-                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Path=login}"  
+                        Width="150">
+                        <TextBlock 
+                            Text="Login" 
+                            FontSize="14"
+                            Foreground="{DynamicResource TextColor}"
+                            FontFamily="Mukta Light"/>
+                    </GridViewColumn>
+                    <GridViewColumn
                         x:Name="Name"
                         DisplayMemberBinding="{Binding Path=name}" 
-                        Header="Name" 
-                        Width="150"/>
+                        Width="150">
+                        <TextBlock 
+                            Text="Name" 
+                            FontSize="14"
+                            Foreground="{DynamicResource TextColor}"
+                            FontFamily="Mukta Light"/>
+                    </GridViewColumn>
                     <GridViewColumn 
                         x:Name="Surname"
                         DisplayMemberBinding="{Binding Path=surname}" 
-                        Header="Surname" 
-                        Width="150"/>
+                        Width="150">
+                        <TextBlock 
+                            Text="Surname"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextColor}"
+                            FontFamily="Mukta Light"/>
+                    </GridViewColumn>
                     <GridViewColumn 
                         x:Name="id_access"
                         DisplayMemberBinding="{Binding Path=id_access}" 
-                        Header="Access" 
-                        Width="150"/>
+                        Width="150">
+                        <TextBlock 
+                            Text="Accaess"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextColor}"
+                            FontFamily="Mukta Light"/>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
 

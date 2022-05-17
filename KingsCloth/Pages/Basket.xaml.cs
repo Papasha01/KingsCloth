@@ -21,7 +21,6 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class Basket : Page
     {
-        int i = 1;
 
         public Basket()
         {
@@ -66,29 +65,51 @@ namespace KingsCloth.Pages
 
         private int update_product_count()
         {
-            int product_count = 0;
+            total.badget_count = 0;
             for (int i = 0; i < listview_basket.Items.Count; i++)
             {
-                product_count += (listview_basket.Items[i] as basket).count;
+                total.badget_count += (listview_basket.Items[i] as basket).count;
             }
 
-            tx_product_count.Text = Convert.ToString("(" + product_count + ")");
-            return product_count;
+            tx_product_count.Text = Convert.ToString("(" + total.badget_count + ")");
+           
+
+            return total.badget_count;
         }
 
         
 
-        private Int64 update_total_cost()
+        public long update_total_cost()
         {
-            Int64 total_cost = 0;
+            long total_cost = 0;
+            long discount = 0;
 
             for (int i = 0; i < listview_basket.Items.Count; i++)
             {
                 total_cost += (listview_basket.Items[i] as basket).price * (listview_basket.Items[i] as basket).count;
             }
-
-            tx_total_cost.Text = Convert.ToString(total_cost + "$");
+            if (total.code == true)
+            {
+                total_cost = (long)Math.Round(total_cost * 0.8);
+                discount = (long)Math.Round(total_cost * 0.2);
+                tx_total_cost.Text = Convert.ToString(total_cost + "$");
+            }
+            if(total.code == false)
+            {
+                tx_total_cost.Text = Convert.ToString(total_cost + "$");
+            }
+            
+            total.cost = total_cost.ToString();
+            total.discount = discount;
             return total_cost;
+
+        }
+
+        public long update_discount()
+        {
+            long discount = total.discount;
+
+            return discount;
         }
 
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
@@ -152,18 +173,32 @@ namespace KingsCloth.Pages
                     tx_fio.Text,
                     Convert.ToInt64(tx_phone.Text),
                     tx_email.Text,
-                    tx_address.Text,
-                    0, update_product_count());
+                    tx_address.Text, DateTime.Now.ToString(),
+                    update_discount(), update_product_count()); ;
+                total.email = tx_email.Text;
+                SuccessfulDialog dialog = new SuccessfulDialog();
+                dialog.Show();
             }
             catch (Exception)
             {
                 MessageBox.Show("Введены не корректные данные");
             }
+        }
 
-            SuccessfulDialog dialog = new SuccessfulDialog();
-            total.email_consumer = tx_email.Text;
-            total.price_in_basket = update_total_cost();
-            dialog.Show();
+        public void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (promo.Text.Equals("sale"))
+            {
+                promo.Foreground = Brushes.Green;
+                total.code = true;
+                update_total_cost();
+            }
+            else
+            {
+                promo.Foreground = Brushes.Red;
+                total.code = false;
+                update_total_cost();
+            }
         }
     }
 }

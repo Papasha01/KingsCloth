@@ -36,38 +36,69 @@
                 Click="btnMinimize_Click"/>
         </StackPanel>
 
-        <ProgressBar 
-            x:Name="PrBar"
-            Style="{StaticResource MaterialDesignCircularProgressBar}" 
-            Width="80" 
-            Height="80"
-            Margin="0,0,0,70"
-            IsIndeterminate="True"
-            Value="0">
-            <ProgressBar.LayoutTransform>
-                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2" />
-            </ProgressBar.LayoutTransform>
-        </ProgressBar>
+        <StackPanel Orientation="Vertical">
+            <Grid Margin="0,80,0,0">
+                <ProgressBar 
+                    x:Name="PrBar"
+                    Style="{StaticResource MaterialDesignCircularProgressBar}" 
+                    Width="80" 
+                    Height="80"
+                    Margin="0,0,0,70"
+                    IsIndeterminate="True"
+                    Value="0">
+                    <ProgressBar.LayoutTransform>
+                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2" />
+                    </ProgressBar.LayoutTransform>
+                </ProgressBar>
 
-        <ToggleButton
-            x:Name="TogButt"
-            Height="150" 
-            Width="150" 
-            Style="{StaticResource MaterialDesignActionAccentToggleButton}"
-            IsChecked="False"
-            Margin="0,0,0,70"
-            ToolTip="MaterialDesignActionAccentToggleButton"
-            materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Check, Size=120}"
-            >
-            <materialDesign:PackIcon 
-                Kind="DotsHorizontal" 
-                DockPanel.Dock="Left" 
-                Height="120" 
-                Width="120" 
-                Margin="0,0,0,0" 
-                Padding="0" FontSize="36" />
+                <ToggleButton
+                    x:Name="TogButt"
+                    Height="150" 
+                    Width="150" 
+                    Style="{StaticResource MaterialDesignActionAccentToggleButton}"
+                    IsChecked="False"
+                    Margin="0,0,0,70"
+                    ToolTip="MaterialDesignActionAccentToggleButton"
+                    materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=Check, Size=120}">
+                    <materialDesign:PackIcon 
+                        Kind="DotsHorizontal" 
+                        DockPanel.Dock="Left" 
+                        Height="120" 
+                        Width="120" 
+                        Margin="0,0,0,0" 
+                        Padding="0" 
+                        FontSize="36" />
 
 
-        </ToggleButton>
+                </ToggleButton>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock
+                        Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                        Text="Order №:" Foreground="{DynamicResource PrimTextColor}" 
+                        Margin="10,0,0,5"
+                            FontSize="22"
+                        Padding="6,2,0,0"/>
+                <TextBlock
+                    x:Name="Order"
+                        Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                        Foreground="{DynamicResource PrimTextColor}" 
+                        Margin="10,0,0,5"
+                            FontSize="22"
+                        Padding="6,2,0,0"/>
+            </StackPanel>
+
+            <TextBlock
+                x:Name="OK"
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Foreground="Green" 
+                Text="Successfully paid"
+                Margin="10,0,0,5"
+                Visibility="Hidden"
+                FontSize="22"
+                Padding="6,2,0,0" HorizontalAlignment="Center"/>
+
+        </StackPanel>
+        
     </Grid>
 </Window>
