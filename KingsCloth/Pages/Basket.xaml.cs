@@ -99,7 +99,7 @@ namespace KingsCloth.Pages
                 tx_total_cost.Text = Convert.ToString(total_cost + "$");
             }
             
-            total.cost = total_cost.ToString();
+            total.cost = total_cost;
             total.discount = discount;
             return total_cost;
 
@@ -174,10 +174,11 @@ namespace KingsCloth.Pages
                     Convert.ToInt64(tx_phone.Text),
                     tx_email.Text,
                     tx_address.Text, DateTime.Now.ToString(),
-                    update_discount(), update_product_count()); ;
+                    update_discount(), update_product_count());
                 total.email = tx_email.Text;
+
                 SuccessfulDialog dialog = new SuccessfulDialog();
-                dialog.Show();
+                dialog.ShowDialog();
             }
             catch (Exception)
             {

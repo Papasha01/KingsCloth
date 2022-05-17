@@ -16,7 +16,7 @@ namespace KingsCloth
         public static string name;
         public static string color;
         public static string description;
-        public static string cost;
+        public static long cost;
         public static string email;
         public static BitmapSource image;
         public static DataTable left;
