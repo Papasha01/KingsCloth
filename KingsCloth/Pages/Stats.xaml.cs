@@ -22,13 +22,20 @@ namespace KingsCloth.Pages
     /// </summary>
     public partial class Stats : Page
     {
-        public double profit()
+        public double cost()
         {
             reqDB req = new reqDB();
             long prof = req.select_all_cost();
             return prof;
-        }
 
+            
+        }
+        public double discount()
+        {
+            reqDB req = new reqDB();
+            long prof = req.select_all_discount();
+            return prof;
+        }
         public SeriesCollection SeriesCollection { get; set; }
         public Stats()
         {
@@ -38,13 +45,13 @@ namespace KingsCloth.Pages
                 new PieSeries
                 {
                     Title = "Discount",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(20) },
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(discount()) },
                     DataLabels = true
                 },
                 new PieSeries
                 {
                     Title = "Sales profit",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(profit()) },
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(cost()) },
                     DataLabels = true
                 }
             };

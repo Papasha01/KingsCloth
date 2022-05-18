@@ -136,7 +136,7 @@ namespace KingsCloth
         public DataTable select_size(int id_prod)
         {
             DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand("SELECT id, xs, s, m, l, xl, xxl FROM `size` where id = @id_prod", db_con.getConn());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `size` where id = @id_prod", db_con.getConn());
             command.Parameters.Add("@id_prod", MySqlDbType.Int32).Value = id_prod;
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -184,10 +184,53 @@ namespace KingsCloth
 
         public long select_all_cost()
         {
-
+            DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand("SELECT SUM(cost) FROM `history`", db_con.getConn());
-            object r1 = command.ExecuteScalar();
-            return (long)r1;
+            db_con.openConn();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            db_con.closeConn();
+            return Convert.ToInt64(table.Rows[0][0]);
+        }
+        public long select_all_discount()
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT SUM(discount) FROM `history`", db_con.getConn());
+            db_con.openConn();
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            db_con.closeConn();
+            return Convert.ToInt64(table.Rows[0][0]);
+        }
+
+        public void update_size(int id_size, int count, string size)
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("UPDATE `kingscloth`.`size` SET "+ size + "= @count WHERE `id` = @id_size", db_con.getConn());
+            command.Parameters.Add("@id_size", MySqlDbType.Int16).Value = id_size;
+            command.Parameters.Add("@count", MySqlDbType.Int16).Value = count;
+            db_con.openConn();
+            command.ExecuteNonQuery();
+            db_con.closeConn();
+        }
+
+        public void delete_prod(int id_size)
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("DELETE FROM `product` WHERE id_size = @id_size", db_con.getConn());
+            command.Parameters.Add("@id_size", MySqlDbType.Int16).Value = id_size;
+            db_con.openConn();
+            command.ExecuteNonQuery();
+            db_con.closeConn();
+        }
+        public void delete_size(int id_size)
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("DELETE FROM `size` WHERE id = @id_size", db_con.getConn());
+            command.Parameters.Add("@id_size", MySqlDbType.Int16).Value = id_size;
+            db_con.openConn();
+            command.ExecuteNonQuery();
+            db_con.closeConn();
         }
     }
 }

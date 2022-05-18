@@ -20,12 +20,9 @@ namespace KingsCloth
         public static string email;
         public static BitmapSource image;
         public static DataTable left;
-
         public static string email_consumer;
         public static Int64 price_in_basket;
-
         public static bool code;
-
         public static long discount;
     }
 }

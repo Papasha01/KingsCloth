@@ -35,6 +35,7 @@ namespace KingsCloth.Pages
             {
                 basket basket = new basket();
                 basket.id = (int)basket_data.dt_prod.Rows[i]["id"];
+                basket.id_size = (int)basket_data.dt_prod.Rows[i]["id_size"];
                 basket.count = 1;
                 basket.price = (int)basket_data.dt_prod.Rows[i]["price"];
                 basket.name = (string)basket_data.dt_prod.Rows[i]["name"];
@@ -72,12 +73,12 @@ namespace KingsCloth.Pages
             }
 
             tx_product_count.Text = Convert.ToString("(" + total.badget_count + ")");
-           
+
 
             return total.badget_count;
         }
 
-        
+
 
         public long update_total_cost()
         {
@@ -94,11 +95,11 @@ namespace KingsCloth.Pages
                 discount = (long)Math.Round(total_cost * 0.2);
                 tx_total_cost.Text = Convert.ToString(total_cost + "$");
             }
-            if(total.code == false)
+            if (total.code == false)
             {
                 tx_total_cost.Text = Convert.ToString(total_cost + "$");
             }
-            
+
             total.cost = total_cost;
             total.discount = discount;
             return total_cost;
@@ -166,20 +167,53 @@ namespace KingsCloth.Pages
 
 
             reqDB req = new reqDB();
+
             try
             {
-                req.insert_history(update_total_cost(),
-                    products,
-                    tx_fio.Text,
-                    Convert.ToInt64(tx_phone.Text),
-                    tx_email.Text,
-                    tx_address.Text, DateTime.Now.ToString(),
-                    update_discount(), update_product_count());
-                total.email = tx_email.Text;
+                if (listview_basket.Items.Count != 0)
+                {
+                    req.insert_history(update_total_cost(),
+                   products,
+                   tx_fio.Text,
+                   Convert.ToInt64(tx_phone.Text),
+                   tx_email.Text,
+                   tx_address.Text, DateTime.Now.ToString(),
+                   update_discount(), update_product_count());
 
-                SuccessfulDialog dialog = new SuccessfulDialog();
-                dialog.ShowDialog();
+
+
+                    for (int i = 0; i < listview_basket.Items.Count; i++)
+                    {
+
+                        req.update_size((listview_basket.Items[i] as basket).id_size, (listview_basket.Items[i] as basket).count_size - (listview_basket.Items[i] as basket).count, (listview_basket.Items[i] as basket).size);
+
+                        var tabel = req.select_size((listview_basket.Items[i] as basket).id_size);
+                        int sum_sizes = 0;
+                        for (int x = 0; x < tabel.Columns.Count - 1; x++)
+                        {
+                            sum_sizes += Convert.ToInt32(tabel.Rows[0][x + 1]);
+                        }
+                        if (sum_sizes == 0)
+                        {
+                            req.delete_prod((listview_basket.Items[i] as basket).id_size);
+                            req.delete_size((listview_basket.Items[i] as basket).id_size);
+                        }
+                    }
+
+                    listview_basket.Items.Clear();
+                    basket_data.dt_prod.Clear();
+                    basket_data.dt_size.Clear();
+
+                    total.email = tx_email.Text;
+                    SuccessfulDialog dialog = new SuccessfulDialog();
+                    dialog.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Заполните корзину прежде чем перейти к опалте");
+                }
             }
+               
             catch (Exception)
             {
                 MessageBox.Show("Введены не корректные данные");

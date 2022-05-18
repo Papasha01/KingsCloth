@@ -408,7 +408,6 @@
                 IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBoxEmail}"/>
 
                 <Button
-
                     Style="{StaticResource MaterialDesignRaisedButton}" 
                     Click="ButtonSendCheck_Click"
                     Width="120" Height="40"
