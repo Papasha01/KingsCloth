@@ -12,11 +12,13 @@
     <!-- DialogWindow Colors -->
     <SolidColorBrush x:Key="DialogMain" Color="#2f3136"/>
     <SolidColorBrush x:Key="DialogBack" Color="#202225"/>
+    <SolidColorBrush x:Key="CatalogDialogBtnColor" Color="#909198"/>
 
     <!-- Text Colors -->
     <SolidColorBrush x:Key="TextColor" Color="#78797f"/>
     <SolidColorBrush x:Key="PrimTextColor" Color="#909198"/>
     <SolidColorBrush x:Key="BorderBrush" Color="Transparent"/>
+    <SolidColorBrush x:Key="FAQs" Color="#606163"/>
 
     <!-- Transparent Colors -->
     <SolidColorBrush x:Key="TransparentTextColorDark" Color="#4C78797F"/>

@@ -91,7 +91,7 @@
                 Margin="0,20,0,0" 
                 Height="40"
                 HorizontalAlignment="Center"
-                Foreground="{DynamicResource PrimTextColor}"
+                Foreground="{DynamicResource CatalogDialogBtnColor}"
                 Background="{DynamicResource ListBox}">
                 <ListBoxItem
                     x:Name="btn_xs"
