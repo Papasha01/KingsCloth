@@ -199,8 +199,8 @@ namespace KingsCloth.Pages
                             req.delete_size((listview_basket.Items[i] as basket).id_size);
                         }
                     }
-
-                    listview_basket.Items.Clear();
+                    List<basket> none = new List<basket>();
+                    listview_basket.ItemsSource = none;
                     basket_data.dt_prod.Clear();
                     basket_data.dt_size.Clear();
 
