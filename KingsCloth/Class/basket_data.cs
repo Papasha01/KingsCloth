@@ -13,6 +13,13 @@ namespace KingsCloth
         //public static DataTable[] dt_size = new DataTable[] {};
         //public static DataTable dt = new DataTable{};
 
+
+
+        public static void clear()
+        {
+            basket_data.dt_prod.Clear();
+            basket_data.dt_size.Clear();
+        }
         public static void insert(ref DataTable[] dataTables, DataTable dataTable)
         {
             DataTable[] datas = new DataTable[dataTables.Length + 1];

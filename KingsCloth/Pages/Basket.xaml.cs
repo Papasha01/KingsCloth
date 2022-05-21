@@ -201,8 +201,7 @@ namespace KingsCloth.Pages
                     }
                     List<basket> none = new List<basket>();
                     listview_basket.ItemsSource = none;
-                    basket_data.dt_prod.Clear();
-                    basket_data.dt_size.Clear();
+                    basket_data.clear();
 
                     total.email = tx_email.Text;
                     SuccessfulDialog dialog = new SuccessfulDialog();
