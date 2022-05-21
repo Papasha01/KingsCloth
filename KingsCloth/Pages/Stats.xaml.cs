@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace KingsCloth.Pages
 {
@@ -27,8 +28,6 @@ namespace KingsCloth.Pages
             reqDB req = new reqDB();
             long prof = req.select_all_cost();
             return prof;
-
-            
         }
         public double discount()
         {
@@ -39,7 +38,6 @@ namespace KingsCloth.Pages
         public SeriesCollection SeriesCollection { get; set; }
         public Stats()
         {
-
             SeriesCollection = new SeriesCollection
             {
                 new PieSeries
@@ -58,7 +56,62 @@ namespace KingsCloth.Pages
 
             DataContext = this;
         }
+        private readonly string path = @"c:\test.docx";
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    reqDB req = new reqDB();
+        //    var table = req.select_history();
+        //    var q1 = 0;
+        //    var s1 = 0;
+        //    var d1 = 0;
+        //    for (int i = 0; i < table.Rows.Count; i++)
+        //    {
+        //        q1 += (int)table.Rows[i]["count_product"];
+        //        s1 += (int)table.Rows[i]["cost"];
+        //        d1 += (int)table.Rows[i]["discount"];
+        //    }
 
+        //    var wordApp = new Word.Application();
+        //    wordApp.Visible = false;
+        //    var wordDoc = wordApp.Documents.Open(path);
+
+        //    replace_text("{q1}", q1.ToString(), wordDoc);
+        //    replace_text("{s1}", s1.ToString(), wordDoc);
+        //    replace_text("{d1}", d1.ToString(), wordDoc);
+        //    wordDoc.SaveAs(@"c:\done.docx");
+        //    wordApp.Visible = true;
+        //}
+        private void replace_text(string replace, string text, Word.Document wordDoc)
+        {
+            var range = wordDoc.Content;
+            range.Find.ClearFormatting();
+            range.Find.Execute(FindText: replace, ReplaceWith: text);
+        }
+
+        private void btn_test(object sender, RoutedEventArgs e)
+        {
+            reqDB req = new reqDB();
+            var table = req.select_history();
+            var q1 = 0;
+            double s1 = 0;
+            double d1 = 0;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                q1 += (int)table.Rows[i]["count_product"];
+                s1 += Convert.ToDouble(table.Rows[i]["cost"]);
+                d1 += Convert.ToDouble(table.Rows[i]["discount"]);
+            }
+
+            var wordApp = new Word.Application();
+            wordApp.Visible = false;
+            var wordDoc = wordApp.Documents.Open(path);
+
+            //replace_text("{q1}", q1.ToString(), wordDoc);
+            //replace_text("{s1}", s1.ToString(), wordDoc);
+            //replace_text("{d1}", d1.ToString(), wordDoc);
+            //wordDoc.SaveAs(@"c:\done.docx");
+            //wordApp.Visible = true;
+        }
 
         //private void Products_for_the_quarter(object sender, RoutedEventArgs e)
         //{

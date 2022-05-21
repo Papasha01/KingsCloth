@@ -143,6 +143,15 @@ namespace KingsCloth
             return table;
         }
 
+        public DataTable select_history()
+        {
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `history`", db_con.getConn());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            return table;
+        }
+
         public DataTable select_size_by_size(int id_prod, string size)
         {
             DataTable table = new DataTable();

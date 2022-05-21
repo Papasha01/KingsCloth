@@ -12,6 +12,7 @@
     <Grid>
 
         <Border CornerRadius="10" Background="{DynamicResource TernaryBackgroundColor}">
+            <Button Content="Button" Click="btn_test" Margin="10,498,-10,0" Cursor="Hand"/>
 
         </Border>
         <StackPanel Orientation="Vertical">
