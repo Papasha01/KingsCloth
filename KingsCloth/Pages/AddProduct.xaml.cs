@@ -43,11 +43,6 @@ namespace KingsCloth.Pages
             }
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog
@@ -88,11 +83,6 @@ namespace KingsCloth.Pages
                 image.EndInit();
                 picture.Source = image;
             }
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void ButtonAddProduct_Click(object sender, RoutedEventArgs e)
@@ -142,7 +132,5 @@ namespace KingsCloth.Pages
                 tx_xxl.Text = "0";
             }
         }
-
-
     }
 }
