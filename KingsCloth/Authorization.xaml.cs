@@ -53,16 +53,6 @@ namespace KingsCloth
             
         }
 
-        public void btnGuest(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
-
-
-
-
-
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
