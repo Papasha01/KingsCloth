@@ -50,29 +50,5 @@ namespace KingsCloth.Pages
 
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            //var openFileDialog = new OpenFileDialog
-            //{
-            //    Filter = "Image Files|*.jpg;*.jpeg;*.png;...",
-            //};
-            //if (openFileDialog.ShowDialog() == true)
-            //{
-            //    var file = openFileDialog.FileName;
-
-            //    using (FileStream fs = new FileStream(file, FileMode.Open))
-            //    {
-            //        imageData = new byte[fs.Length];
-            //        fs.Read(imageData, 0, imageData.Length);
-            //    }
-
-            //    reqDB req = new reqDB();
-            //    req.insert_storage(imageData);
-            //}
-
-            
-        }
     }
 }
