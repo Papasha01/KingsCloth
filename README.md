@@ -30,6 +30,8 @@ MySQL для хранения данных о товарах и покупках
 ![image](https://user-images.githubusercontent.com/50790807/176893228-cea62729-e85c-49db-b71a-e81110f37213.png)
 
 
-https://github.com/Papasha01/KingsCloth/assets/47283121/106fee9d-a416-4ac8-b098-7152d2ba6694
+
+https://github.com/Papasha01/KingsCloth/assets/47283121/97f217de-d758-4484-8a06-d7eea4aba33b
+
 
 
